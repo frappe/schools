@@ -6,7 +6,7 @@ app_title = "Education"
 app_publisher = "Frappe Technologies"
 app_description = "ERP for Education"
 app_icon = "octicon octicon-mortar-board"
-app_color = "grey"
+app_color = "blue"
 app_email = "info@frappe.io"
 app_version = "0.0.1"
 
