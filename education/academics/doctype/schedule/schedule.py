@@ -7,4 +7,5 @@ import frappe
 from frappe.model.document import Document
 
 class Schedule(Document):
-	pass
+	def validate(self):
+		self.title = self.subject + " by " + self.employee_name

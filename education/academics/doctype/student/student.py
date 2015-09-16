@@ -7,4 +7,6 @@ import frappe
 from frappe.model.document import Document
 
 class Student(Document):
-	pass
+	def validate(self):
+		self.title = self.first_name + " " + self.middle_name + " " +self.last_name
+	
