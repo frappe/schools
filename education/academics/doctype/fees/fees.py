@@ -1,0 +1,22 @@
+# -*- coding: utf-8 -*-
+# Copyright (c) 2015, Frappe Technologies and contributors
+# For license information, please see license.txt
+
+from __future__ import unicode_literals
+import frappe
+from frappe.model.document import Document
+
+class Fees(Document):
+	pass
+	
+@frappe.whitelist()
+def get_fee_structure(program, academic_term=None):
+	fee_structure = frappe.db.get_values("Fee Structure", {"program": program,
+		"academic_term": academic_term}, 'name', as_dict=True)
+	return fee_structure[0].name if fee_structure else {}
+	
+
+@frappe.whitelist()
+def get_fee_amount(fee_structure):
+	fs = frappe.get_doc("Fee Structure", fee_structure)
+	return fs.amount
