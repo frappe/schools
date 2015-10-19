@@ -29,9 +29,14 @@ frappe.ui.form.on("Fees", "fee_structure", function() {
 				"fee_structure": cur_frm.doc.fee_structure
 			},
 			callback: function(r) {
-				if(r.message) {
-					cur_frm.set_value("amount" ,r.message);
+				if (r.message) {
+					$.each(r.message, function(i, d) {
+						var row = frappe.model.add_child(cur_frm.doc, "Fee Amount", "amount");
+						row.fees_category = d.fees_category;
+						row.amount = d.amount;
+					});
 				}
+				refresh_field("amount");
 			}
 		});
 	}
