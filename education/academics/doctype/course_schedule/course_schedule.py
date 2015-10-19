@@ -8,10 +8,11 @@ from frappe.model.document import Document
 
 class CourseSchedule(Document):
 	def validate(self):
+		self.employee_name = frappe.db.get_value("Employee", self.employee, "employee_name")
 		self.set_title()
 		
 	def set_title(self):
-		self.title = self.course + " by " + self.employee_name
+		self.title = self.course + " by " + (self.employee_name if self.employee_name else self.employee)
 	
 	
 @frappe.whitelist()
@@ -28,6 +29,6 @@ def get_events(start, end, filters=None):
 			}, as_dict=True, update={"allDay": 0})
 	
 	for d in data:
-		d.title += " \n for " + d.student_group + " in R	oom "+ d.room
+		d.title += " \n for " + d.student_group + " in Room "+ d.room
 
 	return data
