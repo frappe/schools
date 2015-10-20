@@ -18,5 +18,5 @@ def get_fee_structure(program, academic_term=None):
 
 @frappe.whitelist()
 def get_fee_amount(fee_structure):
-	fs = frappe.get_doc("Fee Structure", fee_structure)
-	return fs.amount
+	fs = frappe.get_list("Fee Amount", fields=["fees_category", "amount"] , filters={"parent": fee_structure}, order_by= "idx")
+	return fs
