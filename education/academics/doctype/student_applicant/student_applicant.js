@@ -1,5 +1,5 @@
 cur_frm.cscript.refresh = function() {
-	if(!(this.frm.doc.__islocal || this.frm.doc.status=="Student")) {
+	if(this.frm.doc.application_status== "Approved" && this.frm.doc.docstatus== 1 ) {
 		this.frm.add_custom_button(__("Create Student"), cur_frm.cscript.create_student, "btn-default");
 	}
 }

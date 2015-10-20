@@ -10,7 +10,7 @@ from frappe.model.mapper import get_mapped_doc
 class StudentApplicant(Document):
 	def validate(self):
 		self.title = self.first_name + " " + self.middle_name + " " +self.last_name
-	
+
 @frappe.whitelist()
 def make_student(source_name, target_doc=None):
 	target_doc = get_mapped_doc("Student Applicant", source_name,
