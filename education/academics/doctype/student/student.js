@@ -1,8 +1,8 @@
-cur_frm.cscript.refresh = function() {
-	if(!this.frm.doc.__is_local == 1 ) {
-		this.frm.add_custom_button(__("Collect Fees"), cur_frm.cscript.collect_fees, "btn-default");
+frappe.ui.form.on("Student", "refresh", function(frm) {
+	if(!cur_frm.doc.__islocal) {
+		frm.add_custom_button(__("Collect Fees"), cur_frm.cscript.collect_fees, "btn-default");
 	}
-}
+});
 
 cur_frm.cscript.collect_fees = function() {
 	frappe.prompt({fieldtype:"Link", label: __("Academic Term"), fieldname:"academic_term", options: "Academic Term"},
