@@ -22,15 +22,3 @@ class Student(Document):
 		if self.student_applicant:
 			frappe.db.set_value("Student Applicant", self.student_applicant, "application_status", "Admitted")
 
-@frappe.whitelist()
-def collect_fees(student, student_name, program, academic_term= None):
-	from education.academics.doctype.fees.fees import get_fee_amount, get_fee_structure
-	fee = frappe.new_doc('Fees')
-	fee.student = student
-	fee.student_name = student_name
-	fee.program = program
-	fee.academic_term = academic_term
-	fee.fee_structure = get_fee_structure(program, academic_term)
-	if fee.fee_structure:
-		fee.set('amount', get_fee_amount(fee.fee_structure))
-	return fee.as_dict()
