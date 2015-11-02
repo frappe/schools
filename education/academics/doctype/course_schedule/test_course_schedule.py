@@ -24,27 +24,27 @@ class TestCourseSchedule(unittest.TestCase):
 		cs1 = make_course_schedule_test_record(simulate= True)
 		
 		cs2 = make_course_schedule_test_record(from_time= cs1.from_time, to_time= cs1.to_time, 
-			student_group="SG0002", room="RM0002", do_not_save= 1)
+			student_group="_Test Student Group 1", room="RM0002", do_not_save= 1)
 		self.assertRaises(OverlapError, cs2.save)
 
 	def test_room_conflict(self):
 		cs1 = make_course_schedule_test_record(simulate= True)
 		
 		cs2 = make_course_schedule_test_record(from_time= cs1.from_time, to_time= cs1.to_time, 
-			student_group="SG0002", employee="_T-Employee-0002", do_not_save= 1)
+			student_group="_Test Student Group 1", employee="_T-Employee-0002", do_not_save= 1)
 		self.assertRaises(OverlapError, cs2.save)
 		
 	def test_no_conflict(self):
 		cs1 = make_course_schedule_test_record(simulate= True)
 		
 		make_course_schedule_test_record(from_time= cs1.from_time, to_time= cs1.to_time, 
-			student_group="SG0002", employee="_T-Employee-0002", room="RM0002")
+			student_group="_Test Student Group 1", employee="_T-Employee-0002", room="RM0002")
 
 def make_course_schedule_test_record(**args):
 	args = frappe._dict(args)
 
 	course_schedule = frappe.new_doc("Course Schedule")
-	course_schedule.student_group = args.student_group or "SG0001"
+	course_schedule.student_group = args.student_group or "_Test Student Group"
 	course_schedule.course = args.course or "_Test Course"
 	course_schedule.employee = args.employee or "_T-Employee-0001"
 	course_schedule.room = args.room or "RM0001"
