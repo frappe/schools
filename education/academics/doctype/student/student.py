@@ -21,4 +21,4 @@ class Student(Document):
 	def update_applicant_status(self):
 		if self.student_applicant:
 			frappe.db.set_value("Student Applicant", self.student_applicant, "application_status", "Admitted")
-	
+
