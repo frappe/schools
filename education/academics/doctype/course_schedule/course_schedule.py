@@ -11,16 +11,16 @@ class OverlapError(frappe.ValidationError): pass
 
 class CourseSchedule(Document):
 	def validate(self):
-		self.employee_name = frappe.db.get_value("Employee", self.employee, "employee_name")
+		self.instructor_name = frappe.db.get_value("Instructor", self.instructor, "instructor_name")
 		self.set_title()
 		self.validate_overlap()
 		
 	def set_title(self):
-		self.title = self.course + " by " + (self.employee_name if self.employee_name else self.employee)
+		self.title = self.course + " by " + (self.instructor_name if self.instructor_name else self.instructor)
 	
 	def validate_overlap(self):
 		self.validate_overlap_for("student_group")
-		self.validate_overlap_for("employee")
+		self.validate_overlap_for("instructor")
 		self.validate_overlap_for("room")
 
 	def validate_overlap_for(self, fieldname):

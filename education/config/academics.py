@@ -58,8 +58,13 @@ def get_data():
 				},
 				{
 					"type": "doctype",
+					"name": "Instructor"
+				},
+				{
+					"type": "doctype",
 					"name": "Room"
-				},				{
+				},
+				{
 					"type": "doctype",
 					"name": "Fee Category"
 				},

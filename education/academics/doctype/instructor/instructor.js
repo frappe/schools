@@ -1,0 +1,1 @@
+cur_frm.add_fetch("employee", "department", "department");

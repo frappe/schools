@@ -40,10 +40,9 @@ class SchedulingTool(Document):
 		course_schedule = frappe.new_doc("Course Schedule")
 		course_schedule.student_group = self.student_group
 		course_schedule.course = self.course
-		course_schedule.employee = self.employee
-		course_schedule.employee_name = self.employee_name
+		course_schedule.instructor = self.instructor
+		course_schedule.instructor_name = self.instructor_name
 		course_schedule.room = self.room
 		course_schedule.from_time=  get_datetime(date + " " + self.from_time)
 		course_schedule.to_time=  get_datetime(date + " " + self.to_time)
 		return course_schedule
-		
