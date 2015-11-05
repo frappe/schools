@@ -25,6 +25,10 @@ def get_data():
 				{
 					"type": "doctype",
 					"name": "Course Schedule"
+				},
+				{
+					"type": "doctype",
+					"name": "Student Attendence"
 				}
 			]
 		},
