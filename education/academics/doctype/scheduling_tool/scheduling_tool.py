@@ -7,15 +7,22 @@ import frappe
 import calendar
 from frappe import _
 from frappe.model.document import Document
-from frappe.utils import add_days, getdate, get_datetime
+from frappe.utils import add_days, getdate, get_datetime, now
 from education.academics.doctype.course_schedule.course_schedule import OverlapError
 
 class SchedulingTool(Document):
 	def schedule_course(self):
-		date = self.course_start_date
 		course_schedules= []
-		course_schedules_errors=[]
+		course_schedules_errors= []
+		rescheduled= []
+		reschedule_errors= []
 		
+		self.validate_date()
+		
+		if self.rechedule:
+			rescheduled, reschedule_errors = self.delete_course_schedule(rescheduled, reschedule_errors)
+		
+		date = self.course_start_date
 		while(date < self.course_end_date):
 			if self.day == calendar.day_name[getdate(date).weekday()]:
 				course_schedule = self.make_course_schedule(date)
@@ -35,7 +42,28 @@ class SchedulingTool(Document):
 			frappe.msgprint(_("Course Schedules created:") + "\n" + "\n".join(course_schedules))
 		if course_schedules_errors:
 			frappe.msgprint(_("There were errors while scheduling course on :") + "\n" + "\n".join(course_schedules_errors))
+		if rescheduled:
+			frappe.msgprint(_("Course Schedules deleted:") + "\n" + "\n".join(rescheduled))
+		if reschedule_errors:
+			frappe.msgprint(_("There were errors while deleting following schedules:") + "\n" + "\n".join(reschedule_errors))
+			
+	def validate_date(self):
+		if self.course_start_date < now():
+			frappe.throw("Course Start Date cannot be lesser than Today.")
+		elif self.course_start_date > self.course_end_date:
+			frappe.throw("Course Start Date cannot be greater than Course End Date.")
 
+	def delete_course_schedule(self, rescheduled, reschedule_errors):
+		schedules = frappe.get_list("Course Schedule", filters = [["from_time", ">=", self.course_start_date], 
+			["to_time", "<=", self.course_end_date]])
+		for d in schedules:
+			try:
+				frappe.delete_doc("Course Schedule", d.name)
+				rescheduled.append(d.name)
+			except:
+				reschedule_errors.append(d.name)
+		return rescheduled, reschedule_errors
+			
 	def make_course_schedule(self, date):
 		course_schedule = frappe.new_doc("Course Schedule")
 		course_schedule.student_group = self.student_group
