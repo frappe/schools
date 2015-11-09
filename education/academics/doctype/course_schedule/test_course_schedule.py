@@ -49,7 +49,7 @@ def make_course_schedule_test_record(**args):
 	course_schedule.instructor = args.instructor or "_T-Instructor-00001"
 	course_schedule.room = args.room or "RM0001"
 	
-	course_schedule.from_time = args.from_time or now_datetime()
+	course_schedule.from_time = args.from_time or (now_datetime() + datetime.timedelta(minutes=10))
 	course_schedule.to_time = args.to_time or course_schedule.from_time + datetime.timedelta(hours= 1)
 
 	

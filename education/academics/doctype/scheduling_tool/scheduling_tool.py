@@ -7,7 +7,7 @@ import frappe
 import calendar
 from frappe import _
 from frappe.model.document import Document
-from frappe.utils import add_days, getdate, get_datetime, now
+from frappe.utils import add_days, getdate, get_datetime, today
 from education.academics.doctype.course_schedule.course_schedule import OverlapError
 
 class SchedulingTool(Document):
@@ -48,7 +48,7 @@ class SchedulingTool(Document):
 			frappe.msgprint(_("There were errors while deleting following schedules:") + "\n" + "\n".join(reschedule_errors))
 			
 	def validate_date(self):
-		if self.course_start_date < now():
+		if getdate(self.course_start_date) < getdate(today()):
 			frappe.throw("Course Start Date cannot be lesser than Today.")
 		elif self.course_start_date > self.course_end_date:
 			frappe.throw("Course Start Date cannot be greater than Course End Date.")
