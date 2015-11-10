@@ -38,6 +38,10 @@ def get_data():
 				{
 					"type": "doctype",
 					"name": "Scheduling Tool"
+				},
+				{
+					"type": "doctype",
+					"name": "Student Attendance Tool"
 				}
 			]
 		},
