@@ -25,6 +25,10 @@ def get_data():
 				{
 					"type": "doctype",
 					"name": "Course Schedule"
+				},
+				{
+					"type": "doctype",
+					"name": "Student Attendence"
 				}
 			]
 		},
@@ -34,6 +38,10 @@ def get_data():
 				{
 					"type": "doctype",
 					"name": "Scheduling Tool"
+				},
+				{
+					"type": "doctype",
+					"name": "Student Attendance Tool"
 				}
 			]
 		},
@@ -58,8 +66,13 @@ def get_data():
 				},
 				{
 					"type": "doctype",
+					"name": "Instructor"
+				},
+				{
+					"type": "doctype",
 					"name": "Room"
-				},				{
+				},
+				{
 					"type": "doctype",
 					"name": "Fee Category"
 				},
