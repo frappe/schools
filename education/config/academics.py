@@ -28,7 +28,7 @@ def get_data():
 				},
 				{
 					"type": "doctype",
-					"name": "Student Attendence"
+					"name": "Student Attendance"
 				}
 			]
 		},

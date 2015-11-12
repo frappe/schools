@@ -7,14 +7,14 @@ import frappe
 from frappe.model.document import Document
 from frappe import _
 
-class StudentAttendence(Document):
+class StudentAttendance(Document):
 	def validate(self):
 		self.validate_duplication()
 		
 	def validate_duplication(self):
-		attendence_records= frappe.db.sql("""select name from `tabStudent Attendence` where \
+		attendance_records= frappe.db.sql("""select name from `tabStudent Attendance` where \
 			student= %s and course_schedule= %s and name != %s""",
 			(self.student, self.course_schedule, self.name))
-		if attendence_records:
-			frappe.throw(_("Attendence Record {0} exists against Student {1} for Course Schedule {2}")
-				.format(attendence_records[0][0], self.student, self.course_schedule))
+		if attendance_records:
+			frappe.throw(_("Attendance Record {0} exists against Student {1} for Course Schedule {2}")
+				.format(attendance_records[0][0], self.student, self.course_schedule))
