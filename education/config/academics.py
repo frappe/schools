@@ -4,19 +4,12 @@ from frappe import _
 def get_data():
 	return [
 		{
-			"label": _("Documents"),
+			"label": _("Student"),
 			"items": [
-				{
-					"type": "doctype",
-					"name": "Student Applicant"
-				},
+				
 				{
 					"type": "doctype",
 					"name": "Student"
-				},
-				{
-					"type": "doctype",
-					"name": "Fees"
 				},
 				{
 					"type": "doctype",
@@ -24,38 +17,51 @@ def get_data():
 				},
 				{
 					"type": "doctype",
+					"name": "Student Applicant"
+				}
+			]
+		},
+		{
+			"label": _("Fees"),
+			"items": [
+				{
+					"type": "doctype",
+					"name": "Fees"
+				},
+				{
+					"type": "doctype",
+					"name": "Fee Structure"
+				},
+				{
+					"type": "doctype",
+					"name": "Fee Category"
+				}
+			]
+		},
+		{
+			"label": _("Schedule"),
+			"items": [
+				{
+					"type": "doctype",
 					"name": "Course Schedule"
 				},
 				{
 					"type": "doctype",
 					"name": "Student Attendance"
-				}
-			]
-		},
-		{
-			"label": _("Tools"),
-			"items": [
+				},
 				{
 					"type": "doctype",
 					"name": "Scheduling Tool"
 				},
 				{
 					"type": "doctype",
-					"name": "Student Attendance Tool"
+					"name": "Examination"
 				}
 			]
 		},
 		{
 			"label": _("Setup"),
 			"items": [
-				{
-					"type": "doctype",
-					"name": "Academic Term"
-				},
-				{
-					"type": "doctype",
-					"name": "Academic Year"
-				},
 				{
 					"type": "doctype",
 					"name": "Course"
@@ -74,13 +80,12 @@ def get_data():
 				},
 				{
 					"type": "doctype",
-					"name": "Fee Category"
+					"name": "Academic Term"
 				},
 				{
 					"type": "doctype",
-					"name": "Fee Structure"
+					"name": "Academic Year"
 				}
-
 			]
 		},
 	]

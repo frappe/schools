@@ -7,6 +7,13 @@ cur_frm.add_fetch("course_schedule", "course", "course");
 cur_frm.add_fetch("course_schedule", "instructor_name", "instructor_name");
 
 frappe.ui.form.on("Student Attendance Tool", {
+	
+	on_load: function(frm){
+		if (frm.doc.course_schedule) {
+			frappe.ui.form.trigger("Student Attendance Tool", "course_schedule");
+		}
+	},
+	
 	refresh: function(frm) {
 		frm.disable_save();
 		frm.page.set_primary_action(__("Mark attendance"), function() {
@@ -74,6 +81,7 @@ education.StudentsEditor = Class.extend({
 			$(me.wrapper).find('input[type="checkbox"]').each(function(i, check) {
 				if(!$(check).is(":checked")) {
 					check.checked = true;
+					$(check).trigger('change');
 				}
 			});
 		});
@@ -84,6 +92,7 @@ education.StudentsEditor = Class.extend({
 			$(me.wrapper).find('input[type="checkbox"]').each(function(i, check) {
 				if($(check).is(":checked")) {
 					check.checked = false;
+					$(check).trigger('change');
 				}
 			});
 		});
