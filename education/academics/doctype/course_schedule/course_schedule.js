@@ -11,7 +11,7 @@ frappe.ui.form.on("Course Schedule", "refresh", function(frm) {
 						frappe.route_options = {
 							course_schedule: frm.doc.name
 						}
-						frappe.set_route("List", "Student attendance");
+						frappe.set_route("List", "Student Attendance");
 					});
 				}
 				else {
