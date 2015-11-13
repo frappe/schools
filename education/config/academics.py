@@ -29,6 +29,10 @@ def get_data():
 				{
 					"type": "doctype",
 					"name": "Student Attendance"
+				},
+				{
+					"type": "doctype",
+					"name": "Exam Result"
 				}
 			]
 		},
@@ -63,6 +67,10 @@ def get_data():
 				{
 					"type": "doctype",
 					"name": "Program"
+				},
+				{
+					"type": "doctype",
+					"name": "Exam"
 				},
 				{
 					"type": "doctype",

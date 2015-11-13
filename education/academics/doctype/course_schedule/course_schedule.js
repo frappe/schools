@@ -16,10 +16,10 @@ frappe.ui.form.on("Course Schedule", "refresh", function(frm) {
 				}
 				else {
 					frm.add_custom_button(__("Mark attendance"), function() {
-						var att = frappe.model.make_new_doc_and_get_name('Student Attendance Tool');
-						att = locals['Student Attendance Tool'][att];
-						att.course_schedule = frm.doc.name;
-						loaddoc('Student Attendance Tool', att.name);
+						frappe.route_options = {
+							course_schedule: frm.doc.name
+						}
+						frappe.set_route("Form", "Student Attendance Tool");
 					});
 				}
 			}
