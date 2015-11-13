@@ -4,24 +4,43 @@ from frappe import _
 def get_data():
 	return [
 		{
-			"label": _("Documents"),
+			"label": _("Student"),
 			"items": [
-				{
-					"type": "doctype",
-					"name": "Student Applicant"
-				},
+				
 				{
 					"type": "doctype",
 					"name": "Student"
 				},
 				{
 					"type": "doctype",
+					"name": "Student Group"
+				},
+				{
+					"type": "doctype",
+					"name": "Student Applicant"
+				}
+			]
+		},
+		{
+			"label": _("Fees"),
+			"items": [
+				{
+					"type": "doctype",
 					"name": "Fees"
 				},
 				{
 					"type": "doctype",
-					"name": "Student Group"
+					"name": "Fee Structure"
 				},
+				{
+					"type": "doctype",
+					"name": "Fee Category"
+				}
+			]
+		},
+		{
+			"label": _("Schedule"),
+			"items": [
 				{
 					"type": "doctype",
 					"name": "Course Schedule"
@@ -32,20 +51,11 @@ def get_data():
 				},
 				{
 					"type": "doctype",
-					"name": "Exam Result"
-				}
-			]
-		},
-		{
-			"label": _("Tools"),
-			"items": [
-				{
-					"type": "doctype",
 					"name": "Scheduling Tool"
 				},
 				{
 					"type": "doctype",
-					"name": "Student Attendance Tool"
+					"name": "Examination"
 				}
 			]
 		},
@@ -54,23 +64,11 @@ def get_data():
 			"items": [
 				{
 					"type": "doctype",
-					"name": "Academic Term"
-				},
-				{
-					"type": "doctype",
-					"name": "Academic Year"
-				},
-				{
-					"type": "doctype",
 					"name": "Course"
 				},
 				{
 					"type": "doctype",
 					"name": "Program"
-				},
-				{
-					"type": "doctype",
-					"name": "Exam"
 				},
 				{
 					"type": "doctype",
@@ -82,13 +80,12 @@ def get_data():
 				},
 				{
 					"type": "doctype",
-					"name": "Fee Category"
+					"name": "Academic Term"
 				},
 				{
 					"type": "doctype",
-					"name": "Fee Structure"
+					"name": "Academic Year"
 				}
-
 			]
 		},
 	]

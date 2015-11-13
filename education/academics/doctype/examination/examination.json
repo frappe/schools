@@ -238,10 +238,10 @@
  "is_submittable": 0, 
  "issingle": 0, 
  "istable": 0, 
- "modified": "2015-11-12 16:46:43.108633", 
+ "modified": "2015-11-13 17:02:15.943804", 
  "modified_by": "Administrator", 
  "module": "Academics", 
- "name": "Exam", 
+ "name": "Examination", 
  "name_case": "", 
  "owner": "Administrator", 
  "permissions": [

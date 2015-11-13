@@ -9,23 +9,16 @@ frappe.ui.form.on("Student", "refresh", function(frm) {
 		
 		frm.add_custom_button(__("Student Group"), function() {
 			frappe.route_options = {
-				"Group Student.student": frm.doc.name
+				"Student Group Student.student": frm.doc.name
 			}
 			frappe.set_route("List", "Student Group");
 		});	
 		
-		frm.add_custom_button(__("Student Attendance"), function() {
+		frm.add_custom_button(__("Attendance"), function() {
 			frappe.route_options = {
 				student: frm.doc.name
 			}
 			frappe.set_route("List", "Student Attendance");
-		});	
-		
-		frm.add_custom_button(__("Exam Result"), function() {
-			frappe.route_options = {
-				student: frm.doc.name
-			}
-			frappe.set_route("List", "Exam Result");
 		});	
 	}
 });
