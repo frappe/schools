@@ -20,5 +20,12 @@ frappe.ui.form.on("Student", "refresh", function(frm) {
 			}
 			frappe.set_route("List", "Student Attendance");
 		});	
+		
+		frm.add_custom_button(__("Examination"), function() {
+			frappe.route_options = {
+				"Examination Result.student": frm.doc.name
+			}
+			frappe.set_route("List", "Examination");
+		});	
 	}
 });
