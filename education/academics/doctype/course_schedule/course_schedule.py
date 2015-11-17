@@ -4,6 +4,7 @@
 
 from __future__ import unicode_literals
 import frappe
+import json
 from frappe import _
 from frappe.model.document import Document
 from frappe.utils import now_datetime, get_datetime
@@ -75,3 +76,35 @@ def get_events(start, end, filters=None):
 		d.title += " \n for " + d.student_group + " in Room "+ d.room
 
 	return data
+
+@frappe.whitelist()
+def get_students(student_group):
+	students = frappe.get_list("Student Group Student", fields=["student", "student_name"] , filters={"parent": student_group}, order_by= "idx")
+	return students
+
+@frappe.whitelist()
+def check_attendance_records_exist(course_schedule):
+	return frappe.get_list("Student Attendance", filters={"course_schedule": course_schedule})
+
+@frappe.whitelist()
+def mark_attendance(students_present, students_absent, course_schedule):
+	att_records = []
+	present = json.loads(students_present)
+	absent = json.loads(students_absent)
+
+	for d in present:
+		att_records.append(make_attendance_records(d["student"], d["student_name"], course_schedule, "Present"))
+		
+	for d in absent:
+		att_records.append(make_attendance_records(d["student"], d["student_name"], course_schedule, "Absent"))
+
+	frappe.msgprint(_("Attendance Records created:") + "\n" + "\n".join(att_records))
+	
+def make_attendance_records(student, student_name, course_schedule, status):
+	student_attendance = frappe.new_doc("Student Attendance")
+	student_attendance.student = student
+	student_attendance.student_name = student_name
+	student_attendance.course_schedule = course_schedule
+	student_attendance.status = status
+	student_attendance.submit()
+	return student_attendance.name
