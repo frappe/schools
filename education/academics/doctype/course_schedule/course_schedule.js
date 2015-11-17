@@ -14,9 +14,9 @@ frappe.ui.form.on("Course Schedule" ,{
 					}
 					else {
 						frappe.call({
-							method: "education.academics.doctype.course_schedule.course_schedule.get_students",
+							method: "education.academics.doctype.student_group.student_group.get_students",
 							args: {
-								"student_group": cur_frm.doc.student_group
+								"student_group": frm.doc.student_group
 							},
 							callback: function(r) {
 								if (r.message) {

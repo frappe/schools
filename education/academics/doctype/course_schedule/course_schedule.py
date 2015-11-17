@@ -78,11 +78,6 @@ def get_events(start, end, filters=None):
 	return data
 
 @frappe.whitelist()
-def get_students(student_group):
-	students = frappe.get_list("Student Group Student", fields=["student", "student_name"] , filters={"parent": student_group}, order_by= "idx")
-	return students
-
-@frappe.whitelist()
 def check_attendance_records_exist(course_schedule):
 	return frappe.get_list("Student Attendance", filters={"course_schedule": course_schedule})
 

@@ -8,3 +8,8 @@ from frappe.model.document import Document
 
 class StudentGroup(Document):
 	pass
+
+@frappe.whitelist()
+def get_students(student_group):
+	students = frappe.get_list("Student Group Student", fields=["student", "student_name"] , filters={"parent": student_group}, order_by= "idx")
+	return students
