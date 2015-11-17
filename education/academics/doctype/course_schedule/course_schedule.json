@@ -263,7 +263,7 @@
  "is_submittable": 0, 
  "issingle": 0, 
  "istable": 0, 
- "modified": "2015-11-17 13:03:14.858795", 
+ "modified": "2015-11-17 14:12:08.921185", 
  "modified_by": "Administrator", 
  "module": "Academics", 
  "name": "Course Schedule", 
@@ -313,7 +313,7 @@
  ], 
  "read_only": 0, 
  "read_only_onload": 0, 
- "sort_field": "modified", 
+ "sort_field": "from_time", 
  "sort_order": "DESC", 
  "title_field": "title"
 }

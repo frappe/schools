@@ -1,3 +1,4 @@
+cur_frm.add_fetch("student_group", "course", "course");
 cur_frm.add_fetch("student", "title", "student_name");
 
 frappe.ui.form.on("Examination" ,{

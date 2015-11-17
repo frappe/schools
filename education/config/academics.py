@@ -43,7 +43,8 @@ def get_data():
 			"items": [
 				{
 					"type": "doctype",
-					"name": "Course Schedule"
+					"name": "Course Schedule",
+					"route": "Calendar/Course Schedule"
 				},
 				{
 					"type": "doctype",

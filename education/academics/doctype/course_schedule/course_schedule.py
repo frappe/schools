@@ -7,7 +7,7 @@ import frappe
 import json
 from frappe import _
 from frappe.model.document import Document
-from frappe.utils import now_datetime, get_datetime
+from frappe.utils import now, get_datetime
 
 class OverlapError(frappe.ValidationError): pass
 
@@ -22,7 +22,7 @@ class CourseSchedule(Document):
 		self.title = self.course + " by " + (self.instructor_name if self.instructor_name else self.instructor)
 
 	def validate_date(self):
-		if get_datetime(self.from_time) < get_datetime(now_datetime()):
+		if get_datetime(self.from_time) < get_datetime(now()):
 			frappe.throw("From Time cannot be lesser than System Time.")
 		elif self.from_time > self.to_time:
 			frappe.throw("From Time cannot be greater than To Time.")
@@ -83,17 +83,16 @@ def check_attendance_records_exist(course_schedule):
 
 @frappe.whitelist()
 def mark_attendance(students_present, students_absent, course_schedule):
-	att_records = []
 	present = json.loads(students_present)
 	absent = json.loads(students_absent)
 
 	for d in present:
-		att_records.append(make_attendance_records(d["student"], d["student_name"], course_schedule, "Present"))
+		make_attendance_records(d["student"], d["student_name"], course_schedule, "Present")
 		
 	for d in absent:
-		att_records.append(make_attendance_records(d["student"], d["student_name"], course_schedule, "Absent"))
+		make_attendance_records(d["student"], d["student_name"], course_schedule, "Absent")
 
-	frappe.msgprint(_("Attendance Records created:") + "\n" + "\n".join(att_records))
+	frappe.msgprint(_("Attendance has been marked successfully."))
 	
 def make_attendance_records(student, student_name, course_schedule, status):
 	student_attendance = frappe.new_doc("Student Attendance")
@@ -102,4 +101,3 @@ def make_attendance_records(student, student_name, course_schedule, status):
 	student_attendance.course_schedule = course_schedule
 	student_attendance.status = status
 	student_attendance.submit()
-	return student_attendance.name

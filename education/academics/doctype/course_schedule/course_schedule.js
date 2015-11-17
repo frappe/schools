@@ -61,9 +61,9 @@ education.StudentsEditor = Class.extend({
 		
 		$(this.wrapper).empty();
 		var student_toolbar = $('<p>\
-			<button class="btn btn-default btn-add btn-sm" style="margin-right: 5px;"></button>\
-			<button class="btn btn-sm btn-default btn-remove"></button>\
-			<button class="btn btn-default btn-primary btn-mark-att"></button></p>').appendTo($(this.wrapper));
+			<button class="btn btn-default btn-add btn-xs" style="margin-right: 5px;"></button>\
+			<button class="btn btn-xs btn-default btn-remove" style="margin-right: 5px;"></button>\
+			<button class="btn btn-default btn-primary btn-mark-att btn-xs"></button></p>').appendTo($(this.wrapper));
 
 		student_toolbar.find(".btn-add")
 			.html(__('Check all'))

@@ -1,6 +1,6 @@
 frappe.ui.form.on("Student", "refresh", function(frm) {
 	if(!cur_frm.doc.__islocal) {
-		frm.add_custom_button(__("Student Group"), function() {
+		frm.add_custom_button(__("Student Groups"), function() {
 			frappe.route_options = {
 				"Student Group Student.student": frm.doc.name
 			}
