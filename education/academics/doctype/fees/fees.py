@@ -7,7 +7,13 @@ import frappe
 from frappe.model.document import Document
 
 class Fees(Document):
-	pass
+	def validate(self):
+		self.calculate_total()
+		
+	def calculate_total(self):
+		self.total_amount = 0
+		for d in self.amount:
+			self.total_amount += d.amount
 	
 @frappe.whitelist()
 def get_fee_structure(program, academic_term=None):
