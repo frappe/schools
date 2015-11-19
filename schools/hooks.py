@@ -1,25 +1,25 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-app_name = "education"
-app_title = "Education"
-app_publisher = "Frappe Technologies"
-app_description = "ERP for Education"
+app_name = "schools"
+app_title = "Frappe Schools"
+app_publisher = "Frappé"
+app_description = "ERP for Schools, Colleges and Other Acedemic Institutions"
 app_icon = "octicon octicon-mortar-board"
 app_color = "blue"
-app_email = "info@frappe.io"
+app_email = "hello@frappe.io"
 app_version = "0.0.1"
 
 # Includes in <head>
 # ------------------
 
 # include js, css files in header of desk.html
-# app_include_css = "/assets/education/css/education.css"
-# app_include_js = "/assets/education/js/education.js"
+# app_include_css = "/assets/schools/css/schools.css"
+# app_include_js = "/assets/schools/js/schools.js"
 
 # include js, css files in header of web template
-# web_include_css = "/assets/education/css/education.css"
-# web_include_js = "/assets/education/js/education.js"
+# web_include_css = "/assets/schools/css/schools.css"
+# web_include_js = "/assets/schools/js/schools.js"
 
 # Home Pages
 # ----------
@@ -41,14 +41,14 @@ app_version = "0.0.1"
 # Installation
 # ------------
 
-# before_install = "education.install.before_install"
-# after_install = "education.install.after_install"
+# before_install = "schools.install.before_install"
+# after_install = "schools.install.after_install"
 
 # Desk Notifications
 # ------------------
 # See frappe.core.notifications.get_notification_config
 
-# notification_config = "education.notifications.get_notification_config"
+# notification_config = "schools.notifications.get_notification_config"
 
 # Permissions
 # -----------
@@ -79,31 +79,31 @@ app_version = "0.0.1"
 
 # scheduler_events = {
 # 	"all": [
-# 		"education.tasks.all"
+# 		"schools.tasks.all"
 # 	],
 # 	"daily": [
-# 		"education.tasks.daily"
+# 		"schools.tasks.daily"
 # 	],
 # 	"hourly": [
-# 		"education.tasks.hourly"
+# 		"schools.tasks.hourly"
 # 	],
 # 	"weekly": [
-# 		"education.tasks.weekly"
+# 		"schools.tasks.weekly"
 # 	]
 # 	"monthly": [
-# 		"education.tasks.monthly"
+# 		"schools.tasks.monthly"
 # 	]
 # }
 
 # Testing
 # -------
 
-# before_tests = "education.install.before_tests"
+# before_tests = "schools.install.before_tests"
 
 # Overriding Whitelisted Methods
 # ------------------------------
 #
 # override_whitelisted_methods = {
-# 	"frappe.desk.doctype.event.event.get_events": "education.event.get_events"
+# 	"frappe.desk.doctype.event.event.get_events": "schools.event.get_events"
 # }
 

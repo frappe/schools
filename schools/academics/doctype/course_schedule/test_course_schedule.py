@@ -8,7 +8,7 @@ import unittest
 
 import datetime
 from frappe.utils import now, get_datetime
-from education.academics.doctype.course_schedule.course_schedule import OverlapError
+from schools.academics.doctype.course_schedule.course_schedule import OverlapError
 
 # test_records = frappe.get_test_records('Course Schedule')
 

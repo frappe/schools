@@ -5,9 +5,9 @@ import os
 version = '0.0.1'
 
 setup(
-    name='education',
+    name='schools',
     version=version,
-    description='ERP for Education',
+    description='ERP for Schools, Colleges and Other Acedemic Institutions',
     author='Frappe Technologies',
     author_email='info@frappe.io',
     packages=find_packages(),

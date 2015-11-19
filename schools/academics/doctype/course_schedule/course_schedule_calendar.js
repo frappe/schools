@@ -33,5 +33,5 @@ frappe.views.calendar["Course Schedule"] = {
 			"label": __("Room")
 		}
 	],
-	get_events_method: "education.academics.doctype.course_schedule.course_schedule.get_events"
+	get_events_method: "schools.academics.doctype.course_schedule.course_schedule.get_events"
 }

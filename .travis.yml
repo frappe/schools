@@ -19,11 +19,11 @@ install:
 script:
   - cd ~/frappe-bench
   - bench get-app erpnext https://github.com/frappe/erpnext.git
-  - bench get-app education $TRAVIS_BUILD_DIR
+  - bench get-app schools $TRAVIS_BUILD_DIR
   - bench use test_site
   - bench reinstall
   - bench --site test_site install-app erpnext
-  - bench --site test_site install-app education
+  - bench --site test_site install-app schools
   - bench start &
   - sleep 10
   - bench --verbose run-tests --driver Firefox
