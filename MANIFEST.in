@@ -4,15 +4,15 @@ include *.json
 include *.md
 include *.py
 include *.txt
-recursive-include education *.css
-recursive-include education *.csv
-recursive-include education *.html
-recursive-include education *.ico
-recursive-include education *.js
-recursive-include education *.json
-recursive-include education *.md
-recursive-include education *.png
-recursive-include education *.py
-recursive-include education *.svg
-recursive-include education *.txt
-recursive-exclude education *.pyc
+recursive-include schools *.css
+recursive-include schools *.csv
+recursive-include schools *.html
+recursive-include schools *.ico
+recursive-include schools *.js
+recursive-include schools *.json
+recursive-include schools *.md
+recursive-include schools *.png
+recursive-include schools *.py
+recursive-include schools *.svg
+recursive-include schools *.txt
+recursive-exclude schools *.pyc

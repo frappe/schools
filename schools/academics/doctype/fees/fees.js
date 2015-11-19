@@ -4,7 +4,7 @@ cur_frm.add_fetch("student", "program", "program");
 frappe.ui.form.on("Fees", {
 	program: function(frm) {
 		frappe.call({
-			method: "education.academics.doctype.fees.fees.get_fee_structure",
+			method: "schools.academics.doctype.fees.fees.get_fee_structure",
 			args: {
 				"program": frm.doc.program,
 				"academic_term": frm.doc.academic_term
@@ -25,7 +25,7 @@ frappe.ui.form.on("Fees", {
 		frm.set_value("amount" ,"");
 		if (frm.doc.fee_structure) {
 			frappe.call({
-				method: "education.academics.doctype.fees.fees.get_fee_amount",
+				method: "schools.academics.doctype.fees.fees.get_fee_amount",
 				args: {
 					"fee_structure": frm.doc.fee_structure
 				},

@@ -9,7 +9,7 @@ frappe.ui.form.on("Student Applicant", {
 	
 	create_student: function(frm) {
 		frappe.model.open_mapped_doc({
-			method: "education.academics.doctype.student_applicant.student_applicant.make_student",
+			method: "schools.academics.doctype.student_applicant.student_applicant.make_student",
 			frm: frm
 		})
 	}
