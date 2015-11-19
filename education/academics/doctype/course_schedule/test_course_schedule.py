@@ -7,7 +7,7 @@ import frappe
 import unittest
 
 import datetime
-from frappe.utils import now_datetime
+from frappe.utils import now, get_datetime
 from education.academics.doctype.course_schedule.course_schedule import OverlapError
 
 # test_records = frappe.get_test_records('Course Schedule')
@@ -49,7 +49,7 @@ def make_course_schedule_test_record(**args):
 	course_schedule.instructor = args.instructor or "_T-Instructor-00001"
 	course_schedule.room = args.room or "RM0001"
 	
-	course_schedule.from_time = args.from_time or (now_datetime() + datetime.timedelta(minutes=10))
+	course_schedule.from_time = args.from_time or (get_datetime(now()) + datetime.timedelta(minutes=10))
 	course_schedule.to_time = args.to_time or course_schedule.from_time + datetime.timedelta(hours= 1)
 
 	
