@@ -48,7 +48,7 @@
    "print_hide": 0, 
    "read_only": 0, 
    "report_hide": 0, 
-   "reqd": 1, 
+   "reqd": 0, 
    "search_index": 0, 
    "set_only_once": 0, 
    "unique": 0
@@ -70,7 +70,7 @@
    "print_hide": 0, 
    "read_only": 0, 
    "report_hide": 0, 
-   "reqd": 1, 
+   "reqd": 0, 
    "search_index": 0, 
    "set_only_once": 0, 
    "unique": 0
@@ -420,8 +420,8 @@
  "is_submittable": 1, 
  "issingle": 0, 
  "istable": 0, 
- "modified": "2015-11-17 13:01:55.001959", 
- "modified_by": "Administrator", 
+ "modified": "2015-11-19 16:10:06.298692", 
+ "modified_by": "neil@frappe.io", 
  "module": "Academics", 
  "name": "Student Applicant", 
  "name_case": "", 

@@ -10,7 +10,11 @@ from frappe.model.mapper import get_mapped_doc
 
 class StudentApplicant(Document):
 	def validate(self):
-		self.title = self.first_name + " " + self.middle_name + " " +self.last_name
+		self.title = self.first_name 
+		if self.middle_name:
+			self.title += " " + self.middle_name
+		if self.last_name:
+			self.title += " " +self.last_name
 		
 	def on_update_after_submit(self):
 		student = frappe.get_list("Student",  filters= {"student_applicant": self.name})

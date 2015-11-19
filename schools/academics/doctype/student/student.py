@@ -8,7 +8,12 @@ from frappe.model.document import Document
 
 class Student(Document):
 	def validate(self):
-		self.title = self.first_name + " " + self.middle_name + " " +self.last_name
+		self.title = self.first_name 
+		if self.middle_name:
+			self.title += " " + self.middle_name
+		if self.last_name:
+			self.title += " " +self.last_name
+		
 		if self.student_applicant:
 			self.check_unique()
 			self.update_applicant_status()
