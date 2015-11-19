@@ -1,4 +1,5 @@
 cur_frm.add_fetch("employee", "department", "department");
+cur_frm.add_fetch("employee", "image", "image");
 
 frappe.ui.form.on("Instructor", "refresh", function(frm) {
 	if(!frm.doc.__islocal) {
