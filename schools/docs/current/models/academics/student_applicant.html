@@ -1,0 +1,406 @@
+<!-- title: Student Applicant -->
+
+
+
+
+
+<div class="dev-header">
+
+<a class="btn btn-default btn-sm" disabled style="margin-bottom: 10px;">
+	Version 0.0.0</a>
+
+
+	<a class="btn btn-default btn-sm" href="https://github.com/frappe/schools/tree/develop/schools/academics/doctype/student_applicant"
+		target="_blank" style="margin-left: 10px; margin-bottom: 10px;"><i class="octicon octicon-mark-github"></i> Source</a>
+
+</div>
+
+
+
+
+
+    <p><b>Table Name:</b> <code>tabStudent Applicant</code></p>
+
+
+
+
+<h3>Fields</h3>
+
+<table class="table table-bordered" style="table-layout: fixed;">
+    <thead>
+        <tr>
+            <th style="width: 5%">Sr</th>
+            <th style="width: 25%">Fieldname</th>
+            <th style="width: 20%">Type</th>
+            <th style="width: 25%">Label</th>
+            <th style="width: 25%">Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        <tr >
+            <td>1</td>
+            <td class="danger" title="Mandatory"><code>first_name</code></td>
+            <td >
+                Data</td>
+            <td >
+                First Name
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>2</td>
+            <td ><code>middle_name</code></td>
+            <td >
+                Data</td>
+            <td >
+                Middle Name
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>3</td>
+            <td ><code>last_name</code></td>
+            <td >
+                Data</td>
+            <td >
+                Last Name
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>4</td>
+            <td ><code>column_break_4</code></td>
+            <td class="info">
+                Column Break</td>
+            <td >
+                
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>5</td>
+            <td ><code>application_status</code></td>
+            <td >
+                Select</td>
+            <td >
+                Application Status
+                
+            </td>
+            <td>
+                <pre>Applied
+Approved
+Rejected
+Admitted</pre>
+            </td>
+        </tr>
+        
+        <tr >
+            <td>6</td>
+            <td ><code>application_date</code></td>
+            <td >
+                Date</td>
+            <td >
+                Application Date
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>7</td>
+            <td class="danger" title="Mandatory"><code>program</code></td>
+            <td >
+                Link</td>
+            <td >
+                Program
+                
+            </td>
+            <td>
+                
+                
+
+
+<a href="https://frappe.github.io/schools/current/models/academics/program">Program</a>
+
+
+                
+            </td>
+        </tr>
+        
+        <tr class="info">
+            <td>8</td>
+            <td ><code>section_break_4</code></td>
+            <td >
+                Section Break</td>
+            <td >
+                Personel Details
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>9</td>
+            <td ><code>mother_name</code></td>
+            <td >
+                Data</td>
+            <td >
+                Mother's Name
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>10</td>
+            <td ><code>father_name</code></td>
+            <td >
+                Data</td>
+            <td >
+                Father's Name
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>11</td>
+            <td ><code>contact</code></td>
+            <td >
+                Link</td>
+            <td >
+                Contact
+                
+            </td>
+            <td>
+                
+                
+
+
+<a href="https://frappe.github.io/schools/current/models/utilities/contact">Contact</a>
+
+
+                
+            </td>
+        </tr>
+        
+        <tr >
+            <td>12</td>
+            <td ><code>column_break_12</code></td>
+            <td class="info">
+                Column Break</td>
+            <td >
+                
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>13</td>
+            <td class="danger" title="Mandatory"><code>date_of_birth</code></td>
+            <td >
+                Date</td>
+            <td >
+                Date of Birth
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>14</td>
+            <td class="danger" title="Mandatory"><code>gender</code></td>
+            <td >
+                Select</td>
+            <td >
+                Gender
+                
+            </td>
+            <td>
+                <pre>
+Male
+Female</pre>
+            </td>
+        </tr>
+        
+        <tr >
+            <td>15</td>
+            <td class="danger" title="Mandatory"><code>blood_group</code></td>
+            <td >
+                Select</td>
+            <td >
+                Blood Group
+                
+            </td>
+            <td>
+                <pre>
+A+
+A-
+B+
+B-
+O+
+O-
+AB+
+AB-</pre>
+            </td>
+        </tr>
+        
+        <tr >
+            <td>16</td>
+            <td ><code>nationality</code></td>
+            <td >
+                Data</td>
+            <td >
+                Nationality
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>17</td>
+            <td ><code>title</code></td>
+            <td >
+                Data</td>
+            <td class="text-muted" title="Hidden">
+                Title
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>18</td>
+            <td ><code>amended_from</code></td>
+            <td >
+                Link</td>
+            <td >
+                Amended From
+                
+            </td>
+            <td>
+                
+                
+
+
+<a href="https://frappe.github.io/schools/current/models/academics/student_applicant">Student Applicant</a>
+
+
+                
+            </td>
+        </tr>
+        
+    </tbody>
+</table>
+
+
+    <hr>
+    <h3>Controller</h3>
+    <h4>schools.academics.doctype.student_applicant.student_applicant</h4>
+
+    
+
+
+
+	
+        
+	<h3 style="font-weight: normal;">Class <b>StudentApplicant</b></h3>
+    
+    <p style="padding-left: 30px;"><i>Inherits from frappe.model.document.Document</i></h4>
+    
+    <div class="docs-attr-desc"><p></p>
+</div>
+    <div style="padding-left: 30px;">
+        
+        
+    
+    
+	<p class="docs-attr-name">
+        <a name="on_update_after_submit" href="#on_update_after_submit" class="text-muted small">
+            <i class="icon-link small" style="color: #ccc;"></i></a>
+		<b>on_update_after_submit</b>
+        <i class="text-muted">(self)</i>
+    </p>
+	<div class="docs-attr-desc"><p><span class="text-muted">No docs</span></p>
+</div>
+	<br>
+
+        
+        
+    
+    
+	<p class="docs-attr-name">
+        <a name="validate" href="#validate" class="text-muted small">
+            <i class="icon-link small" style="color: #ccc;"></i></a>
+		<b>validate</b>
+        <i class="text-muted">(self)</i>
+    </p>
+	<div class="docs-attr-desc"><p><span class="text-muted">No docs</span></p>
+</div>
+	<br>
+
+        
+    </div>
+    <hr>
+
+	
+
+	
+        
+    
+    <p><span class="label label-info">Public API</span>
+        <br><code>/api/method/schools.academics.doctype.student_applicant.student_applicant.make_student</code>
+    </p>
+	<p class="docs-attr-name">
+        <a name="schools.academics.doctype.student_applicant.student_applicant.make_student" href="#schools.academics.doctype.student_applicant.student_applicant.make_student" class="text-muted small">
+            <i class="icon-link small" style="color: #ccc;"></i></a>
+		schools.academics.doctype.student_applicant.student_applicant.<b>make_student</b>
+        <i class="text-muted">(source_name, target_doc=None)</i>
+    </p>
+	<div class="docs-attr-desc"><p><span class="text-muted">No docs</span></p>
+</div>
+	<br>
+
+	
+
+
+    
+    
+        <h4>Linked In:</h4>
+        <ul>
+        
+			
+            <li>
+
+
+<a href="https://frappe.github.io/schools/current/models/academics/student">Student</a>
+
+</li>
+			
+        
+			
+            <li>
+
+
+<a href="https://frappe.github.io/schools/current/models/academics/student_applicant">Student Applicant</a>
+
+</li>
+			
+        
+        </ul>
+    
+
+
+<!-- autodoc -->
+<!-- jinja -->
+<!-- static -->

@@ -1,0 +1,4 @@
+student
+fees
+schedule
+setup

@@ -1,0 +1,3 @@
+# Academics
+
+{index}

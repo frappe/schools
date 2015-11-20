@@ -1,0 +1,2 @@
+schools.__init__
+schools.hooks

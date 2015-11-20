@@ -3,12 +3,14 @@ from __future__ import unicode_literals
 
 app_name = "schools"
 app_title = "Frappe Schools"
-app_publisher = "Frappé"
+app_publisher = "Frappe"
 app_description = "ERP for Schools, Colleges and Other Acedemic Institutions"
 app_icon = "octicon octicon-mortar-board"
 app_color = "blue"
 app_email = "hello@frappe.io"
 app_version = "0.0.1"
+app_license = "GNU General Public License v3"
+
 
 # Includes in <head>
 # ------------------
