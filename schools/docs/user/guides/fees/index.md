@@ -1,4 +1,4 @@
-# Fees Section
+# Fees
 
 This section contains 'Fee' related documents.
 

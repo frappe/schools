@@ -1,4 +1,4 @@
-# Schedule Section
+# Schedule
 
 <img class="screenshot" alt="Schedule Section" src="{{url_prefix}}/assets/img/schedule/schedule-section.png">
 

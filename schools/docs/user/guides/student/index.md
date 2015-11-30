@@ -1,4 +1,4 @@
-# Student Section
+# Student
 
 This section contains student related documents.
 
