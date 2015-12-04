@@ -1,4 +1,4 @@
-<!-- title: Student Attendance -->
+<!-- title: Program Enrollment -->
 
 
 
@@ -10,7 +10,7 @@
 	Version 1.0 beta</a>
 
 
-	<a class="btn btn-default btn-sm" href="https://github.com/frappe/schools/tree/develop/schools/academics/doctype/student_attendance"
+	<a class="btn btn-default btn-sm" href="https://github.com/frappe/schools/tree/develop/schools/academics/doctype/program_enrollment"
 		target="_blank" style="margin-left: 10px; margin-bottom: 10px;"><i class="octicon octicon-mark-github"></i> Source</a>
 
 </div>
@@ -19,7 +19,7 @@
 
 
 
-    <p><b>Table Name:</b> <code>tabStudent Attendance</code></p>
+    <p><b>Table Name:</b> <code>tabProgram Enrollment</code></p>
 
 
 
@@ -75,7 +75,7 @@
         
         <tr >
             <td>3</td>
-            <td ><code>column_break_3</code></td>
+            <td ><code>column_break_4</code></td>
             <td class="info">
                 Column Break</td>
             <td >
@@ -87,11 +87,11 @@
         
         <tr >
             <td>4</td>
-            <td class="danger" title="Mandatory"><code>course_schedule</code></td>
+            <td class="danger" title="Mandatory"><code>program</code></td>
             <td >
                 Link</td>
             <td >
-                Course Schedule
+                Program
                 
             </td>
             <td>
@@ -99,7 +99,7 @@
                 
 
 
-<a href="https://frappe.github.io/schools/current/models/academics/course_schedule">Course Schedule</a>
+<a href="https://frappe.github.io/schools/current/models/academics/program">Program</a>
 
 
                 
@@ -108,38 +108,35 @@
         
         <tr >
             <td>5</td>
-            <td class="danger" title="Mandatory"><code>status</code></td>
+            <td class="danger" title="Mandatory"><code>academic_year</code></td>
             <td >
-                Select</td>
+                Link</td>
             <td >
-                Status
+                Academic Year
                 
             </td>
             <td>
-                <pre>Present
-Absent</pre>
+                
+                
+
+
+<a href="https://frappe.github.io/schools/current/models/academics/academic_year">Academic Year</a>
+
+
+                
             </td>
         </tr>
         
         <tr >
             <td>6</td>
-            <td ><code>amended_from</code></td>
+            <td class="danger" title="Mandatory"><code>enrollment_date</code></td>
             <td >
-                Link</td>
+                Date</td>
             <td >
-                Amended From
+                Enrollment Date
                 
             </td>
-            <td>
-                
-                
-
-
-<a href="https://frappe.github.io/schools/current/models/academics/student_attendance">Student Attendance</a>
-
-
-                
-            </td>
+            <td></td>
         </tr>
         
     </tbody>
@@ -148,7 +145,7 @@ Absent</pre>
 
     <hr>
     <h3>Controller</h3>
-    <h4>schools.academics.doctype.student_attendance.student_attendance</h4>
+    <h4>schools.academics.doctype.program_enrollment.program_enrollment</h4>
 
     
 
@@ -156,41 +153,13 @@ Absent</pre>
 
 	
         
-	<h3 style="font-weight: normal;">Class <b>StudentAttendance</b></h3>
+	<h3 style="font-weight: normal;">Class <b>ProgramEnrollment</b></h3>
     
     <p style="padding-left: 30px;"><i>Inherits from frappe.model.document.Document</i></h4>
     
     <div class="docs-attr-desc"><p></p>
 </div>
     <div style="padding-left: 30px;">
-        
-        
-    
-    
-	<p class="docs-attr-name">
-        <a name="validate" href="#validate" class="text-muted small">
-            <i class="icon-link small" style="color: #ccc;"></i></a>
-		<b>validate</b>
-        <i class="text-muted">(self)</i>
-    </p>
-	<div class="docs-attr-desc"><p><span class="text-muted">No docs</span></p>
-</div>
-	<br>
-
-        
-        
-    
-    
-	<p class="docs-attr-name">
-        <a name="validate_duplication" href="#validate_duplication" class="text-muted small">
-            <i class="icon-link small" style="color: #ccc;"></i></a>
-		<b>validate_duplication</b>
-        <i class="text-muted">(self)</i>
-    </p>
-	<div class="docs-attr-desc"><p>Check if the Attendance Record is Unique</p>
-</div>
-	<br>
-
         
     </div>
     <hr>
@@ -199,20 +168,6 @@ Absent</pre>
 
 
     
-    
-        <h4>Linked In:</h4>
-        <ul>
-        
-			
-            <li>
-
-
-<a href="https://frappe.github.io/schools/current/models/academics/student_attendance">Student Attendance</a>
-
-</li>
-			
-        
-        </ul>
     
 
 

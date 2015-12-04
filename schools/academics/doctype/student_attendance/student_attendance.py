@@ -12,6 +12,7 @@ class StudentAttendance(Document):
 		self.validate_duplication()
 		
 	def validate_duplication(self):
+		"""Check if the Attendance Record is Unique"""
 		attendance_records= frappe.db.sql("""select name from `tabStudent Attendance` where \
 			student= %s and course_schedule= %s and name != %s""",
 			(self.student, self.course_schedule, self.name))

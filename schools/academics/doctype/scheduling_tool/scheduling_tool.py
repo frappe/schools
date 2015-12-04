@@ -12,6 +12,7 @@ from schools.academics.doctype.course_schedule.course_schedule import OverlapErr
 
 class SchedulingTool(Document):
 	def schedule_course(self):
+		"""Creates course schedules as per specified parametes"""
 		course_schedules= []
 		course_schedules_errors= []
 		rescheduled= []
@@ -47,13 +48,16 @@ class SchedulingTool(Document):
 		if reschedule_errors:
 			frappe.msgprint(_("There were errors while deleting following schedules:") + "\n" + "\n".join(reschedule_errors))
 			
+			
 	def validate_date(self):
+		"""Validates if Course Start Date is lesser than system date and Course Start Date is greater than Course End Date"""
 		if getdate(self.course_start_date) < getdate(today()):
 			frappe.throw("Course Start Date cannot be lesser than Today.")
 		elif self.course_start_date > self.course_end_date:
 			frappe.throw("Course Start Date cannot be greater than Course End Date.")
 
 	def delete_course_schedule(self, rescheduled, reschedule_errors):
+		"""Delete all course schedule within the Date range"""
 		schedules = frappe.get_list("Course Schedule", filters = [["from_time", ">=", self.course_start_date], 
 			["to_time", "<=", self.course_end_date]])
 		for d in schedules:
@@ -65,6 +69,9 @@ class SchedulingTool(Document):
 		return rescheduled, reschedule_errors
 			
 	def make_course_schedule(self, date):
+		"""Makes a new Course Schedule.
+		:param date: Date on which Course Schedule will be created."""
+		
 		course_schedule = frappe.new_doc("Course Schedule")
 		course_schedule.student_group = self.student_group
 		course_schedule.course = self.course

@@ -1,0 +1,216 @@
+<!-- title: schools.api --><div class="dev-header">
+
+<a class="btn btn-default btn-sm" disabled style="margin-bottom: 10px;">
+	Version 1.0 beta</a>
+
+
+	<a class="btn btn-default btn-sm" href="https://github.com/frappe/schools/blob/develop/schools/api.py"
+		target="_blank" style="margin-left: 10px; margin-bottom: 10px;"><i class="octicon octicon-mark-github"></i> Source</a>
+
+</div>
+
+
+
+
+
+	
+        
+    
+    <p><span class="label label-info">Public API</span>
+        <br><code>/api/method/schools.api.check_attendance_records_exist</code>
+    </p>
+	<p class="docs-attr-name">
+        <a name="schools.api.check_attendance_records_exist" href="#schools.api.check_attendance_records_exist" class="text-muted small">
+            <i class="icon-link small" style="color: #ccc;"></i></a>
+		schools.api.<b>check_attendance_records_exist</b>
+        <i class="text-muted">(course_schedule)</i>
+    </p>
+	<div class="docs-attr-desc"><p>Check if Attendance Records are made against the specified Course Schedule.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li><strong><code>course_schedule</code></strong> -  Course Schedule.</li>
+</ul>
+</div>
+	<br>
+
+	
+
+	
+        
+    
+    <p><span class="label label-info">Public API</span>
+        <br><code>/api/method/schools.api.enroll_student</code>
+    </p>
+	<p class="docs-attr-name">
+        <a name="schools.api.enroll_student" href="#schools.api.enroll_student" class="text-muted small">
+            <i class="icon-link small" style="color: #ccc;"></i></a>
+		schools.api.<b>enroll_student</b>
+        <i class="text-muted">(source_name)</i>
+    </p>
+	<div class="docs-attr-desc"><p>Creates a Student Record and returns a Program Enrollment.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li><strong><code>source_name</code></strong> -  Student Applicant.</li>
+</ul>
+</div>
+	<br>
+
+	
+
+	
+        
+    
+    <p><span class="label label-info">Public API</span>
+        <br><code>/api/method/schools.api.get_course_schedule_events</code>
+    </p>
+	<p class="docs-attr-name">
+        <a name="schools.api.get_course_schedule_events" href="#schools.api.get_course_schedule_events" class="text-muted small">
+            <i class="icon-link small" style="color: #ccc;"></i></a>
+		schools.api.<b>get_course_schedule_events</b>
+        <i class="text-muted">(start, end, filters=None)</i>
+    </p>
+	<div class="docs-attr-desc"><p>Returns events for Course Schedule Calendar view rendering.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li><strong><code>start</code></strong> -  Start date-time.</li>
+<li><strong><code>end</code></strong> -  End date-time.</li>
+<li><strong><code>filters</code></strong> -  Filters (JSON).</li>
+</ul>
+</div>
+	<br>
+
+	
+
+	
+        
+    
+    <p><span class="label label-info">Public API</span>
+        <br><code>/api/method/schools.api.get_fee_amount</code>
+    </p>
+	<p class="docs-attr-name">
+        <a name="schools.api.get_fee_amount" href="#schools.api.get_fee_amount" class="text-muted small">
+            <i class="icon-link small" style="color: #ccc;"></i></a>
+		schools.api.<b>get_fee_amount</b>
+        <i class="text-muted">(fee_structure)</i>
+    </p>
+	<div class="docs-attr-desc"><p>Returns Fee Amount.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li><strong><code>fee_structure</code></strong> -  Fee Structure.</li>
+</ul>
+</div>
+	<br>
+
+	
+
+	
+        
+    
+    <p><span class="label label-info">Public API</span>
+        <br><code>/api/method/schools.api.get_fee_structure</code>
+    </p>
+	<p class="docs-attr-name">
+        <a name="schools.api.get_fee_structure" href="#schools.api.get_fee_structure" class="text-muted small">
+            <i class="icon-link small" style="color: #ccc;"></i></a>
+		schools.api.<b>get_fee_structure</b>
+        <i class="text-muted">(program, academic_term=None)</i>
+    </p>
+	<div class="docs-attr-desc"><p>Returns Fee Structure.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li><strong><code>program</code></strong> -  Program.</li>
+<li><strong><code>academic_term</code></strong> -  Academic Term.</li>
+</ul>
+</div>
+	<br>
+
+	
+
+	
+        
+    
+    <p><span class="label label-info">Public API</span>
+        <br><code>/api/method/schools.api.get_student_group_students</code>
+    </p>
+	<p class="docs-attr-name">
+        <a name="schools.api.get_student_group_students" href="#schools.api.get_student_group_students" class="text-muted small">
+            <i class="icon-link small" style="color: #ccc;"></i></a>
+		schools.api.<b>get_student_group_students</b>
+        <i class="text-muted">(student_group)</i>
+    </p>
+	<div class="docs-attr-desc"><p>Returns List of student, student_name in Student Group.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li><strong><code>student_group</code></strong> -  Student Group.</li>
+</ul>
+</div>
+	<br>
+
+	
+
+	
+        
+    
+    
+	<p class="docs-attr-name">
+        <a name="schools.api.make_attendance_records" href="#schools.api.make_attendance_records" class="text-muted small">
+            <i class="icon-link small" style="color: #ccc;"></i></a>
+		schools.api.<b>make_attendance_records</b>
+        <i class="text-muted">(student, student_name, course_schedule, status)</i>
+    </p>
+	<div class="docs-attr-desc"><p>Creates Attendance Record.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li><strong><code>student</code></strong> -  Student.</li>
+<li><strong><code>student_name</code></strong> -  Student Name.</li>
+<li><strong><code>course_schedule</code></strong> -  Course Schedule.</li>
+<li><strong><code>status</code></strong> -  Status (Present/Absent)</li>
+</ul>
+</div>
+	<br>
+
+	
+
+	
+        
+    
+    <p><span class="label label-info">Public API</span>
+        <br><code>/api/method/schools.api.mark_attendance</code>
+    </p>
+	<p class="docs-attr-name">
+        <a name="schools.api.mark_attendance" href="#schools.api.mark_attendance" class="text-muted small">
+            <i class="icon-link small" style="color: #ccc;"></i></a>
+		schools.api.<b>mark_attendance</b>
+        <i class="text-muted">(students_present, students_absent, course_schedule)</i>
+    </p>
+	<div class="docs-attr-desc"><p>Creates Multiple Attendance Records.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li><strong><code>students_present</code></strong> -  Students Present JSON.</li>
+<li><strong><code>students_absent</code></strong> -  Students Absent JSON.</li>
+<li><strong><code>course_schedule</code></strong> -  Course Schedule.</li>
+</ul>
+</div>
+	<br>
+
+	
+
+
+
+<!-- autodoc -->

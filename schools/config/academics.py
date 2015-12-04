@@ -18,6 +18,10 @@ def get_data():
 				{
 					"type": "doctype",
 					"name": "Student Applicant"
+				},
+				{
+					"type": "doctype",
+					"name": "Program Enrollment"
 				}
 			]
 		},

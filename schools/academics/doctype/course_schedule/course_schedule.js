@@ -4,7 +4,7 @@ frappe.ui.form.on("Course Schedule" ,{
 	refresh :function(frm) {
 		if(!frm.doc.__islocal) {
 			frappe.call({
-				method: "schools.academics.doctype.course_schedule.course_schedule.check_attendance_records_exist",
+				method: "schools.api.check_attendance_records_exist",
 				args: {
 					"course_schedule": frm.doc.name
 				},
@@ -14,7 +14,7 @@ frappe.ui.form.on("Course Schedule" ,{
 					}
 					else {
 						frappe.call({
-							method: "schools.academics.doctype.student_group.student_group.get_students",
+							method: "schools.api.get_student_group_students",
 							args: {
 								"student_group": frm.doc.student_group
 							},
@@ -99,7 +99,7 @@ schools.StudentsEditor = Class.extend({
 					}
 				});
 				frappe.call({
-					method: "schools.academics.doctype.course_schedule.course_schedule.mark_attendance",
+					method: "schools.api.mark_attendance",
 					args: {
 						"students_present": students_present,
 						"students_absent": students_absent,

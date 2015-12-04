@@ -1,2 +1,3 @@
 schools.__init__
+schools.api
 schools.hooks

@@ -7,7 +7,7 @@
 <div class="dev-header">
 
 <a class="btn btn-default btn-sm" disabled style="margin-bottom: 10px;">
-	Version 0.0.0</a>
+	Version 1.0 beta</a>
 
 
 	<a class="btn btn-default btn-sm" href="https://github.com/frappe/schools/tree/develop/schools/academics/doctype/course_schedule"
@@ -239,7 +239,13 @@
 		<b>get_overlap_for</b>
         <i class="text-muted">(self, fieldname)</i>
     </p>
-	<div class="docs-attr-desc"><p><span class="text-muted">No docs</span></p>
+	<div class="docs-attr-desc"><p>Returns overlaping document for specified feild.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li><strong><code>fieldname</code></strong> -  Checks Overlap for this feild </li>
+</ul>
 </div>
 	<br>
 
@@ -253,7 +259,7 @@
 		<b>set_title</b>
         <i class="text-muted">(self)</i>
     </p>
-	<div class="docs-attr-desc"><p><span class="text-muted">No docs</span></p>
+	<div class="docs-attr-desc"><p>Set document Title</p>
 </div>
 	<br>
 
@@ -281,7 +287,7 @@
 		<b>validate_date</b>
         <i class="text-muted">(self)</i>
     </p>
-	<div class="docs-attr-desc"><p><span class="text-muted">No docs</span></p>
+	<div class="docs-attr-desc"><p>Validates if from<em>time is lesser than system time and from</em>time is greater than to_time</p>
 </div>
 	<br>
 
@@ -295,7 +301,7 @@
 		<b>validate_overlap</b>
         <i class="text-muted">(self)</i>
     </p>
-	<div class="docs-attr-desc"><p><span class="text-muted">No docs</span></p>
+	<div class="docs-attr-desc"><p>Validates overlap for Student Group, Instructor, Room</p>
 </div>
 	<br>
 
@@ -309,7 +315,13 @@
 		<b>validate_overlap_for</b>
         <i class="text-muted">(self, fieldname)</i>
     </p>
-	<div class="docs-attr-desc"><p><span class="text-muted">No docs</span></p>
+	<div class="docs-attr-desc"><p>Checks overlap for specified feild.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li><strong><code>fieldname</code></strong> -  Checks Overlap for this feild </li>
+</ul>
 </div>
 	<br>
 
@@ -331,76 +343,6 @@
         
     </div>
     <hr>
-
-	
-
-	
-        
-    
-    <p><span class="label label-info">Public API</span>
-        <br><code>/api/method/schools.academics.doctype.course_schedule.course_schedule.check_attendance_records_exist</code>
-    </p>
-	<p class="docs-attr-name">
-        <a name="schools.academics.doctype.course_schedule.course_schedule.check_attendance_records_exist" href="#schools.academics.doctype.course_schedule.course_schedule.check_attendance_records_exist" class="text-muted small">
-            <i class="icon-link small" style="color: #ccc;"></i></a>
-		schools.academics.doctype.course_schedule.course_schedule.<b>check_attendance_records_exist</b>
-        <i class="text-muted">(course_schedule)</i>
-    </p>
-	<div class="docs-attr-desc"><p><span class="text-muted">No docs</span></p>
-</div>
-	<br>
-
-	
-
-	
-        
-    
-    <p><span class="label label-info">Public API</span>
-        <br><code>/api/method/schools.academics.doctype.course_schedule.course_schedule.get_events</code>
-    </p>
-	<p class="docs-attr-name">
-        <a name="schools.academics.doctype.course_schedule.course_schedule.get_events" href="#schools.academics.doctype.course_schedule.course_schedule.get_events" class="text-muted small">
-            <i class="icon-link small" style="color: #ccc;"></i></a>
-		schools.academics.doctype.course_schedule.course_schedule.<b>get_events</b>
-        <i class="text-muted">(start, end, filters=None)</i>
-    </p>
-	<div class="docs-attr-desc"><p><span class="text-muted">No docs</span></p>
-</div>
-	<br>
-
-	
-
-	
-        
-    
-    
-	<p class="docs-attr-name">
-        <a name="schools.academics.doctype.course_schedule.course_schedule.make_attendance_records" href="#schools.academics.doctype.course_schedule.course_schedule.make_attendance_records" class="text-muted small">
-            <i class="icon-link small" style="color: #ccc;"></i></a>
-		schools.academics.doctype.course_schedule.course_schedule.<b>make_attendance_records</b>
-        <i class="text-muted">(student, student_name, course_schedule, status)</i>
-    </p>
-	<div class="docs-attr-desc"><p><span class="text-muted">No docs</span></p>
-</div>
-	<br>
-
-	
-
-	
-        
-    
-    <p><span class="label label-info">Public API</span>
-        <br><code>/api/method/schools.academics.doctype.course_schedule.course_schedule.mark_attendance</code>
-    </p>
-	<p class="docs-attr-name">
-        <a name="schools.academics.doctype.course_schedule.course_schedule.mark_attendance" href="#schools.academics.doctype.course_schedule.course_schedule.mark_attendance" class="text-muted small">
-            <i class="icon-link small" style="color: #ccc;"></i></a>
-		schools.academics.doctype.course_schedule.course_schedule.<b>mark_attendance</b>
-        <i class="text-muted">(students_present, students_absent, course_schedule)</i>
-    </p>
-	<div class="docs-attr-desc"><p><span class="text-muted">No docs</span></p>
-</div>
-	<br>
 
 	
 

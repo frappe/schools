@@ -7,7 +7,7 @@
 <div class="dev-header">
 
 <a class="btn btn-default btn-sm" disabled style="margin-bottom: 10px;">
-	Version 0.0.0</a>
+	Version 1.0 beta</a>
 
 
 	<a class="btn btn-default btn-sm" href="https://github.com/frappe/schools/tree/develop/schools/academics/doctype/scheduling_tool"
@@ -369,7 +369,7 @@ Sunday</pre>
 		<b>delete_course_schedule</b>
         <i class="text-muted">(self, rescheduled, reschedule_errors)</i>
     </p>
-	<div class="docs-attr-desc"><p><span class="text-muted">No docs</span></p>
+	<div class="docs-attr-desc"><p>Delete all course schedule within the Date range</p>
 </div>
 	<br>
 
@@ -383,7 +383,13 @@ Sunday</pre>
 		<b>make_course_schedule</b>
         <i class="text-muted">(self, date)</i>
     </p>
-	<div class="docs-attr-desc"><p><span class="text-muted">No docs</span></p>
+	<div class="docs-attr-desc"><p>Makes a new Course Schedule.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+<li><strong><code>date</code></strong> -  Date on which Course Schedule will be created.</li>
+</ul>
 </div>
 	<br>
 
@@ -397,7 +403,7 @@ Sunday</pre>
 		<b>schedule_course</b>
         <i class="text-muted">(self)</i>
     </p>
-	<div class="docs-attr-desc"><p><span class="text-muted">No docs</span></p>
+	<div class="docs-attr-desc"><p>Creates course schedules as per specified parametes</p>
 </div>
 	<br>
 
@@ -411,7 +417,7 @@ Sunday</pre>
 		<b>validate_date</b>
         <i class="text-muted">(self)</i>
     </p>
-	<div class="docs-attr-desc"><p><span class="text-muted">No docs</span></p>
+	<div class="docs-attr-desc"><p>Validates if Course Start Date is lesser than system date and Course Start Date is greater than Course End Date</p>
 </div>
 	<br>
 
