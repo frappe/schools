@@ -29,8 +29,8 @@ class CourseSchedule(Document):
 			frappe.throw("From Time cannot be greater than To Time.")
 	
 	def validate_overlap(self):
-		"""Validates overlap for Student Group, Instructor, Room"""
-		self.validate_overlap_for("student_group")
+		"""Validates overlap for candidate Group, Instructor, Room"""
+		self.validate_overlap_for("candidate_group")
 		self.validate_overlap_for("instructor")
 		self.validate_overlap_for("room")
 

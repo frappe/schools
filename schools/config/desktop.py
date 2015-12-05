@@ -4,10 +4,10 @@ from frappe import _
 
 def get_data():
 	return {
-		"Academics": {
+		"elections": {
 			"color": "grey",
 			"icon": "octicon octicon-mortar-board",
 			"type": "module",
-			"label": _("Academics")
+			"label": _("elections")
 		}
 	}

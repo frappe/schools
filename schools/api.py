@@ -9,24 +9,24 @@ from frappe import _
 from frappe.model.mapper import get_mapped_doc
 
 @frappe.whitelist()
-def enroll_student(source_name):
-	"""Creates a Student Record and returns a Program Enrollment.
+def enroll_candidate(source_name):
+	"""Creates a candidate Record and returns a Program Enrollment.
 
-	:param source_name: Student Applicant.
+	:param source_name: candidate Applicant.
 	"""
-	student = get_mapped_doc("Student Applicant", source_name,
-		{"Student Applicant": {
-			"doctype": "Student",
+	candidate = get_mapped_doc("candidate Applicant", source_name,
+		{"candidate Applicant": {
+			"doctype": "candidate",
 			"field_map": {
-				"name": "student_applicant"
+				"name": "candidate_applicant"
 			}
 		}})
-	student.save()
+	candidate.save()
 	
 	program_enrollment = frappe.new_doc("Program Enrollment")
-	program_enrollment.student = student.name
-	program_enrollment.student_name = student.title
-	program_enrollment.program = frappe.db.get_value("Student Applicant", source_name, "program")
+	program_enrollment.candidate = candidate.name
+	program_enrollment.candidate_name = candidate.title
+	program_enrollment.program = frappe.db.get_value("candidate Applicant", source_name, "program")
 	return program_enrollment
 
 @frappe.whitelist()
@@ -35,60 +35,60 @@ def check_attendance_records_exist(course_schedule):
 
 	:param course_schedule: Course Schedule.
 	"""
-	return frappe.get_list("Student Attendance", filters={"course_schedule": course_schedule})
+	return frappe.get_list("candidate Attendance", filters={"course_schedule": course_schedule})
 
 @frappe.whitelist()
-def mark_attendance(students_present, students_absent, course_schedule):
+def mark_attendance(candidates_present, candidates_absent, course_schedule):
 	"""Creates Multiple Attendance Records.
 
-	:param students_present: Students Present JSON.
-	:param students_absent: Students Absent JSON.
+	:param candidates_present: candidates Present JSON.
+	:param candidates_absent: candidates Absent JSON.
 	:param course_schedule: Course Schedule.
 	"""
-	present = json.loads(students_present)
-	absent = json.loads(students_absent)
+	present = json.loads(candidates_present)
+	absent = json.loads(candidates_absent)
 
 	for d in present:
-		make_attendance_records(d["student"], d["student_name"], course_schedule, "Present")
+		make_attendance_records(d["candidate"], d["candidate_name"], course_schedule, "Present")
 		
 	for d in absent:
-		make_attendance_records(d["student"], d["student_name"], course_schedule, "Absent")
+		make_attendance_records(d["candidate"], d["candidate_name"], course_schedule, "Absent")
 
 	frappe.msgprint(_("Attendance has been marked successfully."))
 
-def make_attendance_records(student, student_name, course_schedule, status):
+def make_attendance_records(candidate, candidate_name, course_schedule, status):
 	"""Creates Attendance Record.
 
-	:param student: Student.
-	:param student_name: Student Name.
+	:param candidate: candidate.
+	:param candidate_name: candidate Name.
 	:param course_schedule: Course Schedule.
 	:param status: Status (Present/Absent)
 	"""
-	student_attendance = frappe.new_doc("Student Attendance")
-	student_attendance.student = student
-	student_attendance.student_name = student_name
-	student_attendance.course_schedule = course_schedule
-	student_attendance.status = status
-	student_attendance.submit()
+	candidate_attendance = frappe.new_doc("candidate Attendance")
+	candidate_attendance.candidate = candidate
+	candidate_attendance.candidate_name = candidate_name
+	candidate_attendance.course_schedule = course_schedule
+	candidate_attendance.status = status
+	candidate_attendance.submit()
 
 @frappe.whitelist()
-def get_student_group_students(student_group):
-	"""Returns List of student, student_name in Student Group.
+def get_candidate_group_candidates(candidate_group):
+	"""Returns List of candidate, candidate_name in candidate Group.
 
-	:param student_group: Student Group.
+	:param candidate_group: candidate Group.
 	"""
-	students = frappe.get_list("Student Group Student", fields=["student", "student_name"] , filters={"parent": student_group}, order_by= "idx")
-	return students
+	candidates = frappe.get_list("candidate Group candidate", fields=["candidate", "candidate_name"] , filters={"parent": candidate_group}, order_by= "idx")
+	return candidates
 	
 @frappe.whitelist()
-def get_fee_structure(program, academic_term=None):
+def get_fee_structure(program, Election_term=None):
 	"""Returns Fee Structure.
 
 	:param program: Program.
-	:param academic_term: Academic Term.
+	:param Election_term: Election Term.
 	"""
 	fee_structure = frappe.db.get_values("Fee Structure", {"program": program,
-		"academic_term": academic_term}, 'name', as_dict=True)
+		"Election_term": Election_term}, 'name', as_dict=True)
 	return fee_structure[0].name if fee_structure else None
 	
 
@@ -112,7 +112,7 @@ def get_course_schedule_events(start, end, filters=None):
 	from frappe.desk.calendar import get_event_conditions
 	conditions = get_event_conditions("Course Schedule", filters)
 
-	data = frappe.db.sql("""select name, title, from_time, to_time, room, student_group
+	data = frappe.db.sql("""select name, title, from_time, to_time, room, candidate_group
 		from `tabCourse Schedule`
 		where ( from_time between %(start)s and %(end)s or to_time between %(start)s and %(end)s )
 		{conditions}""".format(conditions=conditions), {
@@ -121,6 +121,6 @@ def get_course_schedule_events(start, end, filters=None):
 			}, as_dict=True, update={"allDay": 0})
 	
 	for d in data:
-		d.title += " \n for " + d.student_group + " in Room "+ d.room
+		d.title += " \n for " + d.candidate_group + " in Room "+ d.room
 
 	return data

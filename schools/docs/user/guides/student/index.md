@@ -1,8 +1,8 @@
-# Student
+# candidate
 
-This section contains student related documents.
+This section contains candidate related documents.
 
-<img class="screenshot" alt="Student Section" src="{{url_prefix}}/assets/img/student/student-section.png">
+<img class="screenshot" alt="candidate Section" src="{{url_prefix}}/assets/img/candidate/candidate-section.png">
 
 ### Topics
 

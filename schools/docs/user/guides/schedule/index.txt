@@ -1,4 +1,4 @@
 course-schedule
-student-attendance
+candidate-attendance
 scheduling-tool
 examination

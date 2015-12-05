@@ -41,20 +41,20 @@
         
     
     <p><span class="label label-info">Public API</span>
-        <br><code>/api/method/schools.api.enroll_student</code>
+        <br><code>/api/method/schools.api.enroll_candidate</code>
     </p>
 	<p class="docs-attr-name">
-        <a name="schools.api.enroll_student" href="#schools.api.enroll_student" class="text-muted small">
+        <a name="schools.api.enroll_candidate" href="#schools.api.enroll_candidate" class="text-muted small">
             <i class="icon-link small" style="color: #ccc;"></i></a>
-		schools.api.<b>enroll_student</b>
+		schools.api.<b>enroll_candidate</b>
         <i class="text-muted">(source_name)</i>
     </p>
-	<div class="docs-attr-desc"><p>Creates a Student Record and returns a Program Enrollment.</p>
+	<div class="docs-attr-desc"><p>Creates a candidate Record and returns a Program Enrollment.</p>
 
 <p><strong>Parameters:</strong></p>
 
 <ul>
-<li><strong><code>source_name</code></strong> -  Student Applicant.</li>
+<li><strong><code>source_name</code></strong> -  candidate Applicant.</li>
 </ul>
 </div>
 	<br>
@@ -121,7 +121,7 @@
         <a name="schools.api.get_fee_structure" href="#schools.api.get_fee_structure" class="text-muted small">
             <i class="icon-link small" style="color: #ccc;"></i></a>
 		schools.api.<b>get_fee_structure</b>
-        <i class="text-muted">(program, academic_term=None)</i>
+        <i class="text-muted">(program, Election_term=None)</i>
     </p>
 	<div class="docs-attr-desc"><p>Returns Fee Structure.</p>
 
@@ -129,7 +129,7 @@
 
 <ul>
 <li><strong><code>program</code></strong> -  Program.</li>
-<li><strong><code>academic_term</code></strong> -  Academic Term.</li>
+<li><strong><code>Election_term</code></strong> -  Election Term.</li>
 </ul>
 </div>
 	<br>
@@ -140,20 +140,20 @@
         
     
     <p><span class="label label-info">Public API</span>
-        <br><code>/api/method/schools.api.get_student_group_students</code>
+        <br><code>/api/method/schools.api.get_candidate_group_candidates</code>
     </p>
 	<p class="docs-attr-name">
-        <a name="schools.api.get_student_group_students" href="#schools.api.get_student_group_students" class="text-muted small">
+        <a name="schools.api.get_candidate_group_candidates" href="#schools.api.get_candidate_group_candidates" class="text-muted small">
             <i class="icon-link small" style="color: #ccc;"></i></a>
-		schools.api.<b>get_student_group_students</b>
-        <i class="text-muted">(student_group)</i>
+		schools.api.<b>get_candidate_group_candidates</b>
+        <i class="text-muted">(candidate_group)</i>
     </p>
-	<div class="docs-attr-desc"><p>Returns List of student, student_name in Student Group.</p>
+	<div class="docs-attr-desc"><p>Returns List of candidate, candidate_name in candidate Group.</p>
 
 <p><strong>Parameters:</strong></p>
 
 <ul>
-<li><strong><code>student_group</code></strong> -  Student Group.</li>
+<li><strong><code>candidate_group</code></strong> -  candidate Group.</li>
 </ul>
 </div>
 	<br>
@@ -168,15 +168,15 @@
         <a name="schools.api.make_attendance_records" href="#schools.api.make_attendance_records" class="text-muted small">
             <i class="icon-link small" style="color: #ccc;"></i></a>
 		schools.api.<b>make_attendance_records</b>
-        <i class="text-muted">(student, student_name, course_schedule, status)</i>
+        <i class="text-muted">(candidate, candidate_name, course_schedule, status)</i>
     </p>
 	<div class="docs-attr-desc"><p>Creates Attendance Record.</p>
 
 <p><strong>Parameters:</strong></p>
 
 <ul>
-<li><strong><code>student</code></strong> -  Student.</li>
-<li><strong><code>student_name</code></strong> -  Student Name.</li>
+<li><strong><code>candidate</code></strong> -  candidate.</li>
+<li><strong><code>candidate_name</code></strong> -  candidate Name.</li>
 <li><strong><code>course_schedule</code></strong> -  Course Schedule.</li>
 <li><strong><code>status</code></strong> -  Status (Present/Absent)</li>
 </ul>
@@ -195,15 +195,15 @@
         <a name="schools.api.mark_attendance" href="#schools.api.mark_attendance" class="text-muted small">
             <i class="icon-link small" style="color: #ccc;"></i></a>
 		schools.api.<b>mark_attendance</b>
-        <i class="text-muted">(students_present, students_absent, course_schedule)</i>
+        <i class="text-muted">(candidates_present, candidates_absent, course_schedule)</i>
     </p>
 	<div class="docs-attr-desc"><p>Creates Multiple Attendance Records.</p>
 
 <p><strong>Parameters:</strong></p>
 
 <ul>
-<li><strong><code>students_present</code></strong> -  Students Present JSON.</li>
-<li><strong><code>students_absent</code></strong> -  Students Absent JSON.</li>
+<li><strong><code>candidates_present</code></strong> -  candidates Present JSON.</li>
+<li><strong><code>candidates_absent</code></strong> -  candidates Absent JSON.</li>
 <li><strong><code>course_schedule</code></strong> -  Course Schedule.</li>
 </ul>
 </div>

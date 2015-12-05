@@ -1,7 +1,7 @@
 [
 	{
 		"first_name": "_Test",
-		"middle_name": "Student",
+		"middle_name": "candidate",
 		"last_name": "Name",
 		"program": "_Test Program",
 		"date_of_birth": "2000-01-01",
@@ -11,7 +11,7 @@
 	},
 	{
 		"first_name": "_Test",
-		"middle_name": "Student",
+		"middle_name": "candidate",
 		"last_name": "Name 1",
 		"program": "_Test Program",
 		"date_of_birth": "2000-01-01",
@@ -21,7 +21,7 @@
 	},
 	{
 		"first_name": "_Test",
-		"middle_name": "Student",
+		"middle_name": "candidate",
 		"last_name": "Name 2",
 		"program": "_Test Program",
 		"date_of_birth": "2000-01-01",

@@ -4,20 +4,20 @@ from frappe import _
 def get_data():
 	return [
 		{
-			"label": _("Student"),
+			"label": _("candidate"),
 			"items": [
 				
 				{
 					"type": "doctype",
-					"name": "Student"
+					"name": "candidate"
 				},
 				{
 					"type": "doctype",
-					"name": "Student Group"
+					"name": "candidate Group"
 				},
 				{
 					"type": "doctype",
-					"name": "Student Applicant"
+					"name": "candidate Applicant"
 				},
 				{
 					"type": "doctype",
@@ -52,7 +52,7 @@ def get_data():
 				},
 				{
 					"type": "doctype",
-					"name": "Student Attendance"
+					"name": "candidate Attendance"
 				},
 				{
 					"type": "doctype",
@@ -85,11 +85,11 @@ def get_data():
 				},
 				{
 					"type": "doctype",
-					"name": "Academic Term"
+					"name": "Election Term"
 				},
 				{
 					"type": "doctype",
-					"name": "Academic Year"
+					"name": "Election Year"
 				}
 			]
 		},

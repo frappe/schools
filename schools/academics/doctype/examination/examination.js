@@ -1,21 +1,21 @@
-cur_frm.add_fetch("student_group", "course", "course");
-cur_frm.add_fetch("student", "title", "student_name");
+cur_frm.add_fetch("candidate_group", "course", "course");
+cur_frm.add_fetch("candidate", "title", "candidate_name");
 
 frappe.ui.form.on("Examination" ,{
-	student_group : function(frm) {
+	candidate_group : function(frm) {
 		frm.set_value("results" ,"");
-		if (frm.doc.student_group) {
+		if (frm.doc.candidate_group) {
 			frappe.call({
-				method: "schools.academics.doctype.student_group.student_group.get_students",
+				method: "schools.elections.doctype.candidate_group.candidate_group.get_candidates",
 				args: {
-					"student_group": frm.doc.student_group
+					"candidate_group": frm.doc.candidate_group
 				},
 				callback: function(r) {
 					if (r.message) {
 						$.each(r.message, function(i, d) {
 							var row = frappe.model.add_child(cur_frm.doc, "Examination Result", "results");
-							row.student = d.student;
-							row.student_name = d.student_name;
+							row.candidate = d.candidate;
+							row.candidate_name = d.candidate_name;
 						});
 					}
 					refresh_field("results");

@@ -1,16 +1,16 @@
 [
 	{
-		"group_name": "_Test Student Group",
+		"group_name": "_Test candidate Group",
 		"program": "_Test Program",
 		"course": "_Test Course",
-		"academic_year": "2014-2015",
-		"academic_term": "_Test Academic Term"
+		"Election_year": "2014-2015",
+		"Election_term": "_Test Election Term"
 	},
 	{
-		"group_name": "_Test Student Group 1",
+		"group_name": "_Test candidate Group 1",
 		"program": "_Test Program",
 		"course": "_Test Course 2",
-		"academic_year": "2014-2015",
-		"academic_term": "_Test Academic Term"
+		"Election_year": "2014-2015",
+		"Election_term": "_Test Election Term"
 	}
 ]

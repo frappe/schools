@@ -14,13 +14,13 @@ frappe.ui.form.on("Course Schedule" ,{
 					}
 					else {
 						frappe.call({
-							method: "schools.api.get_student_group_students",
+							method: "schools.api.get_candidate_group_candidates",
 							args: {
-								"student_group": frm.doc.student_group
+								"candidate_group": frm.doc.candidate_group
 							},
 							callback: function(r) {
 								if (r.message) {
-									frm.events.get_students(frm, r.message)
+									frm.events.get_candidates(frm, r.message)
 								}
 							}
 						});
@@ -36,36 +36,36 @@ frappe.ui.form.on("Course Schedule" ,{
 			frappe.route_options = {
 				course_schedule: frm.doc.name
 			}
-			frappe.set_route("List", "Student Attendance");
+			frappe.set_route("List", "candidate Attendance");
 		});
 	},
 	
-	get_students: function(frm, students) {
-		if(!frm.students_area) {
-		frm.students_area = $('<div>')
-			.appendTo(frm.fields_dict.students_html.wrapper);
+	get_candidates: function(frm, candidates) {
+		if(!frm.candidates_area) {
+		frm.candidates_area = $('<div>')
+			.appendTo(frm.fields_dict.candidates_html.wrapper);
 		}
-		frm.students_editor = new schools.StudentsEditor(frm, frm.students_area, students)
+		frm.candidates_editor = new schools.candidatesEditor(frm, frm.candidates_area, candidates)
 	}
 });
 
 
-schools.StudentsEditor = Class.extend({
-	init: function(frm, wrapper, students) {
+schools.candidatesEditor = Class.extend({
+	init: function(frm, wrapper, candidates) {
 		this.wrapper = wrapper;
 		this.frm = frm;
-		this.make(frm, students);
+		this.make(frm, candidates);
 	},
-	make: function(frm, students) {
+	make: function(frm, candidates) {
 		var me = this;
 		
 		$(this.wrapper).empty();
-		var student_toolbar = $('<p>\
+		var candidate_toolbar = $('<p>\
 			<button class="btn btn-default btn-add btn-xs" style="margin-right: 5px;"></button>\
 			<button class="btn btn-xs btn-default btn-remove" style="margin-right: 5px;"></button>\
 			<button class="btn btn-default btn-primary btn-mark-att btn-xs"></button></p>').appendTo($(this.wrapper));
 
-		student_toolbar.find(".btn-add")
+		candidate_toolbar.find(".btn-add")
 			.html(__('Check all'))
 			.on("click", function() {
 			$(me.wrapper).find('input[type="checkbox"]').each(function(i, check) {
@@ -75,7 +75,7 @@ schools.StudentsEditor = Class.extend({
 			});
 		});
 
-		student_toolbar.find(".btn-remove")
+		candidate_toolbar.find(".btn-remove")
 			.html(__('Uncheck all'))
 			.on("click", function() {
 			$(me.wrapper).find('input[type="checkbox"]').each(function(i, check) {
@@ -85,24 +85,24 @@ schools.StudentsEditor = Class.extend({
 			});
 		});
 		
-		student_toolbar.find(".btn-mark-att")
+		candidate_toolbar.find(".btn-mark-att")
 			.html(__('Mark Attendence'))
 			.on("click", function() {
-				var students_present = [];
-				var students_absent = [];
+				var candidates_present = [];
+				var candidates_absent = [];
 				$(me.wrapper).find('input[type="checkbox"]').each(function(i, check) {
 					if($(check).is(":checked")) {
-						students_present.push(students[i]);
+						candidates_present.push(candidates[i]);
 					}
 					else {
-						students_absent.push(students[i]);
+						candidates_absent.push(candidates[i]);
 					}
 				});
 				frappe.call({
 					method: "schools.api.mark_attendance",
 					args: {
-						"students_present": students_present,
-						"students_absent": students_absent,
+						"candidates_present": candidates_present,
+						"candidates_absent": candidates_absent,
 						"course_schedule": frm.doc.name
 					},
 					callback: function(r) {
@@ -112,12 +112,12 @@ schools.StudentsEditor = Class.extend({
 		});
 
 		
-		$.each(students, function(i, m) {
+		$.each(candidates, function(i, m) {
 			$(repl('<div class="col-sm-6">\
 				<div class="checkbox">\
-				<label><input type="checkbox" class="students-check" student="%(student)s">\
-				%(student)s</label>\
-			</div></div>', {student: m.student_name})).appendTo(me.wrapper);
+				<label><input type="checkbox" class="candidates-check" candidate="%(candidate)s">\
+				%(candidate)s</label>\
+			</div></div>', {candidate: m.candidate_name})).appendTo(me.wrapper);
 		});
 	}
 })

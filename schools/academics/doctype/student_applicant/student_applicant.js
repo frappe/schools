@@ -1,4 +1,4 @@
-frappe.ui.form.on("Student Applicant", {
+frappe.ui.form.on("candidate Applicant", {
 	refresh: function(frm) {
 		if(frm.doc.application_status== "Approved" && frm.doc.docstatus== 1 ) {
 			frm.add_custom_button(__("Enroll"), function() {
@@ -9,7 +9,7 @@ frappe.ui.form.on("Student Applicant", {
 	
 	enroll: function(frm) {
 		frappe.model.open_mapped_doc({
-			method: "schools.api.enroll_student",
+			method: "schools.api.enroll_candidate",
 			frm: frm
 		})
 	}
