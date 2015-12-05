@@ -1,4 +1,4 @@
-#ERP for Elections Management
+#Elections Management System
 [![Build Status](https://travis-ci.org/frappe/schools.png)](https://travis-ci.org/frappe/schools) [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/frappe/erpnext?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 ---
 Frappé Elections is built on the [Frappé](https://github.com/frappe/frappe) Framework, a full-stack web app framework in Python & JavaScript.
