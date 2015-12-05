@@ -18,8 +18,8 @@ New passwords will be created for the ERPNext "Administrator" user, the MariaDB 
 Once you install ERPNext run -
 
 ```
-$ bench get-app schools https://github.com/frappe/schools
-$ bench install-app schools
+$ bench get-app schools https://github.com/BrandonNetsmith/elections
+$ bench install-app elections
 ```
 
 #### License
