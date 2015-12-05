@@ -1,29 +1,29 @@
-frappe.ui.form.on("candidate", "refresh", function(frm) {
+frappe.ui.form.on("Student", "refresh", function(frm) {
 	if(!cur_frm.doc.__islocal) {
-		frm.add_custom_button(__("candidate Groups"), function() {
+		frm.add_custom_button(__("Student Groups"), function() {
 			frappe.route_options = {
-				"candidate Group candidate.candidate": frm.doc.name
+				"Student Group Student.student": frm.doc.name
 			}
-			frappe.set_route("List", "candidate Group");
+			frappe.set_route("List", "Student Group");
 		});
 		
 		frm.add_custom_button(__("Fees"), function() {
 			frappe.route_options = {
-				candidate: frm.doc.name
+				student: frm.doc.name
 			}
 			frappe.set_route("List", "Fees");
 		});
 		
 		frm.add_custom_button(__("Attendance"), function() {
 			frappe.route_options = {
-				candidate: frm.doc.name
+				student: frm.doc.name
 			}
-			frappe.set_route("List", "candidate Attendance");
+			frappe.set_route("List", "Student Attendance");
 		});	
 		
 		frm.add_custom_button(__("Examination"), function() {
 			frappe.route_options = {
-				"Examination Result.candidate": frm.doc.name
+				"Examination Result.student": frm.doc.name
 			}
 			frappe.set_route("List", "Examination");
 		});	

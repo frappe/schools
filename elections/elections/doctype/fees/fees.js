@@ -1,5 +1,5 @@
-cur_frm.add_fetch("candidate", "title", "candidate_name");
-cur_frm.add_fetch("candidate", "program", "program");
+cur_frm.add_fetch("student", "title", "student_name");
+cur_frm.add_fetch("student", "program", "program");
 
 frappe.ui.form.on("Fees", {
 	program: function(frm) {
@@ -7,7 +7,7 @@ frappe.ui.form.on("Fees", {
 			method: "schools.api.get_fee_structure",
 			args: {
 				"program": frm.doc.program,
-				"Election_term": frm.doc.Election_term
+				"academic_term": frm.doc.academic_term
 			},
 			callback: function(r) {
 				if(r.message) {
@@ -17,7 +17,7 @@ frappe.ui.form.on("Fees", {
 		});
 	},
 
-	Election_term: function() {
+	academic_term: function() {
 		frappe.ui.form.trigger("Fees", "program");
 	},
 

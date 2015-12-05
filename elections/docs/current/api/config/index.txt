@@ -1,4 +1,4 @@
-schools.config.elections
+schools.config.academics
 schools.config.desktop
 schools.config.docs
 schools.config

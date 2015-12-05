@@ -1,3 +1,3 @@
-# elections
+# Academics
 
 {index}

@@ -8,7 +8,7 @@ import calendar
 from frappe import _
 from frappe.model.document import Document
 from frappe.utils import add_days, getdate, get_datetime, today
-from schools.elections.doctype.course_schedule.course_schedule import OverlapError
+from schools.academics.doctype.course_schedule.course_schedule import OverlapError
 
 class SchedulingTool(Document):
 	def schedule_course(self):
@@ -73,7 +73,7 @@ class SchedulingTool(Document):
 		:param date: Date on which Course Schedule will be created."""
 		
 		course_schedule = frappe.new_doc("Course Schedule")
-		course_schedule.candidate_group = self.candidate_group
+		course_schedule.student_group = self.student_group
 		course_schedule.course = self.course
 		course_schedule.instructor = self.instructor
 		course_schedule.instructor_name = self.instructor_name

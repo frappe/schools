@@ -2,5 +2,5 @@ course
 program
 instructor
 room
-Election-term
-Election-year
+academic-term
+academic-year

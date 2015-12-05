@@ -1,6 +1,6 @@
-cur_frm.add_fetch("candidate_group", "program", "program");
-cur_frm.add_fetch("candidate_group", "Election_year", "Election_year");
-cur_frm.add_fetch("candidate_group", "Election_term", "Election_term");
+cur_frm.add_fetch("student_group", "program", "program");
+cur_frm.add_fetch("student_group", "academic_year", "academic_year");
+cur_frm.add_fetch("student_group", "academic_term", "academic_term");
 
 frappe.ui.form.on("Scheduling Tool", "refresh", function(frm) {
 	frm.disable_save();

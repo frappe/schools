@@ -1,4 +1,4 @@
-candidate
+student
 fees
 schedule
 setup

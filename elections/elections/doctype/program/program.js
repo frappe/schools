@@ -5,25 +5,25 @@ cur_frm.add_fetch("course", "course_code", "course_code");
 
 frappe.ui.form.on("Program", "refresh", function(frm) {
 	if(!frm.doc.__islocal) {
-		frm.add_custom_button(__("candidate Applicant"), function() {
+		frm.add_custom_button(__("Student Applicant"), function() {
 			frappe.route_options = {
 				program: frm.doc.name
 			}
-			frappe.set_route("List", "candidate Applicant");
+			frappe.set_route("List", "Student Applicant");
 		});
 		
-		frm.add_custom_button(__("candidate"), function() {
+		frm.add_custom_button(__("Student"), function() {
 			frappe.route_options = {
 				program: frm.doc.name
 			}
-			frappe.set_route("List", "candidate");
+			frappe.set_route("List", "Student");
 		});
 		
-		frm.add_custom_button(__("candidate Group"), function() {
+		frm.add_custom_button(__("Student Group"), function() {
 			frappe.route_options = {
 				program: frm.doc.name
 			}
-			frappe.set_route("List", "candidate Group");
+			frappe.set_route("List", "Student Group");
 		});
 		
 		frm.add_custom_button(__("Fee Structure"), function() {

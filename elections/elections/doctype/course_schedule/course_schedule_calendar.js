@@ -10,9 +10,9 @@ frappe.views.calendar["Course Schedule"] = {
 	filters: [
 		{
 			"fieldtype": "Link",
-			"fieldname": "candidate_group",
-			"options": "candidate Group",
-			"label": __("candidate Group")
+			"fieldname": "student_group",
+			"options": "Student Group",
+			"label": __("Student Group")
 		},
 		{
 			"fieldtype": "Link",

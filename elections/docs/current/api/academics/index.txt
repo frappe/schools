@@ -1,1 +1,1 @@
-schools.elections
+schools.academics

@@ -7,12 +7,12 @@ You can see the course schedules in the Calendar view.
 
 ### Marking Attendance
 
-You can mark attendance for a candidate Group against a Course Schedule.
+You can mark attendance for a Student Group against a Course Schedule.
 
 <img class="screenshot" alt="Course Schedule Attendance" src="{{url_prefix}}/assets/img/schedule/course-schedule-att.png">
 
 - To make attendance, expand the attendance section.
-- Check the candidates who were present for that session.
+- Check the students who were present for that session.
 - Click on 'Mark Attendance'. The system will create the Attendance records.
 
 ###View Attendance

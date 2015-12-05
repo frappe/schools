@@ -1,4 +1,4 @@
-frappe.listview_settings['candidate Applicant'] = {
+frappe.listview_settings['Student Applicant'] = {
 	add_fields: [ "application_status"],
 	get_indicator: function(doc) {
 		if (doc.application_status=="Applied") {

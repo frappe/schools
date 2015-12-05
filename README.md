@@ -7,7 +7,7 @@ Requires [EPRNext](https://github.com/frappe/erpnext),
 
 Read the User and Developer Documentation at https://frappe.github.io/schools
 
-![candidate](schools/public/candidate.png)
+![Student](schools/public/student.png)
 
 ### Full Install
 
