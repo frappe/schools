@@ -10,6 +10,7 @@ frappe.ui.form.on("Course Schedule" ,{
 				},
 				callback: function(r) {
 					if(r.message) {
+						hide_field('attendance');
 						frm.events.view_attendance(frm)
 					}
 					else {
@@ -28,10 +29,12 @@ frappe.ui.form.on("Course Schedule" ,{
 				}
 			});
 		}
+		else {
+			hide_field('attendance');
+		}
 	},
 	
 	view_attendance: function(frm) {
-		hide_field('attendance');
 		frm.add_custom_button(__("View attendance"), function() {
 			frappe.route_options = {
 				course_schedule: frm.doc.name
