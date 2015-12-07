@@ -1,11 +1,15 @@
+<<<<<<< HEAD
 #Elections Management System
+=======
+#ERP for Schools, Colleges & Educational Institutes
+>>>>>>> parent of ff90a53... Update README.md
 [![Build Status](https://travis-ci.org/frappe/schools.png)](https://travis-ci.org/frappe/schools) [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/frappe/erpnext?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 ---
-Frappé Elections is built on the [Frappé](https://github.com/frappe/frappe) Framework, a full-stack web app framework in Python & JavaScript.
+Frappé Schools is built on the [Frappé](https://github.com/frappe/frappe) Framework, a full-stack web app framework in Python & JavaScript.
 
 Requires [EPRNext](https://github.com/frappe/erpnext), 
 
-Read the User and Developer Documentation at https://github.com/BrandonNetSmith/elections/
+Read the User and Developer Documentation at https://frappe.github.io/schools
 
 ![Student](schools/public/student.png)
 
