@@ -6,7 +6,7 @@ frappe.ui.form.on("Examination" ,{
 		frm.set_value("results" ,"");
 		if (frm.doc.student_group) {
 			frappe.call({
-				method: "schools.academics.doctype.student_group.student_group.get_students",
+				method: "schools.api.get_student_group_students",
 				args: {
 					"student_group": frm.doc.student_group
 				},
