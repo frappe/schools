@@ -1,4 +1,6 @@
 cur_frm.add_fetch("student_group", "course", "course");
+cur_frm.add_fetch("examiner", "instructor_name", "examiner_name");
+cur_frm.add_fetch("supervisor", "instructor_name", "supervisor_name");
 cur_frm.add_fetch("student", "title", "student_name");
 
 frappe.ui.form.on("Examination" ,{
@@ -6,7 +8,7 @@ frappe.ui.form.on("Examination" ,{
 		frm.set_value("results" ,"");
 		if (frm.doc.student_group) {
 			frappe.call({
-				method: "schools.academics.doctype.student_group.student_group.get_students",
+				method: "schools.api.get_student_group_students",
 				args: {
 					"student_group": frm.doc.student_group
 				},

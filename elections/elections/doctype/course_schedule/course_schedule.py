@@ -4,11 +4,7 @@
 
 from __future__ import unicode_literals
 import frappe
-from frappe import _
 from frappe.model.document import Document
-from frappe.utils import now, get_datetime
-
-class OverlapError(frappe.ValidationError): pass
 
 class CourseSchedule(Document):
 	def validate(self):
@@ -22,49 +18,19 @@ class CourseSchedule(Document):
 		self.title = self.course + " by " + (self.instructor_name if self.instructor_name else self.instructor)
 
 	def validate_date(self):
-		"""Validates if from_time is lesser than system time and from_time is greater than to_time"""
-		if get_datetime(self.from_time) < get_datetime(now()):
-			frappe.throw("From Time cannot be lesser than System Time.")
-		elif self.from_time > self.to_time:
+		"""Validates if from_time is greater than to_time"""
+		if self.from_time > self.to_time:
 			frappe.throw("From Time cannot be greater than To Time.")
 	
 	def validate_overlap(self):
 		"""Validates overlap for Student Group, Instructor, Room"""
-		self.validate_overlap_for("student_group")
-		self.validate_overlap_for("instructor")
-		self.validate_overlap_for("room")
-
-	def validate_overlap_for(self, fieldname):
-		"""Checks overlap for specified feild.
 		
-		:param fieldname: Checks Overlap for this feild 
-		"""
-		existing = self.get_overlap_for(fieldname)
-		if existing:
-			frappe.throw(_("This Course Schedule conflicts with {0} for {1} {2}").format(existing.name,
-				self.meta.get_label(fieldname), self.get(fieldname)), OverlapError)
-		
-	def get_overlap_for(self, fieldname):
-		"""Returns overlaping document for specified feild.
-		
-		:param fieldname: Checks Overlap for this feild 
-		"""
-		if not self.get(fieldname):
-			return
+		from schools.utils import validate_overlap_for
 
-		existing = frappe.db.sql("""select name, from_time, to_time from `tabCourse Schedule`
-			where `{0}`=%(val)s and
-			(
-				(from_time > %(from_time)s and from_time < %(to_time)s) or
-				(to_time > %(from_time)s and to_time < %(to_time)s) or
-				(%(from_time)s > from_time and %(from_time)s < to_time) or
-				(%(from_time)s = from_time and %(to_time)s = to_time))
-			and name!=%(name)s""".format(fieldname),
-			{
-				"val": self.get(fieldname),
-				"from_time": self.from_time,
-				"to_time": self.to_time,
-				"name": self.name or "No Name"
-			}, as_dict=True)
+		validate_overlap_for(self, "Course Schedule", "student_group" )
+		validate_overlap_for(self, "Course Schedule", "instructor")
+		validate_overlap_for(self, "Course Schedule", "room")
 
-		return existing[0] if existing else None
+		validate_overlap_for(self, "Examination", "student_group")
+		validate_overlap_for(self, "Examination", "room")
+		validate_overlap_for(self, "Examination", "supervisor", self.instructor)

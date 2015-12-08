@@ -7,17 +7,19 @@ import frappe
 import calendar
 from frappe import _
 from frappe.model.document import Document
-from frappe.utils import add_days, getdate, get_datetime, today
-from schools.academics.doctype.course_schedule.course_schedule import OverlapError
+from frappe.utils import add_days, getdate
+from schools.utils import OverlapError
 
 class SchedulingTool(Document):
 	def schedule_course(self):
 		"""Creates course schedules as per specified parametes"""
+		
 		course_schedules= []
 		course_schedules_errors= []
 		rescheduled= []
 		reschedule_errors= []
 		
+		self.validate_mandatory()
 		self.validate_date()
 		
 		if self.rechedule:
@@ -48,22 +50,29 @@ class SchedulingTool(Document):
 		if reschedule_errors:
 			frappe.msgprint(_("There were errors while deleting following schedules:") + "\n" + "\n".join(reschedule_errors))
 			
-			
+	def validate_mandatory(self):
+		"""Validates all mandatory fields"""
+		fields = ['student_group', 'room', 'instructor', 'from_time', 'to_time', 'course_start_date', 'course_end_date', 'day']
+		for d in  fields:
+			if not self.get(d):
+				frappe.throw(_("{0} is mandatory").format(self.meta.get_label(d)))	
+
 	def validate_date(self):
-		"""Validates if Course Start Date is lesser than system date and Course Start Date is greater than Course End Date"""
-		if getdate(self.course_start_date) < getdate(today()):
-			frappe.throw("Course Start Date cannot be lesser than Today.")
-		elif self.course_start_date > self.course_end_date:
+		"""Validates if Course Start Date is greater than Course End Date"""
+		if self.course_start_date > self.course_end_date:
 			frappe.throw("Course Start Date cannot be greater than Course End Date.")
 
 	def delete_course_schedule(self, rescheduled, reschedule_errors):
-		"""Delete all course schedule within the Date range"""
-		schedules = frappe.get_list("Course Schedule", filters = [["from_time", ">=", self.course_start_date], 
-			["to_time", "<=", self.course_end_date]])
+		"""Delete all course schedule within the Date range and specified filters"""
+		schedules = frappe.get_list("Course Schedule", fields=["name", "schedule_date"], filters = 
+			[["student_group", "=", self.student_group],
+			["schedule_date", ">=", self.course_start_date], 
+			["schedule_date", "<=", self.course_end_date]])
 		for d in schedules:
 			try:
-				frappe.delete_doc("Course Schedule", d.name)
-				rescheduled.append(d.name)
+				if self.day == calendar.day_name[getdate(d.schedule_date).weekday()]:
+					frappe.delete_doc("Course Schedule", d.name)
+					rescheduled.append(d.name)
 			except:
 				reschedule_errors.append(d.name)
 		return rescheduled, reschedule_errors
@@ -78,6 +87,7 @@ class SchedulingTool(Document):
 		course_schedule.instructor = self.instructor
 		course_schedule.instructor_name = self.instructor_name
 		course_schedule.room = self.room
-		course_schedule.from_time=  get_datetime(date + " " + self.from_time)
-		course_schedule.to_time=  get_datetime(date + " " + self.to_time)
+		course_schedule.schedule_date= date
+		course_schedule.from_time= self.from_time
+		course_schedule.to_time= self.to_time
 		return course_schedule

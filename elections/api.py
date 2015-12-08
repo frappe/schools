@@ -6,6 +6,7 @@ from __future__ import unicode_literals
 import frappe
 import json
 from frappe import _
+from frappe.utils import cstr
 from frappe.model.mapper import get_mapped_doc
 
 @frappe.whitelist()
@@ -112,15 +113,19 @@ def get_course_schedule_events(start, end, filters=None):
 	from frappe.desk.calendar import get_event_conditions
 	conditions = get_event_conditions("Course Schedule", filters)
 
-	data = frappe.db.sql("""select name, title, from_time, to_time, room, student_group
+	data = frappe.db.sql("""select name, title, schedule_date, from_time, to_time, room, student_group
 		from `tabCourse Schedule`
-		where ( from_time between %(start)s and %(end)s or to_time between %(start)s and %(end)s )
+		where ( schedule_date between %(start)s and %(end)s )
 		{conditions}""".format(conditions=conditions), {
 			"start": start,
 			"end": end
 			}, as_dict=True, update={"allDay": 0})
 	
+	
 	for d in data:
+		print d.schedule_date
 		d.title += " \n for " + d.student_group + " in Room "+ d.room
+		d.from_time = cstr(d.schedule_date) + " " + cstr(d.from_time)
+		d.to_time = cstr(d.schedule_date) + " " + cstr(d.to_time)
 
 	return data
