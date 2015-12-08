@@ -35,6 +35,7 @@ frappe.ui.form.on("Course Schedule" ,{
 	},
 	
 	view_attendance: function(frm) {
+		hide_field('attendance');
 		frm.add_custom_button(__("View attendance"), function() {
 			frappe.route_options = {
 				course_schedule: frm.doc.name

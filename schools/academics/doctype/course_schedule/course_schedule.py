@@ -6,7 +6,6 @@ from __future__ import unicode_literals
 import frappe
 from frappe import _
 from frappe.model.document import Document
-from frappe.utils import now, get_datetime
 
 class OverlapError(frappe.ValidationError): pass
 
@@ -22,10 +21,8 @@ class CourseSchedule(Document):
 		self.title = self.course + " by " + (self.instructor_name if self.instructor_name else self.instructor)
 
 	def validate_date(self):
-		"""Validates if from_time is lesser than system time and from_time is greater than to_time"""
-		if get_datetime(self.from_time) < get_datetime(now()):
-			frappe.throw("From Time cannot be lesser than System Time.")
-		elif self.from_time > self.to_time:
+		"""Validates if from_time is greater than to_time"""
+		if self.from_time > self.to_time:
 			frappe.throw("From Time cannot be greater than To Time.")
 	
 	def validate_overlap(self):

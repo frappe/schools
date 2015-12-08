@@ -7,7 +7,7 @@ import frappe
 import calendar
 from frappe import _
 from frappe.model.document import Document
-from frappe.utils import add_days, getdate, get_datetime, today
+from frappe.utils import add_days, getdate, get_datetime
 from schools.academics.doctype.course_schedule.course_schedule import OverlapError
 
 class SchedulingTool(Document):
@@ -17,7 +17,6 @@ class SchedulingTool(Document):
 		course_schedules_errors= []
 		rescheduled= []
 		reschedule_errors= []
-		
 		self.validate_date()
 		
 		if self.rechedule:
@@ -50,20 +49,21 @@ class SchedulingTool(Document):
 			
 			
 	def validate_date(self):
-		"""Validates if Course Start Date is lesser than system date and Course Start Date is greater than Course End Date"""
-		if getdate(self.course_start_date) < getdate(today()):
-			frappe.throw("Course Start Date cannot be lesser than Today.")
-		elif self.course_start_date > self.course_end_date:
+		"""Validates if Course Start Date is greater than Course End Date"""
+		if self.course_start_date > self.course_end_date:
 			frappe.throw("Course Start Date cannot be greater than Course End Date.")
 
 	def delete_course_schedule(self, rescheduled, reschedule_errors):
-		"""Delete all course schedule within the Date range"""
-		schedules = frappe.get_list("Course Schedule", filters = [["from_time", ">=", self.course_start_date], 
+		"""Delete all course schedule within the Date range and specified filters"""
+		schedules = frappe.get_list("Course Schedule", filters = [["student_group", "=", self.student_group],
+			["from_time", ">=", self.course_start_date], 
 			["to_time", "<=", self.course_end_date]])
 		for d in schedules:
 			try:
-				frappe.delete_doc("Course Schedule", d.name)
-				rescheduled.append(d.name)
+				date = frappe.db.get_value("Course Schedule", d.name, "from_time")
+				if self.day == calendar.day_name[getdate(date).weekday()]:
+					frappe.delete_doc("Course Schedule", d.name)
+					rescheduled.append(d.name)
 			except:
 				reschedule_errors.append(d.name)
 		return rescheduled, reschedule_errors
