@@ -5,11 +5,11 @@ import os
 version = '0.0.1'
 
 setup(
-    name='schools',
+    name='elections',
     version=version,
-    description='ERP for Schools, Colleges and Other Acedemic Institutions',
-    author='Frappe Technologies',
-    author_email='info@frappe.io',
+    description='Ballot Management System',
+    author='Brandon Smith',
+    author_email='brandon@netsmith.net',
     packages=find_packages(),
     zip_safe=False,
     include_package_data=True,

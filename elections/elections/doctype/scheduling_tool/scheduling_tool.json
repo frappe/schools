@@ -42,10 +42,14 @@
    "ignore_user_permissions": 0, 
    "in_filter": 0, 
    "in_list_view": 0, 
+<<<<<<< HEAD:elections/elections/doctype/scheduling_tool/scheduling_tool.json
    "label": "Academic Year", 
    "length": 0, 
+=======
+   "label": "Election Year", 
+>>>>>>> master:schools/academics/doctype/scheduling_tool/scheduling_tool.json
    "no_copy": 0, 
-   "options": "Academic Year", 
+   "options": "Election Year", 
    "permlevel": 0, 
    "precision": "", 
    "print_hide": 0, 
@@ -112,10 +116,16 @@
    "ignore_user_permissions": 0, 
    "in_filter": 0, 
    "in_list_view": 0, 
+<<<<<<< HEAD:elections/elections/doctype/scheduling_tool/scheduling_tool.json
    "label": "Program", 
    "length": 0, 
    "no_copy": 0, 
    "options": "Program", 
+=======
+   "label": "Election Term", 
+   "no_copy": 0, 
+   "options": "Election Term", 
+>>>>>>> master:schools/academics/doctype/scheduling_tool/scheduling_tool.json
    "permlevel": 0, 
    "precision": "", 
    "print_hide": 0, 
