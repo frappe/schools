@@ -1,4 +1,6 @@
 cur_frm.add_fetch("student_group", "course", "course");
+cur_frm.add_fetch("examiner", "instructor_name", "examiner_name");
+cur_frm.add_fetch("supervisor", "instructor_name", "supervisor_name");
 cur_frm.add_fetch("student", "title", "student_name");
 
 frappe.ui.form.on("Examination" ,{
