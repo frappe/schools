@@ -50,7 +50,7 @@ class CourseSchedule(Document):
 			return
 
 		existing = frappe.db.sql("""select name, from_time, to_time from `tabCourse Schedule`
-			where `{0}`=%(val)s and
+			where `{0}`=%(val)s and schedule_date = %(schedule_date)s and
 			(
 				(from_time > %(from_time)s and from_time < %(to_time)s) or
 				(to_time > %(from_time)s and to_time < %(to_time)s) or
@@ -58,6 +58,7 @@ class CourseSchedule(Document):
 				(%(from_time)s = from_time and %(to_time)s = to_time))
 			and name!=%(name)s""".format(fieldname),
 			{
+				"schedule_date": self.schedule_date,
 				"val": self.get(fieldname),
 				"from_time": self.from_time,
 				"to_time": self.to_time,
