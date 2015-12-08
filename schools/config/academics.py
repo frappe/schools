@@ -26,23 +26,6 @@ def get_data():
 			]
 		},
 		{
-			"label": _("Fees"),
-			"items": [
-				{
-					"type": "doctype",
-					"name": "Fees"
-				},
-				{
-					"type": "doctype",
-					"name": "Fee Structure"
-				},
-				{
-					"type": "doctype",
-					"name": "Fee Category"
-				}
-			]
-		},
-		{
 			"label": _("Schedule"),
 			"items": [
 				{
@@ -61,6 +44,23 @@ def get_data():
 				{
 					"type": "doctype",
 					"name": "Examination"
+				}
+			]
+		},
+		{
+			"label": _("Fees"),
+			"items": [
+				{
+					"type": "doctype",
+					"name": "Fees"
+				},
+				{
+					"type": "doctype",
+					"name": "Fee Structure"
+				},
+				{
+					"type": "doctype",
+					"name": "Fee Category"
 				}
 			]
 		},
