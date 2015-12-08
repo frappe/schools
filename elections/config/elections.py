@@ -85,11 +85,11 @@ def get_data():
 				},
 				{
 					"type": "doctype",
-					"name": "Academic Term"
+					"name": "Election Term"
 				},
 				{
 					"type": "doctype",
-					"name": "Academic Year"
+					"name": "Election Year"
 				}
 			]
 		},
