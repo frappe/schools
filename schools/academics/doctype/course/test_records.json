@@ -1,14 +1,14 @@
 [
 	{
-		"course": "_Test Course",
+		"course_name": "_Test Course",
 		"course_code": "TC100"
 	},
 	{
-		"course": "_Test Course 1",
+		"course_name": "_Test Course 1",
 		"course_code": "TC101"
 	},
 	{
-		"course": "_Test Course 2",
+		"course_name": "_Test Course 2",
 		"course_code": "TC102"
 	}
 ]
