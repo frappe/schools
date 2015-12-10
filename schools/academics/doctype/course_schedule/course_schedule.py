@@ -15,7 +15,7 @@ class CourseSchedule(Document):
 		
 	def set_title(self):
 		"""Set document Title"""
-		self.title = self.course + " by " + (self.instructor_name if self.instructor_name else self.instructor)
+		self.title = self.course_name + " by " + (self.instructor_name if self.instructor_name else self.instructor)
 
 	def validate_date(self):
 		"""Validates if from_time is greater than to_time"""

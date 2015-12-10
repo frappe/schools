@@ -11,6 +11,9 @@ app_email = "hello@frappe.io"
 app_version = "0.0.1"
 app_license = "GNU General Public License v3"
 
+# setup wizard
+setup_wizard_requires = "assets/schools/js/setup_wizard.js"
+setup_wizard_complete = "schools.setup_wizard.setup_complete"
 
 # Includes in <head>
 # ------------------
