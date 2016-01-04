@@ -1,0 +1,68 @@
+[
+	{
+		"doctype": "Student Applicant",
+		"docstatus": 1,
+		"first_name": "Terina",
+		"last_name": "Condit",
+		"program": "Masters of Computer Applications",
+		"date_of_birth": "2014-02-06",
+		"gender": "Female",
+		"blood_group": "A+",
+		"application_status": "Applied"
+	},
+	{
+		"doctype": "Student Applicant",
+		"docstatus": 1,
+		"first_name": "Elena",
+		"last_name": "Gilbert",
+		"program": "Bachelor of Management Studies",
+		"date_of_birth": "1995-09-03",
+		"gender": "Female",
+		"blood_group": "O+",
+		"application_status": "Applied"
+	},
+	{
+		"doctype": "Student Applicant",
+		"docstatus": 1,
+		"first_name": "Samuel",
+		"last_name": "Tucky",
+		"program": "Masters of Computer Applications",
+		"date_of_birth": "1995-11-08",
+		"gender": "Male",
+		"blood_group": "B+",
+		"application_status": "Applied"
+	},
+	{
+		"doctype": "Student Applicant",
+		"docstatus": 1,
+		"first_name": "Kate",
+		"last_name": "Rosalia",
+		"program": "Masters of Computer Applications",
+		"date_of_birth": "2015-12-11",
+		"gender": "Female",
+		"blood_group": "A+",
+		"application_status": "Applied"
+	},
+	{
+		"doctype": "Student Applicant",
+		"docstatus": 1,
+		"first_name": "Albert",
+		"last_name": "Wechsler",
+		"program": "Bachelor of Management Studies",
+		"date_of_birth": "1995-08-05",
+		"gender": "Male",
+		"blood_group": "A+",
+		"application_status": "Applied"
+	},
+	{
+		"doctype": "Student Applicant",
+		"docstatus": 1,
+		"first_name": "Jerome",
+		"last_name": "Condit",
+		"program": "Masters of Computer Applications",
+		"date_of_birth": "1996-03-11",
+		"gender": "Male",
+		"blood_group": "A+",
+		"application_status": "Applied"
+	}
+]

@@ -3,8 +3,12 @@
 
 from __future__ import unicode_literals
 import frappe
+from frappe import _
 
 def setup_complete(args=None):
+	if frappe.db.sql("select name from tabCompany"):
+		frappe.throw(_("Setup Already Complete!!"))
+	
 	create_academic_term()
 	create_academic_year()
 	create_program(args)
