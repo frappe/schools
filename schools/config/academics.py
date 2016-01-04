@@ -22,6 +22,10 @@ def get_data():
 				{
 					"type": "doctype",
 					"name": "Program Enrollment"
+				},
+				{
+					"type": "doctype",
+					"name": "Student Group Creation Tool"
 				}
 			]
 		},
