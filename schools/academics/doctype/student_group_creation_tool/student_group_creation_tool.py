@@ -9,29 +9,18 @@ from frappe.model.document import Document
 
 class StudentGroupCreationTool(Document):
 	def get_courses(self):
-		program_codes = {}
-		for d in frappe.get_list("Program", fields=["name", "program_code"]):
-			program_codes.update({d.name: d.program_code})
-			
-		course_codes = {}
-		for d in frappe.get_list("Course", fields=["name", "course_code"]):
-			course_codes.update({d.name: d.course_code})
-		
 		if self.program:
-			courses = frappe.db.sql("""select course, parent as program, "student_group_name" 
+			courses = frappe.db.sql("""select course, course_code, parent as program, "student_group_name" 
 				from `tabProgram Course` where academic_term= %s and parent= %s""", 
 				(self.academic_term, self.program), as_dict=1)
 		else:
-			courses = frappe.db.sql("""select course, parent as program, "student_group_name" 
+			courses = frappe.db.sql("""select course, course_code, parent as program, "student_group_name" 
 				from `tabProgram Course` where academic_term= %s""", 
 				self.academic_term, as_dict=1)
 		
 		for d in courses:
-			p_code = program_codes.get(d.program)
-			c_code = course_codes.get(d.course)
-			
-			if p_code and c_code:
-				d.student_group_name = p_code + "-" + c_code + "-" + self.academic_year
+			if d.course_code:
+				d.student_group_name = d.course_code + "-" + self.academic_year
 			else:
 				d.student_group_name = None
 				
