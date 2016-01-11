@@ -1,0 +1,74 @@
+[
+	{
+		"doctype": "Room",
+		"room_name": "Lecture Hall 1",
+		"room_number": "101",
+		"seating_capacity": 80
+	},
+	{
+		"doctype": "Room",
+		"room_name": "Lecture Hall 2",
+		"room_number": "102",
+		"seating_capacity": 80
+	},
+	{
+		"doctype": "Room",
+		"room_name": "Lecture Hall 3",
+		"room_number": "103",
+		"seating_capacity": 80
+	},
+	{
+		"doctype": "Room",
+		"room_name": "Lecture Hall 4",
+		"room_number": "104",
+		"seating_capacity": 80
+	},
+	{
+		"doctype": "Room",
+		"room_name": "Lecture Hall 4",
+		"room_number": "104",
+		"seating_capacity": 80
+	},
+	{
+		"doctype": "Room",
+		"room_name": "Lecture Hall 5",
+		"room_number": "201",
+		"seating_capacity": 120
+	},
+	{
+		"doctype": "Room",
+		"room_name": "Lecture Hall 6",
+		"room_number": "202",
+		"seating_capacity": 120
+	},
+	{
+		"doctype": "Room",
+		"room_name": "Lecture Hall 7",
+		"room_number": "203",
+		"seating_capacity": 120
+	},
+	{
+		"doctype": "Room",
+		"room_name": "Computer Lab 1",
+		"room_number": "301",
+		"seating_capacity": 40
+	},
+	{
+		"doctype": "Room",
+		"room_name": "Computer Lab 2",
+		"room_number": "302",
+		"seating_capacity": 60
+	},
+	{
+		"doctype": "Room",
+		"room_name": "Seminar Hall 1",
+		"room_number": "303",
+		"seating_capacity": 240
+	},
+	{
+		"doctype": "Room",
+		"room_name": "Auditorium",
+		"room_number": "400",
+		"seating_capacity": 450
+	}
+]

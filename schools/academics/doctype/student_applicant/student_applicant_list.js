@@ -7,6 +7,9 @@ frappe.listview_settings['Student Applicant'] = {
 		else if (doc.application_status=="Approved") {
 			return [__("Approved"), "green", "application_status,=,Approved"];
 		}
+		else if (doc.application_status=="Rejected") {
+			return [__("Rejected"), "red", "application_status,=,Rejected"];
+		}
 		else if (doc.application_status=="Admitted") {
 			return [__("Admitted"), "blue", "application_status,=,Admitted"];
 		}
