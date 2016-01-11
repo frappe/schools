@@ -17,7 +17,7 @@ def setup_complete(args=None):
 	create_room(args)
 	
 def create_academic_term():
-	at = ["Semester 1", "Semester 2", "Semester 3", "Semester 4"]
+	at = ["Semester 1", "Semester 2", "Semester 3"]
 	for d in at:
 		academic_term = frappe.new_doc("Academic Term")
 		academic_term.term_name = d

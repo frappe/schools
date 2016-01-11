@@ -1,8 +1,11 @@
+{% extends "templates/web.html" %}
+
 {% block script %}
-	{% include "templates/includes/start.js" %}
+	<script>{% include "templates/includes/start.js" %}</script>
 {% endblock %}
 
 {% block style %}
+<style>
 	footer, .navbar {
 		display: none;
 	}
@@ -10,13 +13,14 @@
 		right: 0%;
 		width: 100%;
 	}
+</style>
 {% endblock %}
 
 {% block title %}
 {{ _("Login") }}
 {% endblock %}
 
-{% block content %}
+{% block page_content %}
 <!-- no-sidebar -->
 <!-- no-header -->
 <div class="page-hero text-center">

@@ -91,7 +91,6 @@ def get_fee_structure(program, academic_term=None):
 	fee_structure = frappe.db.get_values("Fee Structure", {"program": program,
 		"academic_term": academic_term}, 'name', as_dict=True)
 	return fee_structure[0].name if fee_structure else None
-	
 
 @frappe.whitelist()
 def get_fee_amount(fee_structure):

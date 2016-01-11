@@ -7,4 +7,10 @@ import frappe
 from frappe.model.document import Document
 
 class Program(Document):
-	pass
+	def validate(self):
+		self.validate_course()
+		
+	def validate_course(self):
+		for d in self.courses:
+			if not d.course_code:
+				d.course_code = frappe.db.get_value("Course", d.course, "course_code")

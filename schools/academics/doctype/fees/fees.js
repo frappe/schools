@@ -1,5 +1,4 @@
 cur_frm.add_fetch("student", "title", "student_name");
-cur_frm.add_fetch("student", "program", "program");
 
 frappe.ui.form.on("Fees", {
 	program: function(frm) {
