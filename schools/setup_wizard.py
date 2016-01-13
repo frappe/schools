@@ -11,6 +11,7 @@ def setup_complete(args=None):
 	create_course(args)
 	create_instructor(args)
 	create_room(args)
+	block_modules()
 	
 def create_academic_term():
 	at = ["Semester 1", "Semester 2", "Semester 3"]
@@ -54,3 +55,12 @@ def create_room(args):
 			room.room_name = args.get("room_" + str(i))
 			room.seating_capacity = args.get("room_capacity_" + str(i))
 			room.save()
+			
+def block_modules():
+	mod = [
+		"Accounts","All Applications","Buying","CRM","Core",
+		"Desk","File Manager","HR","Learn","Manufacturing","POS","Projects",
+		"Selling","Stock","Support","Website"
+	]
+	
+	frappe.db.set_global('hidden_modules', mod)

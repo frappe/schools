@@ -2,16 +2,9 @@ frappe.ui.form.on("Course", "refresh", function(frm) {
 	if(!cur_frm.doc.__islocal) {
 		frm.add_custom_button(__("Program"), function() {
 			frappe.route_options = {
-				"Program Subject.course": frm.doc.name
+				"Program Course.course": frm.doc.name
 			}
 			frappe.set_route("List", "Program");
-		});
-		
-		frm.add_custom_button(__("Student"), function() {
-			frappe.route_options = {
-				"Student Course.course": frm.doc.name
-			}
-			frappe.set_route("List", "Student");
 		});
 		
 		frm.add_custom_button(__("Student Group"), function() {

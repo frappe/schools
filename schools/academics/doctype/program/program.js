@@ -12,11 +12,11 @@ frappe.ui.form.on("Program", "refresh", function(frm) {
 			frappe.set_route("List", "Student Applicant");
 		});
 		
-		frm.add_custom_button(__("Student"), function() {
+		frm.add_custom_button(__("Program Enrollment"), function() {
 			frappe.route_options = {
 				program: frm.doc.name
 			}
-			frappe.set_route("List", "Student");
+			frappe.set_route("List", "Program Enrollment");
 		});
 		
 		frm.add_custom_button(__("Student Group"), function() {
