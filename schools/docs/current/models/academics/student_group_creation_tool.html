@@ -1,0 +1,222 @@
+<!-- title: Student Group Creation Tool -->
+
+
+
+
+
+<div class="dev-header">
+
+<a class="btn btn-default btn-sm" disabled style="margin-bottom: 10px;">
+	Version 1.0 beta</a>
+
+
+	<a class="btn btn-default btn-sm" href="https://github.com/frappe/schools/tree/develop/schools/academics/doctype/student_group_creation_tool"
+		target="_blank" style="margin-left: 10px; margin-bottom: 10px;"><i class="octicon octicon-mark-github"></i> Source</a>
+
+</div>
+
+<span class="label label-info">Single</span>
+
+
+
+
+
+
+<h3>Fields</h3>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th style="width: 5%">Sr</th>
+            <th style="width: 25%">Fieldname</th>
+            <th style="width: 20%">Type</th>
+            <th style="width: 25%">Label</th>
+            <th style="width: 25%">Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        <tr >
+            <td>1</td>
+            <td class="danger" title="Mandatory"><code>academic_year</code></td>
+            <td >
+                Link</td>
+            <td >
+                Academic Year
+                
+            </td>
+            <td>
+                
+                
+
+
+<a href="https://frappe.github.io/schools/current/models/academics/academic_year">Academic Year</a>
+
+
+                
+            </td>
+        </tr>
+        
+        <tr >
+            <td>2</td>
+            <td class="danger" title="Mandatory"><code>academic_term</code></td>
+            <td >
+                Link</td>
+            <td >
+                Academic Term
+                
+            </td>
+            <td>
+                
+                
+
+
+<a href="https://frappe.github.io/schools/current/models/academics/academic_term">Academic Term</a>
+
+
+                
+            </td>
+        </tr>
+        
+        <tr >
+            <td>3</td>
+            <td ><code>get_courses</code></td>
+            <td >
+                Button</td>
+            <td >
+                Get Courses
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>4</td>
+            <td ><code>column_break_4</code></td>
+            <td class="info">
+                Column Break</td>
+            <td >
+                
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>5</td>
+            <td ><code>program</code></td>
+            <td >
+                Link</td>
+            <td >
+                Program
+                <p class="text-muted small">
+                    Leave blank if you wish to fetch all courses for selected academic term</p>
+            </td>
+            <td>
+                
+                
+
+
+<a href="https://frappe.github.io/schools/current/models/academics/program">Program</a>
+
+
+                
+            </td>
+        </tr>
+        
+        <tr class="info">
+            <td>6</td>
+            <td ><code>section_break_4</code></td>
+            <td >
+                Section Break</td>
+            <td >
+                
+                
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr >
+            <td>7</td>
+            <td ><code>courses</code></td>
+            <td >
+                Table</td>
+            <td >
+                Courses
+                
+            </td>
+            <td>
+                
+                
+
+
+<a href="https://frappe.github.io/schools/current/models/academics/sg_creation_tool_course">SG Creation Tool Course</a>
+
+
+                
+            </td>
+        </tr>
+        
+    </tbody>
+</table>
+
+
+    <hr>
+    <h3>Controller</h3>
+    <h4>schools.academics.doctype.student_group_creation_tool.student_group_creation_tool</h4>
+
+    
+
+
+
+	
+        
+	<h3 style="font-weight: normal;">Class <b>StudentGroupCreationTool</b></h3>
+    
+    <p style="padding-left: 30px;"><i>Inherits from frappe.model.document.Document</i></h4>
+    
+    <div class="docs-attr-desc"><p></p>
+</div>
+    <div style="padding-left: 30px;">
+        
+        
+    
+    
+	<p class="docs-attr-name">
+        <a name="create_student_groups" href="#create_student_groups" class="text-muted small">
+            <i class="icon-link small" style="color: #ccc;"></i></a>
+		<b>create_student_groups</b>
+        <i class="text-muted">(self)</i>
+    </p>
+	<div class="docs-attr-desc"><p><span class="text-muted">No docs</span></p>
+</div>
+	<br>
+
+        
+        
+    
+    
+	<p class="docs-attr-name">
+        <a name="get_courses" href="#get_courses" class="text-muted small">
+            <i class="icon-link small" style="color: #ccc;"></i></a>
+		<b>get_courses</b>
+        <i class="text-muted">(self)</i>
+    </p>
+	<div class="docs-attr-desc"><p><span class="text-muted">No docs</span></p>
+</div>
+	<br>
+
+        
+    </div>
+    <hr>
+
+	
+
+
+    
+    
+
+
+<!-- autodoc -->
+<!-- jinja -->
+<!-- static -->
