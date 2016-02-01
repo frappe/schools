@@ -1,4 +1,4 @@
-<!-- title: Program -->
+<!-- title: Student Group Creation Tool -->
 
 
 
@@ -10,16 +10,14 @@
 	Version 1.0 beta</a>
 
 
-	<a class="btn btn-default btn-sm" href="https://github.com/frappe/schools/tree/develop/schools/academics/doctype/program"
+	<a class="btn btn-default btn-sm" href="https://github.com/frappe/schools/tree/develop/schools/academics/doctype/student_group_creation_tool"
 		target="_blank" style="margin-left: 10px; margin-bottom: 10px;"><i class="octicon octicon-mark-github"></i> Source</a>
 
 </div>
 
+<span class="label label-info">Single</span>
 
 
-
-
-    <p><b>Table Name:</b> <code>tabProgram</code></p>
 
 
 
@@ -40,31 +38,61 @@
         
         <tr >
             <td>1</td>
-            <td class="danger" title="Mandatory"><code>program_name</code></td>
+            <td class="danger" title="Mandatory"><code>academic_year</code></td>
             <td >
-                Data</td>
+                Link</td>
             <td >
-                Program Name
+                Academic Year
                 
             </td>
-            <td></td>
+            <td>
+                
+                
+
+
+<a href="https://frappe.github.io/schools/current/models/academics/academic_year">Academic Year</a>
+
+
+                
+            </td>
         </tr>
         
         <tr >
             <td>2</td>
-            <td ><code>program_code</code></td>
+            <td class="danger" title="Mandatory"><code>academic_term</code></td>
             <td >
-                Data</td>
+                Link</td>
             <td >
-                Program Code
+                Academic Term
+                
+            </td>
+            <td>
+                
+                
+
+
+<a href="https://frappe.github.io/schools/current/models/academics/academic_term">Academic Term</a>
+
+
+                
+            </td>
+        </tr>
+        
+        <tr >
+            <td>3</td>
+            <td ><code>get_courses</code></td>
+            <td >
+                Button</td>
+            <td >
+                Get Courses
                 
             </td>
             <td></td>
         </tr>
         
         <tr >
-            <td>3</td>
-            <td ><code>column_break_3</code></td>
+            <td>4</td>
+            <td ><code>column_break_4</code></td>
             <td class="info">
                 Column Break</td>
             <td >
@@ -75,20 +103,21 @@
         </tr>
         
         <tr >
-            <td>4</td>
-            <td ><code>department</code></td>
+            <td>5</td>
+            <td ><code>program</code></td>
             <td >
                 Link</td>
             <td >
-                Department
-                
+                Program
+                <p class="text-muted small">
+                    Leave blank if you wish to fetch all courses for selected academic term</p>
             </td>
             <td>
                 
                 
 
 
-<a href="https://frappe.github.io/schools/current/models/hr/department">Department</a>
+<a href="https://frappe.github.io/schools/current/models/academics/program">Program</a>
 
 
                 
@@ -96,8 +125,8 @@
         </tr>
         
         <tr class="info">
-            <td>5</td>
-            <td ><code>section_break_5</code></td>
+            <td>6</td>
+            <td ><code>section_break_4</code></td>
             <td >
                 Section Break</td>
             <td >
@@ -108,7 +137,7 @@
         </tr>
         
         <tr >
-            <td>6</td>
+            <td>7</td>
             <td ><code>courses</code></td>
             <td >
                 Table</td>
@@ -121,7 +150,7 @@
                 
 
 
-<a href="https://frappe.github.io/schools/current/models/academics/program_course">Program Course</a>
+<a href="https://frappe.github.io/schools/current/models/academics/sg_creation_tool_course">SG Creation Tool Course</a>
 
 
                 
@@ -134,7 +163,7 @@
 
     <hr>
     <h3>Controller</h3>
-    <h4>schools.academics.doctype.program.program</h4>
+    <h4>schools.academics.doctype.student_group_creation_tool.student_group_creation_tool</h4>
 
     
 
@@ -142,7 +171,7 @@
 
 	
         
-	<h3 style="font-weight: normal;">Class <b>Program</b></h3>
+	<h3 style="font-weight: normal;">Class <b>StudentGroupCreationTool</b></h3>
     
     <p style="padding-left: 30px;"><i>Inherits from frappe.model.document.Document</i></h4>
     
@@ -154,9 +183,9 @@
     
     
 	<p class="docs-attr-name">
-        <a name="validate" href="#validate" class="text-muted small">
+        <a name="create_student_groups" href="#create_student_groups" class="text-muted small">
             <i class="icon-link small" style="color: #ccc;"></i></a>
-		<b>validate</b>
+		<b>create_student_groups</b>
         <i class="text-muted">(self)</i>
     </p>
 	<div class="docs-attr-desc"><p><span class="text-muted">No docs</span></p>
@@ -168,9 +197,9 @@
     
     
 	<p class="docs-attr-name">
-        <a name="validate_course" href="#validate_course" class="text-muted small">
+        <a name="get_courses" href="#get_courses" class="text-muted small">
             <i class="icon-link small" style="color: #ccc;"></i></a>
-		<b>validate_course</b>
+		<b>get_courses</b>
         <i class="text-muted">(self)</i>
     </p>
 	<div class="docs-attr-desc"><p><span class="text-muted">No docs</span></p>
@@ -185,74 +214,6 @@
 
 
     
-    
-        <h4>Linked In:</h4>
-        <ul>
-        
-			
-            <li>
-
-
-<a href="https://frappe.github.io/schools/current/models/academics/fee_structure">Fee Structure</a>
-
-</li>
-			
-        
-			
-            <li>
-
-
-<a href="https://frappe.github.io/schools/current/models/academics/fees">Fees</a>
-
-</li>
-			
-        
-			
-            <li>
-
-
-<a href="https://frappe.github.io/schools/current/models/academics/program_enrollment">Program Enrollment</a>
-
-</li>
-			
-        
-			
-            <li>
-
-
-<a href="https://frappe.github.io/schools/current/models/academics/scheduling_tool">Scheduling Tool</a>
-
-</li>
-			
-        
-			
-            <li>
-
-
-<a href="https://frappe.github.io/schools/current/models/academics/student_applicant">Student Applicant</a>
-
-</li>
-			
-        
-			
-            <li>
-
-
-<a href="https://frappe.github.io/schools/current/models/academics/student_group">Student Group</a>
-
-</li>
-			
-        
-			
-            <li>
-
-
-<a href="https://frappe.github.io/schools/current/models/academics/student_group_creation_tool">Student Group Creation Tool</a>
-
-</li>
-			
-        
-        </ul>
     
 
 

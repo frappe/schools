@@ -1,3 +1,1 @@
-# Academics
-
 {index}

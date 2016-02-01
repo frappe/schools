@@ -1,7 +1,7 @@
 # Course Schedule
 
-Course Schedules is a schedule of a session conducted by a Instructor for a particular Course.
-You can see the course schedules in the Calendar view.
+Course Schedule is the schedule of a session conducted by an Instructor for a particular Course.
+You can see the overall course schedule in the Calendar view.
 
 <img class="screenshot" alt="Course Schedule" src="{{url_prefix}}/assets/img/schedule/course-schedule.png">
 

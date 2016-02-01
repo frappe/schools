@@ -26,7 +26,7 @@
 
 <h3>Fields</h3>
 
-<table class="table table-bordered" style="table-layout: fixed;">
+<table class="table table-bordered">
     <thead>
         <tr>
             <th style="width: 5%">Sr</th>
@@ -146,8 +146,21 @@
             </td>
         </tr>
         
-        <tr class="info">
+        <tr >
             <td>7</td>
+            <td ><code>max_strength</code></td>
+            <td >
+                Int</td>
+            <td >
+                Max Strength
+                <p class="text-muted small">
+                    Set 0 for no limit</p>
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr class="info">
+            <td>8</td>
             <td ><code>section_break_6</code></td>
             <td >
                 Section Break</td>
@@ -159,7 +172,7 @@
         </tr>
         
         <tr >
-            <td>8</td>
+            <td>9</td>
             <td ><code>students</code></td>
             <td >
                 Table</td>
@@ -173,6 +186,27 @@
 
 
 <a href="https://frappe.github.io/schools/current/models/academics/student_group_student">Student Group Student</a>
+
+
+                
+            </td>
+        </tr>
+        
+        <tr >
+            <td>10</td>
+            <td ><code>amended_from</code></td>
+            <td >
+                Link</td>
+            <td >
+                Amended From
+                
+            </td>
+            <td>
+                
+                
+
+
+<a href="https://frappe.github.io/schools/current/models/academics/student_group">Student Group</a>
 
 
                 
@@ -200,6 +234,48 @@
     <div class="docs-attr-desc"><p></p>
 </div>
     <div style="padding-left: 30px;">
+        
+        
+    
+    
+	<p class="docs-attr-name">
+        <a name="validate" href="#validate" class="text-muted small">
+            <i class="icon-link small" style="color: #ccc;"></i></a>
+		<b>validate</b>
+        <i class="text-muted">(self)</i>
+    </p>
+	<div class="docs-attr-desc"><p><span class="text-muted">No docs</span></p>
+</div>
+	<br>
+
+        
+        
+    
+    
+	<p class="docs-attr-name">
+        <a name="validate_strength" href="#validate_strength" class="text-muted small">
+            <i class="icon-link small" style="color: #ccc;"></i></a>
+		<b>validate_strength</b>
+        <i class="text-muted">(self)</i>
+    </p>
+	<div class="docs-attr-desc"><p><span class="text-muted">No docs</span></p>
+</div>
+	<br>
+
+        
+        
+    
+    
+	<p class="docs-attr-name">
+        <a name="validate_student_name" href="#validate_student_name" class="text-muted small">
+            <i class="icon-link small" style="color: #ccc;"></i></a>
+		<b>validate_student_name</b>
+        <i class="text-muted">(self)</i>
+    </p>
+	<div class="docs-attr-desc"><p><span class="text-muted">No docs</span></p>
+</div>
+	<br>
+
         
     </div>
     <hr>
@@ -243,7 +319,7 @@
             <li>
 
 
-<a href="https://frappe.github.io/schools/current/models/academics/student_course">Student Course</a>
+<a href="https://frappe.github.io/schools/current/models/academics/student_group">Student Group</a>
 
 </li>
 			

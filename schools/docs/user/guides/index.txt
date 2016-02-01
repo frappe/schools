@@ -1,4 +1,4 @@
 student
-fees
 schedule
+fees
 setup

@@ -3,15 +3,9 @@ from __future__ import unicode_literals
 from frappe import _
 
 def get_data():
-	return {
-		"Academics": {
-			"color": "#DE2B37",
-			"icon": "octicon octicon-mortar-board",
-			"type": "module",
-			"label": _("Academics")
-		},
-		
-		"Student": {
+	return [
+		{
+			"module_name": "Student",
 			"color": "#be907c",
 			"icon": "octicon octicon-person",
 			"label": _("Student"),
@@ -20,7 +14,8 @@ def get_data():
 			"type": "list"
 		},
 		
-		"Student Group": {
+		{
+			"module_name": "Student Group",
 			"color": "#d59919",
 			"icon": "octicon octicon-organization",
 			"label": _("Student Group"),
@@ -29,16 +24,8 @@ def get_data():
 			"type": "list"
 		},
 		
-		"Student Applicant": {
-			"color": "#83C21E",
-			"icon": "octicon octicon-sign-in",
-			"label": _("Student Applicant"),
-			"link": "List/Student Applicant",
-			"doctype": "Student Applicant",
-			"type": "list"
-		},
-		
-		"Course Schedule": {
+		{
+			"module_name": "Course Schedule",
 			"color": "#31E3E2",
 			"icon": "octicon octicon-calendar",
 			"label": _("Course Schedule"),
@@ -46,8 +33,9 @@ def get_data():
 			"doctype": "Course Schedule",
 			"type": "list"
 		},
-
-		"Student Attendance": {
+		
+		{
+			"module_name": "Student Attendance",
 			"color": "#3aacba",
 			"icon": "octicon octicon-checklist",
 			"label": _("Student Attendance"),
@@ -56,25 +44,8 @@ def get_data():
 			"type": "list"
 		},
 		
-		"Examination": {
-			"color": "#8a70be",
-			"icon": "octicon octicon-clippy",
-			"label": _("Examination"),
-			"link": "List/Examination",
-			"doctype": "Examination",
-			"type": "list"
-		},
-		
-		"Fees": {
-			"color": "#3b1b01",
-			"icon": "icon-money",
-			"label": _("Fees"),
-			"link": "List/Fees",
-			"doctype": "Fees",
-			"type": "list"
-		},
-		
-		"Course": {
+		{
+			"module_name": "Course",
 			"color": "#9911a2",
 			"icon": "octicon octicon-repo-clone",
 			"label": _("Course"),
@@ -83,7 +54,8 @@ def get_data():
 			"type": "list"
 		},
 		
-		"Program": {
+		{
+			"module_name": "Program",
 			"color": "#8712de",
 			"icon": "octicon octicon-repo",
 			"label": _("Program"),
@@ -92,7 +64,38 @@ def get_data():
 			"type": "list"
 		},
 		
-		"Instructor": {
+		{
+			"module_name": "Student Applicant",
+			"color": "#83C21E",
+			"icon": "octicon octicon-sign-in",
+			"label": _("Student Applicant"),
+			"link": "List/Student Applicant",
+			"doctype": "Student Applicant",
+			"type": "list"
+		},
+
+		{
+			"module_name": "Examination",
+			"color": "#8a70be",
+			"icon": "octicon octicon-clippy",
+			"label": _("Examination"),
+			"link": "List/Examination",
+			"doctype": "Examination",
+			"type": "list"
+		},
+		
+		{
+			"module_name": "Fees",
+			"color": "#3b1b01",
+			"icon": "icon-money",
+			"label": _("Fees"),
+			"link": "List/Fees",
+			"doctype": "Fees",
+			"type": "list"
+		},
+		
+		{
+			"module_name": "Instructor",
 			"color": "#E8B0C5",
 			"icon": "octicon octicon-broadcast",
 			"label": _("Instructor"),
@@ -101,13 +104,21 @@ def get_data():
 			"type": "list"
 		},
 		
-		"Room": {
+		{
+			"module_name": "Room",
 			"color": "#f22683",
 			"icon": "icon-map-marker",
 			"label": _("Room"),
 			"link": "List/Room",
 			"doctype": "Examination",
 			"type": "list"
+		},
+		
+		{
+			"module_name": "Academics",
+			"color": "#DE2B37",
+			"icon": "octicon octicon-mortar-board",
+			"type": "module",
+			"label": _("Academics")
 		}
-
-	}
+	]

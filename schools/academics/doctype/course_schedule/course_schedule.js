@@ -1,6 +1,16 @@
 frappe.provide("schools")
 
 frappe.ui.form.on("Course Schedule" ,{
+	onload: function(frm) {
+		if (frm.doc.from_datetime && frm.doc.to_datetime) {
+			var from_datetime = moment(frm.doc.from_datetime);
+			var to_datetime = moment(frm.doc.to_datetime);
+			frm.doc.schedule_date = from_datetime.format(moment.defaultFormat);
+			frm.doc.from_time = from_datetime.format("HH:mm:ss");
+			frm.doc.to_time = to_datetime.format("HH:mm:ss");
+		}
+	},
+	
 	refresh :function(frm) {
 		if(!frm.doc.__islocal) {
 			frappe.call({
