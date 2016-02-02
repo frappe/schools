@@ -1,7 +1,7 @@
 # Student
 
-A Student defined as person who has enrolled at your institute and you have accepted his application.
-The student doctype maintains personel details of the student. 
+A Student is defined as a person who has enrolled at your institute and you have accepted their application.
+The student doctype maintains personal details of the student. 
 
 You can view everything related to a particular student on this page. Eg : Fees, Student Group, etc
 
