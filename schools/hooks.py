@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 app_name = "schools"
-app_title = "Frappe Schools"
+app_title = "ERPNext Schools"
 app_publisher = "Frappe"
 app_description = "ERP for Schools, Colleges and Other Acedemic Institutions"
 app_icon = "octicon octicon-mortar-board"
