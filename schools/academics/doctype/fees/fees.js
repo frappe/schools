@@ -2,18 +2,20 @@ cur_frm.add_fetch("student", "title", "student_name");
 
 frappe.ui.form.on("Fees", {
 	program: function(frm) {
-		frappe.call({
-			method: "schools.api.get_fee_structure",
-			args: {
-				"program": frm.doc.program,
-				"academic_term": frm.doc.academic_term
-			},
-			callback: function(r) {
-				if(r.message) {
-					frm.set_value("fee_structure" ,r.message);
+		if (frm.doc.program && frm.doc.academic_term) {
+			frappe.call({
+				method: "schools.api.get_fee_structure",
+				args: {
+					"program": frm.doc.program,
+					"academic_term": frm.doc.academic_term
+				},
+				callback: function(r) {
+					if(r.message) {
+						frm.set_value("fee_structure" ,r.message);
+					}
 				}
-			}
-		});
+			});
+		}
 	},
 
 	academic_term: function() {
