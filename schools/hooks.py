@@ -15,6 +15,8 @@ app_license = "GNU General Public License v3"
 setup_wizard_requires = "assets/schools/js/setup_wizard.js"
 setup_wizard_complete = "schools.setup_wizard.setup_complete"
 
+required_apps = ["erpnext"]
+
 # Includes in <head>
 # ------------------
 
