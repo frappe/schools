@@ -6,7 +6,7 @@ def get_data():
 	return [
 		{
 			"module_name": "Student",
-			"color": "#be907c",
+			"color": "#c0392b",
 			"icon": "octicon octicon-person",
 			"label": _("Student"),
 			"link": "List/Student",
@@ -26,7 +26,7 @@ def get_data():
 		
 		{
 			"module_name": "Course Schedule",
-			"color": "#31E3E2",
+			"color": "#d35400",
 			"icon": "octicon octicon-calendar",
 			"label": _("Course Schedule"),
 			"link": "Calendar/Course Schedule",
@@ -47,7 +47,7 @@ def get_data():
 		{
 			"module_name": "Course",
 			"color": "#9911a2",
-			"icon": "octicon octicon-repo-clone",
+			"icon": "octicon octicon-book",
 			"label": _("Course"),
 			"link": "List/Course",
 			"doctype": "Course",
@@ -56,7 +56,7 @@ def get_data():
 		
 		{
 			"module_name": "Program",
-			"color": "#8712de",
+			"color": "#9b59b6",
 			"icon": "octicon octicon-repo",
 			"label": _("Program"),
 			"link": "List/Program",
@@ -67,7 +67,7 @@ def get_data():
 		{
 			"module_name": "Student Applicant",
 			"color": "#83C21E",
-			"icon": "octicon octicon-sign-in",
+			"icon": "octicon octicon-clippy",
 			"label": _("Student Applicant"),
 			"link": "List/Student Applicant",
 			"doctype": "Student Applicant",
@@ -77,7 +77,7 @@ def get_data():
 		{
 			"module_name": "Examination",
 			"color": "#8a70be",
-			"icon": "octicon octicon-clippy",
+			"icon": "icon-file-text-alt",
 			"label": _("Examination"),
 			"link": "List/Examination",
 			"doctype": "Examination",
@@ -86,7 +86,7 @@ def get_data():
 		
 		{
 			"module_name": "Fees",
-			"color": "#3b1b01",
+			"color": "#83C21E",
 			"icon": "icon-money",
 			"label": _("Fees"),
 			"link": "List/Fees",
@@ -96,7 +96,7 @@ def get_data():
 		
 		{
 			"module_name": "Instructor",
-			"color": "#E8B0C5",
+			"color": "#be907c",
 			"icon": "octicon octicon-broadcast",
 			"label": _("Instructor"),
 			"link": "List/Instructor",
