@@ -1,7 +1,7 @@
-schools.__init__
-schools.api
-schools.hooks
-schools.make_demo
 schools.setup_wizard
 schools.simulate
+schools.make_demo
+schools.__init__
+schools.hooks
 schools.utils
+schools.api
