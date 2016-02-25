@@ -212,6 +212,6 @@ frappe.wiz.on("before_load", function() {
 	frappe.wiz.add_slide(schools.wiz.course);
 	frappe.wiz.add_slide(schools.wiz.instructor);
 	frappe.wiz.add_slide(schools.wiz.room);
-
+	frappe.wiz.welcome_page = "";
 });
 
