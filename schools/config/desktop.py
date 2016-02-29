@@ -26,7 +26,7 @@ def get_data():
 		
 		{
 			"module_name": "Course Schedule",
-			"color": "#d35400",
+			"color": "#fd784f",
 			"icon": "octicon octicon-calendar",
 			"label": _("Course Schedule"),
 			"link": "Calendar/Course Schedule",
@@ -46,7 +46,7 @@ def get_data():
 		
 		{
 			"module_name": "Course",
-			"color": "#9911a2",
+			"color": "#8e44ad",
 			"icon": "octicon octicon-book",
 			"label": _("Course"),
 			"link": "List/Course",
@@ -66,7 +66,7 @@ def get_data():
 		
 		{
 			"module_name": "Student Applicant",
-			"color": "#83C21E",
+			"color": "#4d927f",
 			"icon": "octicon octicon-clippy",
 			"label": _("Student Applicant"),
 			"link": "List/Student Applicant",
@@ -96,7 +96,7 @@ def get_data():
 		
 		{
 			"module_name": "Instructor",
-			"color": "#be907c",
+			"color": "#a99e4c",
 			"icon": "octicon octicon-broadcast",
 			"label": _("Instructor"),
 			"link": "List/Instructor",
