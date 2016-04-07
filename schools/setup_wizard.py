@@ -2,7 +2,8 @@
 # License: GNU General Public License v3. See license.txt
 
 from __future__ import unicode_literals
-import frappe, json
+import frappe
+from frappe.desk.doctype.desktop_icon.desktop_icon import set_hidden_list
 
 def setup_complete(args=None):
 	create_academic_term()
@@ -57,10 +58,9 @@ def create_room(args):
 			room.save()
 			
 def block_modules():
-	mod = [
-		"Accounts","All Applications","Buying","CRM","Core",
+	modules= [
+		"Accounts","Buying","CRM","Core",
 		"Desk","File Manager","HR","Learn","Manufacturing","POS","Projects",
 		"Selling","Stock","Support","Website"
 	]
-	
-	frappe.db.set_global('hidden_modules', json.dumps(mod))
+	set_hidden_list(modules)
