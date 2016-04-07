@@ -8,7 +8,7 @@ app_description = "ERP for Schools, Colleges and Other Acedemic Institutions"
 app_icon = "octicon octicon-mortar-board"
 app_color = "blue"
 app_email = "hello@frappe.io"
-app_version = "0.0.1"
+app_version = "0.1.0"
 app_license = "GNU General Public License v3"
 
 # setup wizard
