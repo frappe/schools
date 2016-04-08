@@ -60,7 +60,7 @@ def create_room(args):
 def block_modules():
 	modules= [
 		"Accounts","Buying","CRM","Core",
-		"Desk","File Manager","HR","Learn","Manufacturing","POS","Projects",
+		"Desk","File Manager","Learn","Manufacturing","POS","Projects",
 		"Selling","Stock","Support","Website"
 	]
 	set_hidden_list(modules)
