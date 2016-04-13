@@ -64,3 +64,13 @@ def block_modules():
 		"Selling","Stock","Support","Website"
 	]
 	set_hidden_list(modules)
+	
+	enabled_roles_list = ["Guest", "Administrator", "System Manager", "All", "Academics User"]
+	
+	for role in frappe.get_list("Role"):
+		if not role.name in enabled_roles_list:
+			role_doc = frappe.get_doc("Role", role)
+			role_doc.disabled = 1
+			role_doc.save()
+
+		
