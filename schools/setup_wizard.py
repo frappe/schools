@@ -3,7 +3,7 @@
 
 from __future__ import unicode_literals
 import frappe
-from frappe.desk.doctype.desktop_icon.desktop_icon import set_hidden_list
+from frappe.desk.doctype.desktop_icon.desktop_icon import set_hidden
 
 def setup_complete(args=None):
 	create_academic_term()
@@ -13,6 +13,7 @@ def setup_complete(args=None):
 	create_instructor(args)
 	create_room(args)
 	block_modules()
+	disable_roles()
 	
 def create_academic_term():
 	at = ["Semester 1", "Semester 2", "Semester 3"]
@@ -56,21 +57,19 @@ def create_room(args):
 			room.room_name = args.get("room_" + str(i))
 			room.seating_capacity = args.get("room_capacity_" + str(i))
 			room.save()
-			
+
 def block_modules():
-	modules= [
-		"Accounts","Buying","CRM","Core",
-		"Desk","File Manager","Learn","Manufacturing","POS","Projects",
-		"Selling","Stock","Support","Website"
-	]
-	set_hidden_list(modules)
+	enabled_modules= ["Stock", "Website", "HR", "Learn"]
 	
+	all_erpnext_modules = frappe.get_list("Desktop Icon", fields=["module_name"], filters={'app': 'erpnext'})
+	for module in all_erpnext_modules:
+		if module.module_name not in enabled_modules:
+			set_hidden(module.module_name)
+
+def disable_roles():
 	enabled_roles_list = ["Guest", "Administrator", "System Manager", "All", "Academics User"]
-	
 	for role in frappe.get_list("Role"):
 		if not role.name in enabled_roles_list:
 			role_doc = frappe.get_doc("Role", role)
 			role_doc.disabled = 1
 			role_doc.save()
-
-		
