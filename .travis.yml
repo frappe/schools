@@ -13,7 +13,7 @@ install:
   - sudo pip install --upgrade pip
   - rm $TRAVIS_BUILD_DIR/.git/shallow
   - sudo service redis-server start
-  - cd ~/ && bench init frappe-bench --frappe-path https://github.com/frappe/frappe.git --frappe-branch develop
+  - cd ~/ && bench init frappe-bench --frappe-path https://github.com/frappe/frappe.git --frappe-branch master
   - cp -r $TRAVIS_BUILD_DIR/test_sites/test_site ~/frappe-bench/sites/
 
 
