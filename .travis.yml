@@ -19,7 +19,7 @@ install:
 
 script:
   - cd ~/frappe-bench
-  - bench get-app erpnext https://github.com/frappe/erpnext.git
+  - bench get-app erpnext https://github.com/frappe/erpnext.git --branch master
   - bench get-app schools $TRAVIS_BUILD_DIR
   - bench use test_site
   - bench reinstall
