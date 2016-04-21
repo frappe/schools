@@ -6,6 +6,10 @@ python:
 services:
   - mysql
 
+before_install:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+
 install:
   - sudo apt-get purge -y mysql-common
   - wget https://raw.githubusercontent.com/frappe/bench/master/install_scripts/setup_frappe.sh
@@ -27,7 +31,7 @@ script:
   - bench --site test_site install-app schools
   - bench start &
   - sleep 10
-  - bench --verbose run-tests --driver Firefox --app schools
+  - bench --verbose run-tests --driver Firefox
 
 before_script:
   - mysql -e 'create database test_frappe'
