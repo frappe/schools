@@ -27,10 +27,16 @@ class StudentGroupCreationTool(Document):
 		return courses
 		
 	def create_student_groups(self):
+		if not self.courses:
+			frappe.throw(_("""No Student Groups created."""))
+
 		for d in self.courses:
-			if not d.student_group_name:
-				frappe.throw(_("""Student Group Name is mandatory"""))
+			if not d.course:
+				frappe.throw(_("""Course is mandatory in row {0}""".format(d.idx)))
 			
+			if not d.student_group_name:
+				frappe.throw(_("""Student Group Name is mandatory in row {0}""".format(d.idx)))
+						
 			student_group = frappe.new_doc("Student Group")
 			student_group.group_name = d.student_group_name
 			student_group.course = d.course
