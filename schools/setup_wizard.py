@@ -12,8 +12,9 @@ def setup_complete(args=None):
 	create_course(args)
 	create_instructor(args)
 	create_room(args)
-	block_modules()
-	disable_roles()
+	if not frappe.flags.in_test:
+		block_modules()
+		disable_roles()
 	
 def create_academic_term():
 	at = ["Semester 1", "Semester 2", "Semester 3"]
