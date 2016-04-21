@@ -27,7 +27,7 @@ script:
   - bench --site test_site install-app schools
   - bench start &
   - sleep 10
-  - bench --verbose run-tests --driver Firefox
+  - bench --verbose run-tests --driver Firefox --app schools
 
 before_script:
   - mysql -e 'create database test_frappe'
