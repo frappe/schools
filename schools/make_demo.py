@@ -5,7 +5,8 @@ import frappe, os, json
 from frappe.core.page.data_import_tool.data_import_tool import import_doc
 from schools.simulate import simulate
 from frappe.utils.make_random import get_random
-import time
+from datetime import datetime
+import time, random
 
 def make():
 	frappe.flags.mute_emails = True
@@ -59,10 +60,22 @@ def make_masters():
 	import_data("Program")
 	
 def make_student_applicants():
+	blood_group = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"]
+	male_names = []
+	female_names = []
+	
 	file_path = get_json_path("Random Student Data")
 	with open(file_path, "r") as open_file:
 		random_student_data = json.loads(open_file.read())
 		count = 1
+		
+		for d in random_student_data:
+			if d.get('gender') == "Male":
+				male_names.append(d.get('first_name').title())
+
+			if d.get('gender') == "Female":
+				female_names.append(d.get('first_name').title())
+			
 		for d in random_student_data:
 			student_applicant = frappe.new_doc("Student Applicant")
 			student_applicant.first_name = d.get('first_name').title()
@@ -70,11 +83,18 @@ def make_student_applicants():
 			student_applicant.image = d.get('image')
 			student_applicant.gender = d.get('gender')
 			student_applicant.program = get_random("Program")
+			student_applicant.blood_group = random.choice(blood_group)
+			year = random.randint(1990, 1998)
+			month = random.randint(1, 12)
+			day = random.randint(1, 28)
+			student_applicant.date_of_birth = datetime(year, month, day)
+			student_applicant.mother_name = random.choice(female_names) + " " + d.get('last_name').title()
+			student_applicant.father_name = random.choice(male_names) + " " + d.get('last_name').title()
 			if count <5:
 				student_applicant.save()
 			else:
 				student_applicant.submit()
-			count+1
+			count+=1
 
 def make_student_group():
 	for d in frappe.db.get_list("Academic Term"):
