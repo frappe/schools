@@ -111,7 +111,7 @@ def get_course_schedule_events(start, end, filters=None):
 	from frappe.desk.calendar import get_event_conditions
 	conditions = get_event_conditions("Course Schedule", filters)
 
-	data = frappe.db.sql("""select name, title, 
+	data = frappe.db.sql("""select name, course, 
 			timestamp(schedule_date, from_time) as from_datetime, 
 			timestamp(schedule_date, to_time) as to_datetime, 
 			room, student_group, 0 as 'allDay'
@@ -121,9 +121,5 @@ def get_course_schedule_events(start, end, filters=None):
 			"start": start,
 			"end": end
 			}, as_dict=True, update={"allDay": 0})
-	
-	
-	for d in data:
-		d.title += " \n for " + d.student_group + " in Room "+ d.room
 	
 	return data
