@@ -62,6 +62,7 @@ def make_student_applicants():
 	file_path = get_json_path("Random Student Data")
 	with open(file_path, "r") as open_file:
 		random_student_data = json.loads(open_file.read())
+		count = 1
 		for d in random_student_data:
 			student_applicant = frappe.new_doc("Student Applicant")
 			student_applicant.first_name = d.get('first_name').title()
@@ -69,7 +70,11 @@ def make_student_applicants():
 			student_applicant.image = d.get('image')
 			student_applicant.gender = d.get('gender')
 			student_applicant.program = get_random("Program")
-			student_applicant.submit()
+			if count <5:
+				student_applicant.save()
+			else:
+				student_applicant.submit()
+			count+1
 
 def make_student_group():
 	for d in frappe.db.get_list("Academic Term"):
