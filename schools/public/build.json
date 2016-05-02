@@ -1,0 +1,5 @@
+{	
+	"js/schools.min.js": [
+		"public/js/conf.js"
+	]
+}
