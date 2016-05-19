@@ -60,7 +60,7 @@ def create_room(args):
 			room.save()
 
 def block_modules():
-	enabled_modules= ["Stock", "Website", "HR", "Learn"]
+	enabled_modules= ["Stock", "Website", "HR", "Learn", "CRM", "Accounts", "Projects"]
 	all_erpnext_modules = frappe.get_list("Desktop Icon", fields=["module_name"], filters={'app': 'erpnext'})
 	for module in all_erpnext_modules:
 		if module.module_name not in enabled_modules:
@@ -68,8 +68,9 @@ def block_modules():
 
 def disable_roles():
 	enabled_roles_list = [
-		"Guest", "Administrator", "System Manager", "All", "Academics User",
-		"HR User", "HR Manager"]
+		"Guest", "Administrator", "System Manager", "All", "Academics User", "HR User",
+		"HR Manager", "Website Manager", "Stock User", "Stock Manager", "Newsletter Manager",
+		"Projects User", "Projects Manager", "Accounts User", "Accounts Manager", "Item Manager"]
 	for role in frappe.get_list("Role"):
 		if not role.name in enabled_roles_list:
 			role_doc = frappe.get_doc("Role", role)
