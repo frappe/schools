@@ -8,7 +8,7 @@ app_description = "ERP for Schools, Colleges and Other Acedemic Institutions"
 app_icon = "octicon octicon-mortar-board"
 app_color = "blue"
 app_email = "hello@frappe.io"
-app_version = "0.2.0"
+app_version = "0.3.0"
 app_license = "GNU General Public License v3"
 
 # setup wizard
@@ -22,7 +22,7 @@ required_apps = ["erpnext"]
 
 # include js, css files in header of desk.html
 # app_include_css = "/assets/schools/css/schools.css"
-# app_include_js = "/assets/schools/js/schools.js"
+app_include_js = "/assets/js/schools.min.js"
 
 # include js, css files in header of web template
 # web_include_css = "/assets/schools/css/schools.css"
