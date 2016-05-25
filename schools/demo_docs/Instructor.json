@@ -55,20 +55,74 @@
 	},
 	{
 		"doctype": "Instructor",
-		"instructor_name": "Filius Flitwick",
+		"instructor_name": "Neil Lasrado",
+		"naming_series": "INS/",
+		"department": "Information Technology"
+	},
+	{
+		"doctype": "Instructor",
+		"instructor_name": "Deepshi Garg",
 		"naming_series": "INS/",
 		"department": "Chemistry"
 	},
 	{
 		"doctype": "Instructor",
-		"instructor_name": "Sybill Trelawney",
+		"instructor_name": "Shubham Saxena",
+		"naming_series": "INS/",
+		"department": "Physics"
+	},
+	{
+		"doctype": "Instructor",
+		"instructor_name": "Rushabh Mehta",
+		"naming_series": "INS/",
+		"department": "Information Technology"
+	},
+	{
+		"doctype": "Instructor",
+		"instructor_name": "Umari Syed",
 		"naming_series": "INS/",
 		"department": "Chemistry"
 	},
 	{
 		"doctype": "Instructor",
-		"instructor_name": "Pomona Sprout",
+		"instructor_name": "Aman Singh",
+		"naming_series": "INS/",
+		"department": "Physics"
+	},
+	{
+		"doctype": "Instructor",
+		"instructor_name": "Nabin",
 		"naming_series": "INS/",
 		"department": "Chemistry"
+	},
+	{
+		"doctype": "Instructor",
+		"instructor_name": "Kanchan Chauhan",
+		"naming_series": "INS/",
+		"department": "Information Technology"
+	},
+	{
+		"doctype": "Instructor",
+		"instructor_name": "Valmik Jangla",
+		"naming_series": "INS/",
+		"department": "Chemistry"
+	},
+	{
+		"doctype": "Instructor",
+		"instructor_name": "Amit Jain",
+		"naming_series": "INS/",
+		"department": "Physics"
+	},
+	{
+		"doctype": "Instructor",
+		"instructor_name": "Shreyas P",
+		"naming_series": "INS/",
+		"department": "Chemistry"
+	},
+	{
+		"doctype": "Instructor",
+		"instructor_name": "Rohit",
+		"naming_series": "INS/",
+		"department": "Information Technology"
 	}
 ]

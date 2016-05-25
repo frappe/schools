@@ -88,8 +88,10 @@ def get_fee_structure(program, academic_term=None):
 	:param program: Program.
 	:param academic_term: Academic Term.
 	"""
+	print program,academic_term
 	fee_structure = frappe.db.get_values("Fee Structure", {"program": program,
 		"academic_term": academic_term}, 'name', as_dict=True)
+	print fee_structure
 	return fee_structure[0].name if fee_structure else None
 
 @frappe.whitelist()
@@ -99,6 +101,7 @@ def get_fee_amount(fee_structure):
 	:param fee_structure: Fee Structure.
 	"""
 	fs = frappe.get_list("Fee Amount", fields=["fees_category", "amount"] , filters={"parent": fee_structure}, order_by= "idx")
+	print fs
 	return fs
 
 @frappe.whitelist()

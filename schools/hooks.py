@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+from frappe import _
 
 app_name = "schools"
 app_title = "ERPNext Schools"
@@ -44,6 +45,7 @@ app_include_js = "/assets/js/schools.min.js"
 
 # automatically create page for each record of this doctype
 # website_generators = ["Web Page"]
+
 
 # Installation
 # ------------
