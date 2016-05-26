@@ -23,7 +23,7 @@ def enroll_student(source_name):
 			}
 		}})
 	student.save()
-	
+
 	program_enrollment = frappe.new_doc("Program Enrollment")
 	program_enrollment.student = student.name
 	program_enrollment.student_name = student.title
