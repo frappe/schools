@@ -8,7 +8,7 @@ frappe.listview_settings['Fees'] = {
 			return [__("Pending"), "orange"];
 		}
 		else {
-			return [__("Paid"), "Green"];
+			return [__("Paid"), "green"];
 		}
 	}
 };
