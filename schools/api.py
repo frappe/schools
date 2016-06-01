@@ -101,6 +101,16 @@ def get_fee_amount(fee_structure):
 	return fs
 
 @frappe.whitelist()
+def get_fee_schedule(program):
+	"""Returns Fee Schedule.
+
+	:param program: Program.
+	"""
+	fs = frappe.get_list("Program Fee", fields=["academic_term", "fee_structure", "due_date", "amount"] , \
+		filters={"parent": program}, order_by= "idx")
+	return fs
+
+@frappe.whitelist()
 def get_course_schedule_events(start, end, filters=None):
 	"""Returns events for Course Schedule Calendar view rendering.
 
