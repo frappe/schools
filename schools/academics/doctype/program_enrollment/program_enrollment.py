@@ -4,8 +4,9 @@
 
 from __future__ import unicode_literals
 import frappe
-from frappe import _
+from frappe import msgprint, _
 from frappe.model.document import Document
+from frappe.utils import comma_and
 
 class ProgramEnrollment(Document):
 	def validate(self):
@@ -27,7 +28,7 @@ class ProgramEnrollment(Document):
 		
 	def make_fee_records(self):
 		from schools.api import get_fee_amount
-		
+		fee_list = []
 		for d in self.fees:
 			fees = frappe.new_doc("Fees")
 			fees.update({
@@ -44,3 +45,8 @@ class ProgramEnrollment(Document):
 				
 			fees.save()
 			fees.submit()
+			fee_list.append(fees.name)
+		if fee_list:
+			fee_list = ["""<a href="#Form/Fees/%s" target="_blank">%s</a>""" % \
+				(fee, fee) for fee in fee_list]
+			msgprint(_("Fee Records Created - {0}").format(comma_and(fee_list)))
