@@ -7,6 +7,7 @@ import frappe
 import json
 from frappe import _
 from frappe.model.mapper import get_mapped_doc
+from frappe.utils import flt
 
 @frappe.whitelist()
 def enroll_student(source_name):
@@ -109,6 +110,12 @@ def get_fee_schedule(program):
 	fs = frappe.get_list("Program Fee", fields=["academic_term", "fee_structure", "due_date", "amount"] , \
 		filters={"parent": program}, order_by= "idx")
 	return fs
+
+@frappe.whitelist()
+def collect_fees(fees, amt):
+	paid_amount = flt(amt) + flt(frappe.db.get_value("Fees", fees, "paid_amount"))
+	frappe.db.set_value("Fees", fees, "paid_amount", paid_amount)
+	return paid_amount
 
 @frappe.whitelist()
 def get_course_schedule_events(start, end, filters=None):
