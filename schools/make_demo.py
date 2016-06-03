@@ -20,6 +20,8 @@ def setup():
 	make_masters()
 	make_student_applicants()
 	make_student_group()
+	make_fees_category()
+	make_fees_structure()
 	print "Starting Simulation..."
 	time.sleep(5)
 	simulate()
@@ -76,10 +78,11 @@ def make_student_applicants():
 			if d.get('gender') == "Female":
 				female_names.append(d.get('first_name').title())
 			
-		for d in random_student_data:
+		for idx, d in enumerate(random_student_data):
 			student_applicant = frappe.new_doc("Student Applicant")
 			student_applicant.first_name = d.get('first_name').title()
 			student_applicant.last_name = d.get('last_name').title()
+			student_applicant.student_email_id = student_applicant.first_name + student_applicant.last_name + str(idx) + "@example.com"
 			student_applicant.image = d.get('image')
 			student_applicant.gender = d.get('gender')
 			student_applicant.program = get_random("Program")
@@ -90,6 +93,11 @@ def make_student_applicants():
 			student_applicant.date_of_birth = datetime(year, month, day)
 			student_applicant.mother_name = random.choice(female_names) + " " + d.get('last_name').title()
 			student_applicant.father_name = random.choice(male_names) + " " + d.get('last_name').title()
+			if student_applicant.gender == "Male":
+				student_applicant.middle_name = random.choice(male_names)
+			else:
+				student_applicant.middle_name = random.choice(female_names)
+
 			if count <5:
 				student_applicant.save()
 			else:
@@ -103,6 +111,36 @@ def make_student_group():
 		sg_tool.academic_term = d.name
 		sg_tool.courses = sg_tool.get_courses()
 		sg_tool.create_student_groups()
+
+
+def make_fees_category():
+	fee_type = ["Tuition Fee", "Hostel Fee", "Logistics Fee", 
+				"Medical Fee", "Mess Fee", "Security Deposit"]
+
+	fee_desc = {"Tuition Fee" : "Curricular activities which includes books, notebooks and faculty charges" , 
+				"Hostel Fee" : "Stay of students in institute premises", 
+				"Logistics Fee" : "Lodging boarding of the students" , 
+				"Medical Fee" : "Medical welfare of the students", 
+				"Mess Fee" : "Food and beverages for your ward", 
+				"Security Deposit" : "In case your child is found to have damaged institutes property"
+				}
+
+	for i in fee_type:
+		fee_category = frappe.new_doc("Fee Category")
+		fee_category.category_name = i
+		fee_category.description = fee_desc[i]
+		fee_category.save()
+
+def make_fees_structure():
+	for i in xrange(1,6):
+		fee_structure = frappe.new_doc("Fee Structure")
+		fee_structure.name = "FS00" + str(i)
+		fee_structure.program = random.choice(frappe.db.get_list("Program")).name
+		fee_structure.academic_term = random.choice(frappe.db.get_list("Academic Term")).name
+		for j in range(1,3):
+			temp = {"fees_category": random.choice(frappe.db.get_list("Fee Category")).name , "amount" : random.randint(500,1000)}
+			fee_structure.append("amount", temp)
+		fee_structure.save()
 
 def import_data(dt, submit=False, overwrite=False):
 	if not isinstance(dt, (tuple, list)):

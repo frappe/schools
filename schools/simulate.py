@@ -6,9 +6,11 @@ from __future__ import unicode_literals
 import sys
 import frappe
 import random
+import string
 from frappe.utils import cstr
 from frappe.utils.make_random import get_random
-from schools.api import enroll_student, get_student_group_students, make_attendance_records
+from schools.api import enroll_student, get_student_group_students, make_attendance_records, get_fee_structure, get_fee_amount
+import datetime
 from datetime import timedelta
 
 def simulate():
@@ -22,8 +24,14 @@ def simulate():
 		enroll_random_student(current_date)
 	
 	print "Making Course Schedules..."
-	make_course_schedule(current_date, frappe.utils.add_days(current_date, 120))
-	
+
+	cd = current_date
+	for i in xrange(1,4):
+		make_course_schedule(cd, frappe.utils.add_days(cd, 39))
+		cd = frappe.utils.add_days(cd, 40)
+		make_examinations(cd.year,cd.month,cd.day)
+		cd = frappe.utils.add_days(cd, 1)
+
 	for i in xrange(runs_for):
 		sys.stdout.write("\rSimulating {0}".format(current_date.strftime("%Y-%m-%d")))
 		sys.stdout.flush()
@@ -32,6 +40,7 @@ def simulate():
 		mark_student_attendance(current_date)
 		
 		current_date = frappe.utils.add_days(current_date, 1)
+	submit_fees()
 
 def approve_random_student_applicant():
 	random_student = get_random("Student Applicant", {"application_status": "Applied"})
@@ -51,6 +60,24 @@ def enroll_random_student(current_date):
 		enrollment.submit()
 		
 		assign_student_group(enrollment.student, enrollment.program)
+
+def submit_fees():
+	for i in xrange(1,20):
+		random_student = random.choice(frappe.get_list("Program Enrollment" , fields= ("student" , "student_name", "program")))
+		fee = frappe.new_doc("Fees")
+		fee.student = random_student.student
+		fee.student_name = random_student.student_name
+		fee.academic_term = get_random("Academic Term")
+		fee.academic_year = get_random("Academic Year")
+		fee.program = random_student.program
+		fee.fee_structure = get_random("Fee Structure")
+		fee.fee_structure = get_fee_structure(fee.program,fee.academic_term)
+		temp = get_fee_amount(fee.fee_structure)
+		for i in temp:
+			fee.append("amount", i)
+		fee.save()
+		if not weighted_choice([8,4]):
+			fee.submit()
 
 def assign_student_group(student, program):
 	courses = []
@@ -83,6 +110,7 @@ def make_course_schedule(start_date, end_date):
 			cs.schedule_course()
 			day.remove(random_day)
 
+
 def mark_student_attendance(current_date):
 	status = ["Present", "Absent"]
 	for d in frappe.db.get_list("Course Schedule", filters={"schedule_date": current_date}, fields=("name", "student_group")):
@@ -102,3 +130,31 @@ def weighted_choice(weights):
 	for i, total in enumerate(totals):
 		if rnd < total:
 			return i
+
+def make_examinations(year,month,day):
+	for i in xrange(1,9):
+		exam = frappe.new_doc("Examination")
+		temp_sg = frappe.db.get_list("Student Group" , fields=("course" , "name"))
+		exam.course = temp_sg[i].course
+		course_code = frappe.db.get_value("Course", exam.course , "course_code")
+		exam.student_group = temp_sg[i].name
+		temp_inst = frappe.db.get_list("Instructor" , fields = ("instructor_name" , "name"))
+		exam.exam_name = exam.student_group + "-" + str(month) + "/" + str(year)
+		exam.exam_code = id_generator()
+		t1 = temp_inst[i]
+		t2 = temp_inst[-i]
+		exam.supervisor = t1.name
+		exam.supervisor_name = t1.instructor_name
+		exam.examiner = t2.name
+		exam.examiner_name = t2.instructor_name
+		room = frappe.db.get_list("Room")
+		exam.room = room[i].name
+		exam.schedule_date = datetime.date(year,month,day)
+		exam.from_time = datetime.datetime(year,month,day,random.randint(10,14),0,0)
+		exam.to_time = exam.from_time + timedelta(hours = random.randint(1,3))
+		exam.save()
+		if i%2 is 0:						
+			exam.submit()
+
+def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
+	return ''.join(random.choice(chars) for _ in range(size))

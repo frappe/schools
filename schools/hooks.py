@@ -45,6 +45,7 @@ app_include_js = "/assets/js/schools.min.js"
 # automatically create page for each record of this doctype
 # website_generators = ["Web Page"]
 
+
 # Installation
 # ------------
 
