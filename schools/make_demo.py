@@ -5,7 +5,7 @@ import frappe, os, json
 from frappe.core.page.data_import_tool.data_import_tool import import_doc
 from schools.simulate import simulate
 from frappe.utils.make_random import get_random
-from datetime import datetime, timedelta
+from datetime import datetime
 import time, random
 
 def make():
@@ -82,7 +82,7 @@ def make_student_applicants():
 			student_applicant = frappe.new_doc("Student Applicant")
 			student_applicant.first_name = d.get('first_name').title()
 			student_applicant.last_name = d.get('last_name').title()
-			student_applicant.student_email_id = student_applicant.first_name + student_applicant.last_name + str(idx) + "@erpnext.com"
+			student_applicant.student_email_id = student_applicant.first_name + student_applicant.last_name + str(idx) + "@example.com"
 			student_applicant.image = d.get('image')
 			student_applicant.gender = d.get('gender')
 			student_applicant.program = get_random("Program")
