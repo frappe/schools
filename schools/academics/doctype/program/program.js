@@ -2,6 +2,7 @@
 // For license information, please see license.txt
 
 cur_frm.add_fetch("course", "course_code", "course_code");
+cur_frm.add_fetch('fee_structure', 'total_amount', 'amount');
 
 frappe.ui.form.on("Program", "refresh", function(frm) {
 	if(!frm.doc.__islocal) {

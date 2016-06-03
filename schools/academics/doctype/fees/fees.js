@@ -1,6 +1,27 @@
 cur_frm.add_fetch("student", "title", "student_name");
 
 frappe.ui.form.on("Fees", {
+	refresh: function(frm) {
+		if (frm.doc.docstatus === 1 && (frm.doc.total_amount > frm.doc.paid_amount)) {
+			frm.add_custom_button(__("Collect Fees"), function() {
+				frappe.prompt({fieldtype:"Float", label: __("Amount Paid"), fieldname:"amt"},
+					function(data) {
+						frappe.call({
+							method:"schools.api.collect_fees",
+							args: {
+								"fees": frm.doc.name,
+								"amt": data.amt
+							},
+							callback: function(r) {
+								frm.doc.paid_amount = r.message
+								frm.refresh()
+							}
+						});
+					}, __("Enter Paid Amount"), __("Collect"));
+			});
+		}
+	},
+	
 	program: function(frm) {
 		if (frm.doc.program && frm.doc.academic_term) {
 			frappe.call({
