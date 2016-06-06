@@ -14,7 +14,7 @@ import datetime
 from datetime import timedelta
 
 def simulate():
-	start_date = frappe.utils.add_days(frappe.utils.nowdate(), -60)
+	start_date = frappe.utils.add_days(frappe.utils.nowdate(), -30)
 	current_date = frappe.utils.getdate(start_date)
 	runs_for = frappe.utils.date_diff(frappe.utils.nowdate(), current_date)
 	
@@ -48,7 +48,8 @@ def approve_random_student_applicant():
 		student_application = frappe.get_doc("Student Applicant", random_student)
 		status = ["Approved", "Rejected"]
 		student_application.application_status = status[weighted_choice([9,3])]
-		student_application.save()
+		student_application.insert()
+		frappe.db.commit()
 
 def enroll_random_student(current_date):
 	random_student = get_random("Student Applicant", {"application_status": "Approved"})
@@ -56,8 +57,8 @@ def enroll_random_student(current_date):
 		enrollment = enroll_student(random_student)
 		enrollment.academic_year = get_random("Academic Year")
 		enrollment.enrollment_date = current_date
-		enrollment.save()
 		enrollment.submit()
+		frappe.db.commit()
 		
 		assign_student_group(enrollment.student, enrollment.program)
 
@@ -75,7 +76,7 @@ def submit_fees():
 		temp = get_fee_amount(fee.fee_structure)
 		for i in temp:
 			fee.append("amount", i)
-		fee.save()
+		fee.insert()
 		if not weighted_choice([8,4]):
 			fee.submit()
 

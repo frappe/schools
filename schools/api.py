@@ -71,6 +71,7 @@ def make_attendance_records(student, student_name, course_schedule, status):
 	student_attendance.course_schedule = course_schedule
 	student_attendance.status = status
 	student_attendance.submit()
+	frappe.db.commit()
 
 @frappe.whitelist()
 def get_student_group_students(student_group):

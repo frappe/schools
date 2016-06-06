@@ -60,6 +60,7 @@ def make_masters():
 	import_data("Instructor")
 	import_data("Course")
 	import_data("Program")
+	frappe.db.commit()
 	
 def make_student_applicants():
 	blood_group = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"]
@@ -99,9 +100,11 @@ def make_student_applicants():
 				student_applicant.middle_name = random.choice(female_names)
 
 			if count <5:
-				student_applicant.save()
+				student_applicant.insert()
+				frappe.db.commit()
 			else:
 				student_applicant.submit()
+				frappe.db.commit()
 			count+=1
 
 def make_student_group():
@@ -111,7 +114,7 @@ def make_student_group():
 		sg_tool.academic_term = d.name
 		sg_tool.courses = sg_tool.get_courses()
 		sg_tool.create_student_groups()
-
+		frappe.db.commit()
 
 def make_fees_category():
 	fee_type = ["Tuition Fee", "Hostel Fee", "Logistics Fee", 
@@ -129,7 +132,8 @@ def make_fees_category():
 		fee_category = frappe.new_doc("Fee Category")
 		fee_category.category_name = i
 		fee_category.description = fee_desc[i]
-		fee_category.save()
+		fee_category.insert()
+		frappe.db.commit()
 
 def make_fees_structure():
 	for i in xrange(1,6):
@@ -140,7 +144,8 @@ def make_fees_structure():
 		for j in range(1,3):
 			temp = {"fees_category": random.choice(frappe.db.get_list("Fee Category")).name , "amount" : random.randint(500,1000)}
 			fee_structure.append("amount", temp)
-		fee_structure.save()
+		fee_structure.insert()
+		frappe.db.commit()
 
 def import_data(dt, submit=False, overwrite=False):
 	if not isinstance(dt, (tuple, list)):
