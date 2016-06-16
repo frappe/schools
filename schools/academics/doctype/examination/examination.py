@@ -4,6 +4,8 @@
 
 from __future__ import unicode_literals
 from frappe.model.document import Document
+import frappe
+from frappe import _
 
 class Examination(Document):
 	def validate(self):
@@ -24,3 +26,19 @@ class Examination(Document):
 		if self.supervisor:
 			validate_overlap_for(self, "Examination", "supervisor")
 			validate_overlap_for(self, "Course Schedule", "instructor", self.supervisor)
+
+def get_examination_list(doctype, txt, filters, limit_start, limit_page_length=20):
+	user = frappe.session.user
+	return frappe. db.sql('''select course, schedule_date, from_time, to_time, sgs.name from `tabExamination` as exam, `tabStudent Group Student` as sgs
+		where exam.student_group = sgs.parent and sgs.student = %s
+		order by exam.name asc limit {0} , {1}'''
+		.format(limit_start,limit_page_length),(user),as_dict = True)
+
+def get_list_context(context=None):
+	return {
+		"show_sidebar": True,
+		'no_breadcrumbs': True,
+		"title": _("Examination List"),
+		"get_list": get_examination_list,
+		"row_template": "templates/includes/examination/examination_row.html"
+	}

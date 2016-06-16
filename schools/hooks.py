@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from . import __version__ as app_version
+from frappe import _
 
 app_name = "schools"
 app_title = "ERPNext Schools"
@@ -45,6 +46,11 @@ app_include_js = "/assets/js/schools.min.js"
 # automatically create page for each record of this doctype
 # website_generators = ["Web Page"]
 
+portal_menu_items = [
+	{"title": _("Courses"), "route": "/course", "reference_doctype": "Course"},
+	{"title": _("Examination Schedule"), "route": "/examination", "reference_doctype": "Examination"},
+	{"title": _("Fees"), "route": "/fees", "reference_doctype": "Fees"}
+]
 
 # Installation
 # ------------
