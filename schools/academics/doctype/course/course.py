@@ -12,7 +12,7 @@ class Course(Document):
 
 def get_sg_list(doctype, txt, filters, limit_start, limit_page_length=20):
 	user = frappe.session.user
-	return frappe.db.sql('''select * from `tabStudent Group`
+	return frappe.db.sql('''select group_name, course, academic_term, academic_year, SG.name from `tabStudent Group`
 						 as SG, `tabStudent Group Student` as SGS  
 						 where SG.group_name = SGS.parent and SGS.student = %s
 						 order by SG.group_name asc limit {0} , {1}

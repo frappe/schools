@@ -20,7 +20,8 @@ class Fees(Document):
 def get_fee_list(doctype, txt, filters, limit_start, limit_page_length=20):
 	from frappe.templates.pages.list import get_list
 	user = frappe.session.user
-	if not filters: filters = []
+	if not filters: 
+		filters = []
 	filters.append(("Fees", "student", "=", user))
 	ignore_permissions = True
 	return get_list(doctype, txt, filters, limit_start, limit_page_length, ignore_permissions=ignore_permissions)

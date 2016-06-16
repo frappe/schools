@@ -29,7 +29,7 @@ class Examination(Document):
 
 def get_examination_list(doctype, txt, filters, limit_start, limit_page_length=20):
 	user = frappe.session.user
-	return frappe. db.sql('''select * from `tabExamination` as exam, `tabStudent Group Student` as sgs
+	return frappe. db.sql('''select course, schedule_date, from_time, to_time, sgs.name from `tabExamination` as exam, `tabStudent Group Student` as sgs
 		where exam.student_group = sgs.parent and sgs.student = %s
 		order by exam.name asc limit {0} , {1}'''
 		.format(limit_start,limit_page_length),(user),as_dict = True)
