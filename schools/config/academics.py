@@ -25,11 +25,11 @@ def get_data():
 				},
 				{
 					"type": "doctype",
-					"name": "Student Group Creation Tool"
+					"name": "Program Enrollment Tool"
 				},
 				{
 					"type": "doctype",
-					"name": "Program Enrollment Tool"
+					"name": "Student Group Creation Tool"
 				}
 			]
 		},
