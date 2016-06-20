@@ -29,16 +29,18 @@ class Examination(Document):
 
 def get_examination_list(doctype, txt, filters, limit_start, limit_page_length=20):
 	user = frappe.session.user
-	return frappe. db.sql('''select course, schedule_date, from_time, to_time, sgs.name from `tabExamination` as exam, `tabStudent Group Student` as sgs
-		where exam.student_group = sgs.parent and sgs.student = %s
-		order by exam.name asc limit {0} , {1}'''
-		.format(limit_start,limit_page_length),(user),as_dict = True)
+	student = frappe.db.sql("select name from `tabStudent` where student_email_id= %s", user)
+	if student:
+		return frappe. db.sql('''select course, schedule_date, from_time, to_time, sgs.name from `tabExamination` as exam, 
+			`tabStudent Group Student` as sgs where exam.student_group = sgs.parent and sgs.student = %s and exam.docstatus=1
+			order by exam.name asc limit {0} , {1}'''
+			.format(limit_start, limit_page_length), student, as_dict = True)
 
 def get_list_context(context=None):
 	return {
 		"show_sidebar": True,
 		'no_breadcrumbs': True,
-		"title": _("Examination List"),
+		"title": _("Examination Schedule"),
 		"get_list": get_examination_list,
 		"row_template": "templates/includes/examination/examination_row.html"
 	}
