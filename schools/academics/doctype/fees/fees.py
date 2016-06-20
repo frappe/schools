@@ -18,13 +18,13 @@ class Fees(Document):
 			self.total_amount += d.amount
 
 def get_fee_list(doctype, txt, filters, limit_start, limit_page_length=20):
-	from frappe.templates.pages.list import get_list
 	user = frappe.session.user
-	if not filters: 
-		filters = []
-	filters.append(("Fees", "student", "=", user))
-	ignore_permissions = True
-	return get_list(doctype, txt, filters, limit_start, limit_page_length, ignore_permissions=ignore_permissions)
+	student = frappe.db.sql("select name from `tabStudent` where student_email_id= %s", user)
+	if student:
+		return frappe. db.sql('''select name, program, due_date, paid_amount, outstanding_amount, total_amount from `tabFees`
+			where student= %s and docstatus=1
+			order by due_date asc limit {0} , {1}'''
+			.format(limit_start, limit_page_length), student, as_dict = True)
 
 def get_list_context(context=None):
 	return {
