@@ -1,2 +1,0 @@
-execute:frappe.reload_doc("Academics", "doctype", "Fees")
-execute:frappe.db.sql("update tabFees set outstanding_amount = total_amount - paid_amount")
