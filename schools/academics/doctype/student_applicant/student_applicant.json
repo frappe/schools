@@ -541,7 +541,7 @@
    "reqd": 0, 
    "search_index": 0, 
    "set_only_once": 0, 
-   "unique": 0
+   "unique": 1
   }, 
   {
    "allow_on_submit": 0, 
@@ -606,8 +606,8 @@
  "istable": 0, 
  "max_attachments": 0, 
  "menu_index": 0, 
- "modified": "2016-06-17 07:18:43.965992", 
- "modified_by": "demo@erpnext.com", 
+ "modified": "2016-06-22 03:26:23.161980", 
+ "modified_by": "Administrator", 
  "module": "Academics", 
  "name": "Student Applicant", 
  "name_case": "", 
