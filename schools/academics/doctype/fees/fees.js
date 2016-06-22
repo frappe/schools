@@ -1,3 +1,4 @@
+
 cur_frm.add_fetch("student", "title", "student_name");
 
 frappe.ui.form.on("Fees", {
@@ -14,6 +15,7 @@ frappe.ui.form.on("Fees", {
 							},
 							callback: function(r) {
 								frm.doc.paid_amount = r.message
+								frm.doc.outstanding_amount = frm.doc.total_amount - r.message
 								frm.refresh()
 							}
 						});

@@ -69,6 +69,12 @@ def get_data():
 				{
 					"type": "doctype",
 					"name": "Fee Category"
+				},
+				{
+					"type": "report",
+					"name": "Student Fee Collection",
+					"doctype": "Fees",
+					"is_query_report": True
 				}
 			]
 		},

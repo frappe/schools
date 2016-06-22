@@ -115,7 +115,9 @@ def get_fee_schedule(program):
 @frappe.whitelist()
 def collect_fees(fees, amt):
 	paid_amount = flt(amt) + flt(frappe.db.get_value("Fees", fees, "paid_amount"))
+	total_amount = flt(frappe.db.get_value("Fees", fees, "total_amount"))
 	frappe.db.set_value("Fees", fees, "paid_amount", paid_amount)
+	frappe.db.set_value("Fees", fees, "outstanding_amount", (total_amount - paid_amount))
 	return paid_amount
 
 @frappe.whitelist()
