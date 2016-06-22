@@ -45,6 +45,7 @@ app_include_js = "/assets/js/schools.min.js"
 
 # automatically create page for each record of this doctype
 # website_generators = ["Web Page"]
+fixtures = ["Web Form"]
 
 portal_menu_items = [
 	{"title": _("Courses"), "route": "/course", "reference_doctype": "Course"},

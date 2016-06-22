@@ -1,0 +1,58 @@
+[
+ {
+  "allow_comments": 1, 
+  "allow_delete": 1, 
+  "allow_edit": 1, 
+  "allow_multiple": 1, 
+  "breadcrumbs": null, 
+  "doc_type": "Discussion", 
+  "docstatus": 0, 
+  "doctype": "Web Form", 
+  "introduction_text": null, 
+  "is_standard": 1, 
+  "login_required": 1, 
+  "modified": "2016-06-22 07:34:55.154304", 
+  "name": "discussion", 
+  "page_name": "discussion", 
+  "published": 1, 
+  "success_message": null, 
+  "success_url": "/discussion", 
+  "title": "Discussion", 
+  "web_form_fields": [
+   {
+    "default": null, 
+    "description": null, 
+    "fieldname": "course", 
+    "fieldtype": "Date", 
+    "hidden": 0, 
+    "label": "Course", 
+    "options": "Course", 
+    "read_only": 1, 
+    "reqd": 0
+   }, 
+   {
+    "default": null, 
+    "description": null, 
+    "fieldname": "subject", 
+    "fieldtype": "Data", 
+    "hidden": 0, 
+    "label": "Subject", 
+    "options": null, 
+    "read_only": 0, 
+    "reqd": 1
+   }, 
+   {
+    "default": null, 
+    "description": null, 
+    "fieldname": "description", 
+    "fieldtype": "Text", 
+    "hidden": 0, 
+    "label": "Description", 
+    "options": null, 
+    "read_only": 0, 
+    "reqd": 0
+   }
+  ], 
+  "web_page_link_text": null
+ }
+]
