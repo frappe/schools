@@ -31,7 +31,6 @@ class ProgramEnrollment(Document):
 		fee_list = []
 		for d in self.fees:
 			fee_amount = get_fee_amount(d.fee_structure)
-			print fee_amount
 			if fee_amount:
 				fees = frappe.new_doc("Fees")
 				fees.update({
