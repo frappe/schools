@@ -99,8 +99,9 @@ def get_fee_amount(fee_structure):
 
 	:param fee_structure: Fee Structure.
 	"""
-	fs = frappe.get_list("Fee Amount", fields=["fees_category", "amount"] , filters={"parent": fee_structure}, order_by= "idx")
-	return fs
+	if fee_structure:
+		fs = frappe.get_list("Fee Amount", fields=["fees_category", "amount"] , filters={"parent": fee_structure}, order_by= "idx")
+		return fs
 
 @frappe.whitelist()
 def get_fee_schedule(program):
