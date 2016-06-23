@@ -30,22 +30,25 @@ class ProgramEnrollment(Document):
 		from schools.api import get_fee_amount
 		fee_list = []
 		for d in self.fees:
-			fees = frappe.new_doc("Fees")
-			fees.update({
-				"student": self.student,
-				"academic_year": self.academic_year,
-				"academic_term": d.academic_term,
-				"fee_structure": d.fee_structure,
-				"program": self.program,
-				"due_date": d.due_date,
-				"student_name": self.student_name,
-				"program_enrollment": self.name,
-				"amount": get_fee_amount(d.fee_structure)
-			})
+			fee_amount = get_fee_amount(d.fee_structure)
+			print fee_amount
+			if fee_amount:
+				fees = frappe.new_doc("Fees")
+				fees.update({
+					"student": self.student,
+					"academic_year": self.academic_year,
+					"academic_term": d.academic_term,
+					"fee_structure": d.fee_structure,
+					"program": self.program,
+					"due_date": d.due_date,
+					"student_name": self.student_name,
+					"program_enrollment": self.name,
+					"amount": fee_amount
+				})
 				
-			fees.save()
-			fees.submit()
-			fee_list.append(fees.name)
+				fees.save()
+				fees.submit()
+				fee_list.append(fees.name)
 		if fee_list:
 			fee_list = ["""<a href="#Form/Fees/%s" target="_blank">%s</a>""" % \
 				(fee, fee) for fee in fee_list]
