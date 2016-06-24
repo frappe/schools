@@ -71,8 +71,7 @@ def submit_fees():
 		fee.academic_term = get_random("Academic Term")
 		fee.academic_year = get_random("Academic Year")
 		fee.program = random_student.program
-		fee.fee_structure = get_random("Fee Structure")
-		fee.fee_structure = get_fee_structure(fee.program,fee.academic_term)
+		fee.fee_structure = get_fee_structure(fee.program, fee.academic_term)
 		temp = get_fee_amount(fee.fee_structure)
 		for i in temp:
 			fee.append("amount", i)
