@@ -47,6 +47,7 @@ app_include_js = "/assets/js/schools.min.js"
 # website_generators = ["Web Page"]
 
 portal_menu_items = [
+	{"title": _("Announcements"), "route": "/announcement", "reference_doctype": "Announcement"},
 	{"title": _("Courses"), "route": "/course", "reference_doctype": "Course"},
 	{"title": _("Examination Schedule"), "route": "/examination", "reference_doctype": "Examination"},
 	{"title": _("Fees"), "route": "/fees", "reference_doctype": "Fees"}

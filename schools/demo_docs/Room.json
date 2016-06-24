@@ -73,49 +73,49 @@
 	},
 	{
 		"doctype": "Room",
-		"room_name": "exam hall 1",
+		"room_name": "Exam hall 1",
 		"room_number": "560",
 		"seating_capacity": 70
 	},
 	{
 		"doctype": "Room",
-		"room_name": "exam hall 2",
+		"room_name": "Exam hall 2",
 		"room_number": "561",
 		"seating_capacity": 70
 	},
 	{
 		"doctype": "Room",
-		"room_name": "exam hall 2",
+		"room_name": "Exam hall 2",
 		"room_number": "562",
 		"seating_capacity": 70
 	},
 	{
 		"doctype": "Room",
-		"room_name": "exam hall 3",
+		"room_name": "Exam hall 3",
 		"room_number": "563",
 		"seating_capacity": 70
 	},
 	{
 		"doctype": "Room",
-		"room_name": "exam hall 4",
+		"room_name": "Exam hall 4",
 		"room_number": "564",
 		"seating_capacity": 70
 	},
 	{
 		"doctype": "Room",
-		"room_name": "exam hall 5",
+		"room_name": "Exam hall 5",
 		"room_number": "565",
 		"seating_capacity": 70
 	},
 	{
 		"doctype": "Room",
-		"room_name": "exam hall 6",
+		"room_name": "Exam hall 6",
 		"room_number": "566",
 		"seating_capacity": 70
 	},
 	{
 		"doctype": "Room",
-		"room_name": "exam hall 7",
+		"room_name": "Exam hall 7",
 		"room_number": "567",
 		"seating_capacity": 70
 	}
