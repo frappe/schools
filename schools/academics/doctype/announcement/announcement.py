@@ -17,11 +17,12 @@ def get_message_list(doctype, txt, filters, limit_start, limit_page_length=20):
 		sg_list = frappe.db.sql("""select parent from `tabStudent Group Student` as sgs
 				where sgs.student = %s """,(student))
 
-		return frappe.db.sql("""select * from `tabAnnouncement` as notif
-			where (notif.receiver = "Student" and notif.student = %s)
-			or (notif.receiver = "Student Group" and notif.student_group in %s)
-			and notif.docstatus = 1	
-			order by notif.idx asc limit {0} , {1}"""
+		return frappe.db.sql("""select * from `tabAnnouncement` as announce
+			where (announce.receiver = "Student" and announce.student = %s)
+			or (announce.receiver = "Student Group" and announce.student_group in %s)
+			or announce.receiver = "All Students"
+			and announce.docstatus = 1	
+			order by announce.idx asc limit {0} , {1}"""
 			.format(limit_start, limit_page_length), (student,sg_list), as_dict = True)
 
 def get_list_context(context=None):
