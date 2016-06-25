@@ -1,0 +1,116 @@
+<div class="comment-view">
+
+<div itemscope itemtype="http://schema.org/UserComments" id="comment-list">
+	{% for comment in comment_list %}
+	{% include "templates/includes/comments/comment.html" %}
+	{% endfor %}
+</div>
+</div>
+
+<div class="add-comment-section">
+	<div class="text-muted hidden login-required">
+		<a href="/login?redirect-to={{ pathname }}">{{ _("Login to post your response") }}</a>
+	</div>
+
+	<div class="comment-form-wrapper">
+		<a class="add-comment btn btn-default btn-sm">{{ _("New Response") }}</a>		 
+			<div style="display: none;" id="comment-form">
+			<p>{{ _("Leave a Response") }}</p>
+			<div class="alert" style="display:none;"></div>
+			<form>
+				<fieldset>
+					<div class="row {% if login_required %}hide{% endif %}">
+						<div class="col-sm-6">
+							<p><input class="form-control" name="comment_by_fullname" placeholder="{{ _("Your Name") }}"
+								type="text"></p>
+						</div>
+						<div class="col-sm-6">
+							<p><input class="form-control" name="comment_by"
+								placeholder="{{ _("Your Email Id") }}" type="email"></p>
+						</div>
+					</div>
+					<p><textarea class="form-control" name="comment" rows=5
+						placeholder="{{ _(" Your Response ") }}"></textarea></p>
+                        <button class="btn btn-primary btn-sm" id="submit-comment" style="margin-top:10px">
+                            {{ _("Submit Response") }}</button>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+</div>
+<script>
+	frappe.ready(function() {
+		var login_required = {{ login_required and 1 or 0 }};
+
+		if (login_required && !frappe.is_user_logged_in()) {
+			$(".login-required, .comment-form-wrapper").toggleClass("hidden");
+		}
+
+		var n_comments = $(".comment-row").length;
+
+		if(n_comments) {
+			$(".no_comment").toggle(false);
+		}
+		if(n_comments > 300) {
+			$(".add-comment").toggle(false)
+				.parent().append("<div class='text-muted'>The discussion has closed.</div>")
+		}
+		$(".add-comment").click(function() {		
+			$(this).toggle(false);		
+		 	$("#comment-form").toggle();
+            var full_name = "", user_id = "";
+            if(frappe.is_user_logged_in()) {
+                full_name = getCookie("full_name");
+                user_id = getCookie("user_id");
+                if(user_id != "Guest") {
+        			$("[name='comment_by']").val(user_id);
+        			$("[name='comment_by_fullname']").val(full_name);
+                }
+            }
+			$("#comment-form textarea").val("");
+			})
+
+		$("#submit-comment").click(function() {
+			var args = {
+				comment_by_fullname: $("[name='comment_by_fullname']").val(),
+				comment_by: $("[name='comment_by']").val(),
+				comment: $("[name='comment']").val(),
+				reference_doctype: "{{ reference_doctype or doctype }}",
+				reference_name: "{{ reference_name or name }}",
+				comment_type: "Comment",
+				page_name: "{{ pathname }}",
+			}
+
+			if(!args.comment_by_fullname || !args.comment_by || !args.comment) {
+				frappe.msgprint("All fields are necessary to submit a response.")
+				return false;
+			}
+
+			if (!valid_email(args.comment_by)) {
+				frappe.msgprint("Please enter a valid email address.");
+				return false;
+			}
+
+			frappe.call({
+				btn: this,
+				type: "POST",
+				method: "frappe.templates.includes.comments.comments.add_comment",
+				args: args,
+				callback: function(r) {
+					if(r.exc) {
+						if(r._server_messages)
+							frappe.msgprint(r._server_messages);
+					} else {
+						$(r.message).appendTo("#comment-list");
+						$(".no-comment, .add-comment").toggle(false);
+						$("#comment-form")
+							.replaceWith('')
+					}
+					window.location.reload();
+				}
+			})
+
+			return false;
+		})
+	});
+</script>
