@@ -1,6 +1,12 @@
-<div class="web-list-item">
+<div class="web-list-item blog-list-item">
 	<div class="row">
-		<p> {{ doc.subject }} </p>
-		<p> {{ doc.description }} </p>
+		<div class="col-xs-12">
+			<h1 class="blog-header">{{ doc.subject }}</h1>
+			<p class="post-description">{{ doc.description }}</p>
+			<p class="post-by text-muted small">
+				<i>{{ doc.posted_by }}</i>
+				<i class="blog-dot"></i> {{ frappe.format_date(doc.modified) }}
+			</p>
+		</div>
 	</div>
 </div>

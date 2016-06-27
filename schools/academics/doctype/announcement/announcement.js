@@ -2,8 +2,8 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('Announcement', {
-	refresh: function(frm) {
-		frm.toggle_reqd("student", frm.doc.receiver=="Student")
-		frm.toggle_reqd("student_group", frm.doc.receiver=="Student Group")
+	onload: function(frm) {
+		frm.add_fetch('instructor', 'instructor_name' , 'posted_by');
 	}
 });
+
