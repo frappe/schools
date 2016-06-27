@@ -8,7 +8,31 @@ from frappe.model.document import Document
 from frappe import _
 
 class Announcement(Document):
-	pass
+	def validate(self):
+		self.validate_receiver()
+		self.set_posted_by()
+
+	def validate_receiver(self):
+		if self.receiver == "Student":
+			if not self.student:
+				frappe.throw(_("Please select a Student"))
+				self.student_group = None
+		elif self.receiver == "Student Group":
+			if not self.student_group:
+				frappe.throw(_("Please select a Student Group"))
+				self.student = None
+		else:
+			self.student_group = None
+			self.student = None
+
+	def set_posted_by(self):
+		if self.instructor:
+			self.posted_by = frappe.db.get_value("Instructor", self.instructor, "instructor_name")
+		else:
+			self.posted_by = frappe.session.user
+
+
+
 
 def get_message_list(doctype, txt, filters, limit_start, limit_page_length=20):
 	user = frappe.session.user
