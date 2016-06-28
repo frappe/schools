@@ -4,4 +4,7 @@ import frappe
 
 def get_context(context):
 	# do your magic here
-	pass
+		pass
+
+def has_website_permission(doc, ptype, user, verbose=False):
+	return True

@@ -53,6 +53,10 @@ portal_menu_items = [
 	{"title": _("Fees"), "route": "/fees", "reference_doctype": "Fees"}
 ]
 
+has_website_permission = {
+	"Discussion": "schools.academics.web_form.discussion.discussion.has_website_permission"}
+
+
 # Installation
 # ------------
 
