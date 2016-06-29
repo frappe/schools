@@ -10,7 +10,7 @@
  "idx": 0, 
  "is_standard": 1, 
  "login_required": 1, 
- "modified": "2016-06-28 03:46:49.465738", 
+ "modified": "2016-06-28 07:56:38.660747", 
  "modified_by": "Administrator", 
  "module": "Academics", 
  "name": "discussion", 
@@ -31,7 +31,7 @@
   }, 
   {
    "fieldname": "subject", 
-   "fieldtype": "Data", 
+   "fieldtype": "Text", 
    "hidden": 0, 
    "label": "Subject", 
    "read_only": 0, 
