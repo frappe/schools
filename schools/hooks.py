@@ -56,7 +56,6 @@ portal_menu_items = [
 has_website_permission = {
 	"Discussion": "schools.academics.web_form.discussion.discussion.has_website_permission"}
 
-
 # Installation
 # ------------
 

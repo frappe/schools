@@ -1,11 +1,11 @@
 {% extends "templates/web.html" %}
 
 {% block header %}
-	<h1> About </h1>
+	<h1> {{doc.subject}} </h1>
 {% endblock %}
 
 {% block page_content %}
 
-<p class="post-description"> {{ intro }} </p>
+<p class="post-description"> {{doc.description}} </p>
 
 {% endblock %}

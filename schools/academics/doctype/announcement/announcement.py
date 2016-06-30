@@ -41,13 +41,29 @@ def get_message_list(doctype, txt, filters, limit_start, limit_page_length=20):
 		sg_list = frappe.db.sql("""select parent from `tabStudent Group Student` as sgs
 				where sgs.student = %s """,(student))
 
-		return frappe.db.sql("""select * from `tabAnnouncement` as announce
+		data = frappe.db.sql("""select name, receiver, subject, description, posted_by, modified,
+			student, student_group
+		    from `tabAnnouncement` as announce
 			where (announce.receiver = "Student" and announce.student = %s)
 			or (announce.receiver = "Student Group" and announce.student_group in %s)
 			or announce.receiver = "All Students"
 			and announce.docstatus = 1	
 			order by announce.idx asc limit {0} , {1}"""
 			.format(limit_start, limit_page_length), (student,sg_list), as_dict = True)
+
+		for announcement in data:
+			try:
+				num_attachments = frappe.db.sql(""" select count(file_url) from tabFile as file
+													where file.attached_to_name=%s 
+													and file.attached_to_doctype=%s""",(announcement.name,"Announcement"))
+
+			except IOError or frappe.DoesNotExistError:
+				pass
+				frappe.local.message_log.pop()
+
+			announcement.num_attachments = num_attachments[0][0]
+
+		return data
 
 def get_list_context(context=None):
 	return {
