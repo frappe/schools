@@ -1,25 +1,19 @@
 <div class="web-list-item blog-list-item">
-<a href="/announcements?announcement={{doc.name}}">
-	<div class="row">
-		<a href="/announcements?announcement={{doc.name}}">
-			<div class="col-xs-12">
-				<h1 class="blog-header">{{ doc.subject }}</h1>
-				<p class="post-description">{{ doc.description }}</p>
-				<p class="post-by text-muted small">
-					<i>{{ doc.posted_by }}</i>
-					<i class="blog-dot"></i> {{ frappe.format_date(doc.modified) }}
-				</p>
-			</div>
-		</a>
-		<div class="col-xs-12">
-			<p class="post-by text-muted small">
-				<i>{{ doc.posted_by }}</i>
-				<i class="blog-dot"></i> {{ frappe.format_date(doc.modified) }}
-				<i class="blog-dot"></i> {{ doc.num_attachments }} attachments
-			</p>
+	<a href="/announcements?announcement={{doc.name}}">
+		<div class="row">
+			<a href="/announcements?announcement={{doc.name}}">
+				<div class="col-xs-12">
+					<h1 class="blog-header">{{ doc.subject }}</h1>
+					<p class="post-description more">{{ doc.description }}</p>
+					<p class="post-by text-muted small">
+						<i>{{ doc.posted_by }}</i>
+						<i class="blog-dot"></i> {{ frappe.format_date(doc.modified) }}
+						<i class="blog-dot"></i> {{ doc.num_attachments }} attachments
+					</p>
+				</div>
+			</a>
 		</div>
-	</div>
-</a>
+	</a>
 </div>
 
 <script type="text/javascript">

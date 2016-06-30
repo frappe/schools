@@ -2,14 +2,8 @@
 	<div class="row">
 		<a href = "/topics?topic={{ doc.name }}">
 			<div class="col-xs-12">
-				<h1 class="blog-header">{{ doc.topic_name }}</h1>
+				{{ doc.topic_name }}
 			</div>
 		</a>
-		<div class = "col-xs-12">
-			<p class="post-by text-muted small">
-				{{ frappe.format_date(doc.modified) }}
-				<i class="blog-dot"></i> {{ doc.num_attachments }} attachments
-			</p>
-		</div>
 	</div>
 </div>
