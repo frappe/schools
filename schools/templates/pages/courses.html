@@ -1,27 +1,11 @@
 {% extends "templates/web.html" %}
 
-{% block title %}{{ doc.course_name }}{% endblock %}
-{%- from "templates/includes/course/macros.html" import back_link -%}
-
 {% block header %}
-	<h1>{{ doc.course_name }}</h1>
+	<h1> About </h1>
 {% endblock %}
 
 {% block page_content %}
 
-<div class="clearfix">
-  <h4 style="float: left;">{{ _("Discussions") }}</h4>
-  <a class="btn btn-primary btn-default btn-sm" style="float: right; position: relative; top: 10px;" href="/discussion?new=1&course={{doc.course_name}}{{back_link(doc)}}">New Post</a>
-</div>
-
-{% for d in discuss %}
-<a href = "/discussion?name={{d.name}}">
-	<div>
-		<h3> {{ d.subject }} </h3>
-		</p> {{ d.description }} </p>
-		<hr>
-	<div>
-</a>
-{% endfor %}
+<p class="post-description"> {{ intro }} </p>
 
 {% endblock %}
