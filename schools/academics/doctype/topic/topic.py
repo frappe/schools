@@ -12,7 +12,6 @@ class Topic(Document):
 
 def get_topic_list(doctype, txt, filters, limit_start, limit_page_length=20):
 	user = frappe.session.user
-	print filters
 	student = frappe.db.sql("select name from `tabStudent` where student_email_id= %s", user)
 	if student:
 		data = frappe. db.sql('''select name, course, subject, modified,topic_name from `tabTopic` as topic
@@ -42,6 +41,7 @@ def get_list_context(context=None):
 	return {
 		"show_sidebar": True,
 		"title": _("Topic"),
+		'no_breadcrumbs': True,
 		"sidebar_items" : portal_items,
 		"sidebar_title" : course.name,
 		"get_list": get_topic_list,
