@@ -63,7 +63,7 @@ def enroll_random_student(current_date):
 		assign_student_group(enrollment.student, enrollment.program)
 
 def submit_fees():
-	for i in xrange(1,20):
+	for i in xrange(1,40):
 		random_student = random.choice(frappe.get_list("Program Enrollment" , fields= ("student" , "student_name", "program")))
 		fee = frappe.new_doc("Fees")
 		fee.student = random_student.student
@@ -73,6 +73,8 @@ def submit_fees():
 		fee.program = random_student.program
 		fee.fee_structure = get_fee_structure(fee.program, fee.academic_term)
 		temp = get_fee_amount(fee.fee_structure)
+		if temp is None:
+			continue
 		for i in temp:
 			fee.append("amount", i)
 		fee.insert()

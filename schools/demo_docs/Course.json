@@ -1,134 +1,149 @@
 [
 	{
 		"doctype": "Course",
-		"course_name": "Communication Skiils",
+		"course_name": "Electronics and Communication",
 		"course_code": "BCA2040",
-		"department": "Information Technology"
+		"department": "Information Technology",
+		"course_intro": "The course is intended for senior level undergraduate and postgraduate students. The course presents the fundamental techniques of generation, transmission, and reception of communication system related signals applicable for a wide range of communication applications.System design for optimum performance has been thoroughly covered in this presentation. A module on the synchronization techniques has been included.Communication system design for communication over fading channels has been covered in detail."
 	},
 	{
 		"doctype": "Course",
 		"course_name": "Object Oriented Programing - C++",
 		"course_code": "BCA2030",
-		"department": "Information Technology"
+		"department": "Information Technology",
+		"course_intro": "Object-oriented programming (OOP) refers to a type of computer programming (software design) in which programmers define not only the data type of a data structure, but also the types of operations (functions) that can be applied to the data structure.In this way, the data structure becomes an object that includes both data and functions. In addition, programmers can create relationships between one object and another. For example, objects can inherit characteristics from other objects."
 	},
 	{
 		"doctype": "Course",
 		"course_name": "Data Structures and Algorithm",
 		"course_code": "BCA2020",
-		"department": "Information Technology"
+		"department": "Information Technology",
+		"course_intro": "Welcome to data structures and algorithms. We are going to learn about some basic terminologies regarding data structures and the notations that you would be following in the rest of this course. We will begin with some simple definitions. An algorithm is an outline of the steps that a program or any computational procedure has to take. A program on the other hand is an implementation of an algorithm and it could be in any programming language. Data structure is the way we need to organize the data, so that it can be used effectively by the program."
 	},
 	{
 		"doctype": "Course",
 		"course_name": "Operating System",
 		"course_code": "BCA2010",
-		"department": "Information Technology"
+		"department": "Information Technology",
+		"course_intro": "An operating system (OS) is the software component of a computer system that is responsible for the management and coordination of activities and the sharing of the resources of the computer. The OS acts as a host for application programs that are run on the machine. As a host, one of the purposes of an OS is to handle the details of the operation of the hardware"
 	},
 	{
 		"doctype": "Course",
 		"course_name": "Digital Logic",
 		"course_code": "BCA1040",
-		"department": "Information Technology"
+		"department": "Information Technology",
+		"course_intro": "This course is on digital circuits and digital systems. We have this, signals. A signal is a variation in a physical parameter, temperature variation is a signal, speech as I speak now it’s a signal, video is a signal, light intensity variation. Now any of these signals that you get need to be may be processed to be available to the other end may be stored so you do lot of processing of signals in real life"
 	},
 	{
 		"doctype": "Course",
 		"course_name": "Basic Mathematics",
 		"course_code": "BCA1030",
-		"department": "Information Technology"
+		"department": "Information Technology",
+		"course_intro": "Basic mathematics, pre-algebra, geometry, statistics, and algebra skills are what this course will teach you. It is designed for anyone who needs a basic to advanced understanding of mathematics concepts and operations. Before learning pre-algebra, a good understanding of basic mathematics is important. And before learning algebra, a solid understanding of pre-algebra is a must."
 	},
 	{
 		"doctype": "Course",
 		"course_name": "Programing in C",
 		"course_code": "BCA1020",
-		"department": "Information Technology"
+		"department": "Information Technology",
+		"course_intro": "The very first thing you need to do, before starting out in C, is to make sure that you have a compiler. What is a compiler, you ask? A compiler turns the program that you write into an executable that your computer can actually understand and run. If you're taking a course, you probably have one provided through your school/institution. If you're starting out on your own, your best bet is to use Code::Blocks with MinGW. If you're on Linux, you can use gcc, and if you're on Mac OS X, you can use XCode. If you haven't yet done so, go ahead and get a compiler set up--you'll need it for the rest of the course"
 	},
 	{
 		"doctype": "Course",
 		"course_name": "Fundamentals of IT & Programing",
 		"course_code": "BCA1010",
-		"department": "Information Technology"
+		"department": "Information Technology",
+		"course_intro": "This course provides the core knowledge to begin programming in any language. Learn how to write and execute your first application and understand what's going on under the hood. The course covers creating small programs to explore conditions, loops, variables, and expressions; working with different kinds of data and seeing how they affect memory; writing modular code; and how to debug, all using different approaches to constructing software applications. Finally, the course compares how code is written in several different languages, the libraries and frameworks that have grown around them, and the reasons to choose each one."
 	},
 	{
 		"doctype": "Course",
 		"course_name": "Microprocessor",
 		"course_code": "MCA4010",
-		"department": "Information Technology"
+		"department": "Information Technology",
+		"course_intro": "A microprocessor is a computer processor which incorporates the functions of a computer's central processing unit (CPU) on a single integrated circuit (IC),[1] or at most a few integrated circuits. The microprocessor is a multipurpose, clock driven, register based, programmable electronic device which accepts digital or binary data as input, processes it according to instructions stored in its memory, and provides results as output."
 	},
 	{
 		"doctype": "Course",
 		"course_name": "Probability and Statistics",
 		"course_code": "MCA4020",
-		"department": "Information Technology"
-	},
-	{
-		"doctype": "Course",
-		"course_name": "Programing in Java",
-		"course_code": "MCA4030",
-		"department": "Information Technology"
+		"department": "Information Technology",
+		"course_intro": "This course provides an elementary introduction to probability and statistics with applications. Topics include: basic combinatorics, random variables, probability distributions, Bayesian inference, hypothesis testing, confidence intervals, and linear regression."
 	},
 	{
 		"doctype": "Course",
 		"course_name": "Communication Skills",
 		"course_code": "BBA 101",
-		"department": "Management Studies"
+		"department": "Management Studies",
+		"course_intro": "Apart from the basic necessities, you need to be equipped with habits for good communication skills, as this is what will make you a happy and successful social being. In order to develop these habits, you need to first acknowledge the fact that communication skills need an improvement from time to time."
 	},
 	{
 		"doctype": "Course",
 		"course_name": "Organizational Behavior",
 		"course_code": "BBA 102",
-		"department": "Management Studies"
+		"department": "Management Studies",
+		"course_intro": "The study of Organizational Behaviour (OB) is very interesting and challenging too. It is related to individuals, group of people working together in teams. The study becomes more challenging when situational factors interact. The study of organizational behaviour relates to the expected behaviour of an individual in the organization."
 	},
 	{
 		"doctype": "Course",
 		"course_name": "Business Environment",
 		"course_code": "BBA 103",
-		"department": "Management Studies"
+		"department": "Management Studies",
+		"course_intro": "Business environment is the sum total of all external and internal factors that influence a business. You should keep in mind that external factors and internal factors can influence each other and work together to affect a business. For example, a health and safety regulation is an external factor that influences the internal environment of business operations. Additionally, some external factors are beyond your control. These factors are often called external constraints."
 	},
 	{
 		"doctype": "Course",
 		"course_name": "Legal and Regulatory Framework",
 		"course_code": "BBA 301",
-		"department": "Management Studies"
+		"department": "Management Studies",
+		"course_intro": "A fundamental prerequisite for a well-functioning government securities market development is the introduction of a sound legal, regulatory, and supervisory framework. Many of the associated legal and regulatory reforms must be in place before a government securities market can be developed. Moreover, a balance must be struck among the needs for proper risk control, market integrity, and market development. Against this backdrop, the general purpose of this session is to find common ground what a “sound” legal, regulatory, and supervisory framework means in practice."
 	},
 	{
 		"doctype": "Course",
 		"course_name": "Human Resource Management",
 		"course_code": "BBA 302",
-		"department": "Management Studies"
+		"department": "Management Studies",
+		"course_intro": "Human Resource Management (HRM) is a relatively new approach to managing people in any organisation. People are considered the key resource in this approach. it is concerned with the people dimension in management of an organisation. Since an organisation is a body of people, their acquisition, development of skills, motivation for higher levels of attainments, as well as ensuring maintenance of their level of commitment are all significant activities. These activities fall in the domain of HRM."
 	},
 	{
 		"doctype": "Course",
 		"course_name": "Advertising and Sales",
 		"course_code": "BBA 304",
-		"department": "Management Studies"
+		"department": "Management Studies",
+		"course_intro": "Adverting is only one element of the promotion mix, but it often considered prominent in the overall marketing mix design. Its high visibility and pervasiveness made it as an important social and encomia topic in Indian society. Promotion may be defined as “the co-ordination of all seller initiated efforts to set up channels of information and persuasion to facilitate the scale of a good or service.” Promotion is most often intended to be a supporting component in a marketing mix. "
 	},
 	{
 		"doctype": "Course",
 		"course_name": "Entrepreneurship Management",
 		"course_code": "BBA 505",
-		"department": "Management Studies"
+		"department": "Management Studies",
+		"course_intro": "Entrepreneurship has traditionally been defined as the process of designing, launching and running a new business, which typically begins as a small business, such as a startup company, offering a product, process or service for sale or hire. Learn why some startups fail and the methodologies that reduce the risk of failure, as well as the components for strengthening your business model to make it repeatable, scalable and competitive."
 	},
 	{
 		"doctype": "Course",
 		"course_name": "Visual Merchandising",
 		"course_code": "BBR 504",
-		"department": "Management Studies"
+		"department": "Management Studies",
+		"course_intro": "This course aims to open up an understanding of the power and scope of Visual Merchandising in today's world of retailing. It aims to assist the store owner, sales manager and staff to meet their objectives by increasing the average sale per customer. This course provides an overview of the many aspects of visual merchandising impacting on today's traders and retailers."
 	},
 	{
 		"doctype": "Course",
-		"course_name": "Warehouse Management",
+		"course_name": "Economics",
 		"course_code": "BBR 505",
-		"department": "Management Studies"
+		"department": "Management Studies",
+		"course_intro": "Economics is the social science studying the production, distribution and consumption of goods and services. It is a complex social science that spans from mathematics to psychology. At its most basic, however, economics considers how a society provides for its needs. Its most basic need is survival; which requires food, clothing and shelter. "
 	},
 	{
 		"doctype": "Course",
-		"course_name": "Store Operations and Job Knowledge",
+		"course_name": "Learning Tally",
 		"course_code": "BBR 501",
-		"department": "Management Studies"
+		"department": "Management Studies",
+		"course_intro": "Tally is powerful accounting software, which is driven by a technology called concurrent multi-lingual accelerated technology engine. Tally accounting software provides a solution around inventory management, stock management, invoicing, purchase order management, discounting, stock valuation methodology, etc."
 	},
 	{
 		"doctype": "Course",
 		"course_name": "Management Development and Skills",
 		"course_code": "BBA 602",
-		"department": "Management Studies"
+		"department": "Management Studies",
+		"course_intro": "A new businesses, management is often considered whatever needs to be done just to keep things afloat. However, for your business to grow and remain healthy, you must master certain basic skills in management and leadership -- skills that will help you avoid the crisis situations where you have to do whatever it takes to stay afloat. The basic skills include problem solving and decision making, planning, meeting management, delegation, communications and managing yourself."
 	}
 ]
