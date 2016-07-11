@@ -7,8 +7,6 @@ import frappe
 from frappe.model.document import Document
 
 class Student(Document):
-	def onload(self):
-		self.set_onload('links', self.meta.get_links_setup())
 	
 	def validate(self):
 		self.title = " ".join(filter(None, [self.first_name, self.middle_name, self.last_name]))
@@ -28,18 +26,7 @@ class Student(Document):
 		if self.student_applicant:
 			frappe.db.set_value("Student Applicant", self.student_applicant, "application_status", "Admitted")
 
-@frappe.whitelist()
-def get_dashboard_data(name):
-	'''load dashboard related data'''
-	frappe.has_permission(doc=frappe.get_doc('Student', name), throw=True)
-
-	from frappe.desk.notifications import get_open_count
-	return {
-		'count': get_open_count('Student', name),
-		'timeline_data': get_timeline_data(name),
-	}
-
-def get_timeline_data(name):
+def get_timeline_data(doctype, name):
 	'''Return timeline for attendance'''
 	return dict(frappe.db.sql('''select unix_timestamp(cs.schedule_date), count(*)
 		from `tabCourse Schedule` as cs , `tabStudent Attendance` as sa where 
