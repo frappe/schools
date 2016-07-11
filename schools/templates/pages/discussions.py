@@ -13,7 +13,7 @@ def get_context(context):
 	]
 	context.show_sidebar = True
 	context.sidebar_items = portal_items
-	context.no_cache = 0
+	context.no_cache = 1
 	context.doc.has_permission('read')
 	context.sidebar_title = context.doc.course
 	context.reference_doctype = "Discussion"
