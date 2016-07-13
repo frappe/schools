@@ -51,7 +51,7 @@ def mark_attendance(students_present, students_absent, course_schedule):
 
 	for d in present:
 		make_attendance_records(d["student"], d["student_name"], course_schedule, "Present")
-		
+
 	for d in absent:
 		make_attendance_records(d["student"], d["student_name"], course_schedule, "Absent")
 
@@ -81,7 +81,7 @@ def get_student_group_students(student_group):
 	"""
 	students = frappe.get_list("Student Group Student", fields=["student", "student_name"] , filters={"parent": student_group}, order_by= "idx")
 	return students
-	
+
 @frappe.whitelist()
 def get_fee_structure(program, academic_term=None):
 	"""Returns Fee Structure.
@@ -109,7 +109,7 @@ def get_fee_schedule(program):
 
 	:param program: Program.
 	"""
-	fs = frappe.get_list("Program Fee", fields=["academic_term", "fee_structure", "due_date", "amount"] , \
+	fs = frappe.get_list("Program Fee", fields=["academic_term", "fee_structure", "due_date", "amount"] ,
 		filters={"parent": program}, order_by= "idx")
 	return fs
 
@@ -132,9 +132,9 @@ def get_course_schedule_events(start, end, filters=None):
 	from frappe.desk.calendar import get_event_conditions
 	conditions = get_event_conditions("Course Schedule", filters)
 
-	data = frappe.db.sql("""select name, course, 
-			timestamp(schedule_date, from_time) as from_datetime, 
-			timestamp(schedule_date, to_time) as to_datetime, 
+	data = frappe.db.sql("""select name, course,
+			timestamp(schedule_date, from_time) as from_datetime,
+			timestamp(schedule_date, to_time) as to_datetime,
 			room, student_group, 0 as 'allDay'
 		from `tabCourse Schedule`
 		where ( schedule_date between %(start)s and %(end)s )
@@ -142,5 +142,5 @@ def get_course_schedule_events(start, end, filters=None):
 			"start": start,
 			"end": end
 			}, as_dict=True, update={"allDay": 0})
-	
+
 	return data

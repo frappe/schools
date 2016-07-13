@@ -10,7 +10,7 @@ from frappe.model.document import Document
 class StudentApplicant(Document):
 	def validate(self):
 		self.title = " ".join(filter(None, [self.first_name, self.middle_name, self.last_name]))
-		
+
 	def on_update_after_submit(self):
 		student = frappe.get_list("Student",  filters= {"student_applicant": self.name})
 		if student:

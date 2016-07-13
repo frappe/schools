@@ -25,7 +25,7 @@ def setup():
 	print "Starting Simulation..."
 	time.sleep(5)
 	simulate()
-	
+
 def complete_setup():
 	from frappe.desk.page.setup_wizard.setup_wizard import setup_complete
 	setup_complete({
@@ -53,7 +53,7 @@ def complete_setup():
 	website_settings.save()
 
 	frappe.clear_cache()
-	
+
 def make_masters():
 	import_data("Room")
 	import_data("Department")
@@ -61,29 +61,28 @@ def make_masters():
 	import_data("Course")
 	import_data("Program")
 	frappe.db.commit()
-	
+
 def make_student_applicants():
 	blood_group = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"]
 	male_names = []
 	female_names = []
-	
+
 	file_path = get_json_path("Random Student Data")
 	with open(file_path, "r") as open_file:
 		random_student_data = json.loads(open_file.read())
 		count = 1
-		
+
 		for d in random_student_data:
 			if d.get('gender') == "Male":
 				male_names.append(d.get('first_name').title())
 
 			if d.get('gender') == "Female":
 				female_names.append(d.get('first_name').title())
-			
+
 		for idx, d in enumerate(random_student_data):
 			student_applicant = frappe.new_doc("Student Applicant")
 			student_applicant.first_name = d.get('first_name').title()
 			student_applicant.last_name = d.get('last_name').title()
-			student_applicant.student_email_id = student_applicant.first_name + student_applicant.last_name + str(idx) + "@example.com"
 			student_applicant.image = d.get('image')
 			student_applicant.gender = d.get('gender')
 			student_applicant.program = get_random("Program")
@@ -98,7 +97,8 @@ def make_student_applicants():
 				student_applicant.middle_name = random.choice(male_names)
 			else:
 				student_applicant.middle_name = random.choice(female_names)
-
+			student_applicant.student_email_id = d.get('first_name') + "_" + \
+				student_applicant.middle_name + "_" + d.get('last_name') + "@example.com"
 			if count <5:
 				student_applicant.insert()
 				frappe.db.commit()
@@ -117,14 +117,14 @@ def make_student_group():
 		frappe.db.commit()
 
 def make_fees_category():
-	fee_type = ["Tuition Fee", "Hostel Fee", "Logistics Fee", 
+	fee_type = ["Tuition Fee", "Hostel Fee", "Logistics Fee",
 				"Medical Fee", "Mess Fee", "Security Deposit"]
 
-	fee_desc = {"Tuition Fee" : "Curricular activities which includes books, notebooks and faculty charges" , 
-				"Hostel Fee" : "Stay of students in institute premises", 
-				"Logistics Fee" : "Lodging boarding of the students" , 
-				"Medical Fee" : "Medical welfare of the students", 
-				"Mess Fee" : "Food and beverages for your ward", 
+	fee_desc = {"Tuition Fee" : "Curricular activities which includes books, notebooks and faculty charges" ,
+				"Hostel Fee" : "Stay of students in institute premises",
+				"Logistics Fee" : "Lodging boarding of the students" ,
+				"Medical Fee" : "Medical welfare of the students",
+				"Mess Fee" : "Food and beverages for your ward",
 				"Security Deposit" : "In case your child is found to have damaged institutes property"
 				}
 
@@ -151,8 +151,8 @@ def import_data(dt, submit=False, overwrite=False):
 	if not isinstance(dt, (tuple, list)):
 		dt = [dt]
 
-	for doctype in dt:		
+	for doctype in dt:
 		import_doc(get_json_path(doctype), submit=submit, overwrite=overwrite)
-		
+
 def get_json_path(doctype):
-	return os.path.join(os.path.dirname(__file__), "demo_docs", doctype+".json")
+		return os.path.join(os.path.dirname(__file__), "demo_docs", doctype+ ".json")

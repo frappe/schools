@@ -17,12 +17,12 @@ def simulate():
 	start_date = frappe.utils.add_days(frappe.utils.nowdate(), -30)
 	current_date = frappe.utils.getdate(start_date)
 	runs_for = frappe.utils.date_diff(frappe.utils.nowdate(), current_date)
-	
+
 	print "Approving Students..."
 	for d in xrange(200):
 		approve_random_student_applicant()
 		enroll_random_student(current_date)
-	
+
 	print "Making Course Schedules..."
 
 	cd = current_date
@@ -36,20 +36,17 @@ def simulate():
 		sys.stdout.write("\rSimulating {0}".format(current_date.strftime("%Y-%m-%d")))
 		sys.stdout.flush()
 		frappe.local.current_date = current_date
-		
+
 		mark_student_attendance(current_date)
-		
+
 		current_date = frappe.utils.add_days(current_date, 1)
 	submit_fees()
 
 def approve_random_student_applicant():
 	random_student = get_random("Student Applicant", {"application_status": "Applied"})
 	if random_student:
-		student_application = frappe.get_doc("Student Applicant", random_student)
 		status = ["Approved", "Rejected"]
-		student_application.application_status = status[weighted_choice([9,3])]
-		student_application.insert()
-		frappe.db.commit()
+		frappe.db.set_value("Student Applicant", random_student, "application_status", status[weighted_choice([9,3])])
 
 def enroll_random_student(current_date):
 	random_student = get_random("Student Applicant", {"application_status": "Approved"})
@@ -59,7 +56,7 @@ def enroll_random_student(current_date):
 		enrollment.enrollment_date = current_date
 		enrollment.submit()
 		frappe.db.commit()
-		
+
 		assign_student_group(enrollment.student, enrollment.program)
 
 def submit_fees():
@@ -85,7 +82,7 @@ def assign_student_group(student, program):
 	courses = []
 	for d in frappe.get_list("Program Course", fields=("course"), filters={"parent": program }):
 		courses.append(d.course)
-	
+
 	for d in xrange(3):
 		course = random.choice(courses)
 		random_sg = get_random("Student Group", {"course": course})
@@ -138,7 +135,6 @@ def make_examinations(year,month,day):
 		exam = frappe.new_doc("Examination")
 		temp_sg = frappe.db.get_list("Student Group" , fields=("course" , "name"))
 		exam.course = temp_sg[i].course
-		course_code = frappe.db.get_value("Course", exam.course , "course_code")
 		exam.student_group = temp_sg[i].name
 		temp_inst = frappe.db.get_list("Instructor" , fields = ("instructor_name" , "name"))
 		exam.exam_name = exam.student_group + "-" + str(month) + "/" + str(year)
@@ -155,7 +151,7 @@ def make_examinations(year,month,day):
 		exam.from_time = datetime.datetime(year,month,day,random.randint(10,14),0,0)
 		exam.to_time = exam.from_time + timedelta(hours = random.randint(1,3))
 		exam.save()
-		if i%2 is 0:						
+		if i% 2 is 0:
 			exam.submit()
 
 def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
