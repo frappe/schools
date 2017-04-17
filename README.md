@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+#Elections Management System
+=======
 #ERP for Schools, Colleges & Educational Institutes
+>>>>>>> parent of ff90a53... Update README.md
 [![Build Status](https://travis-ci.org/frappe/schools.png)](https://travis-ci.org/frappe/schools) [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/frappe/erpnext?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 ---
 ERPNext Schools is built on the [Frappé](https://github.com/frappe/frappe) Framework, a full-stack web app framework in Python & JavaScript.
@@ -18,8 +22,8 @@ New passwords will be created for the ERPNext "Administrator" user, the MariaDB 
 Once you install ERPNext run -
 
 ```
-$ bench get-app schools https://github.com/frappe/schools
-$ bench install-app schools
+$ bench get-app schools https://github.com/BrandonNetsmith/elections
+$ bench install-app elections
 ```
 
 #### License
